@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://sjgn0gqp80m0"]
+
+[ext_resource type="Texture2D" uid="uid://cexqp2tncemo2" path="res://Assets/Temporary/Background.png" id="1_uv5r3"]
+[ext_resource type="Texture2D" uid="uid://cxelussccymph" path="res://Assets/Temporary/Fish- up.png" id="2_sboc0"]
+[ext_resource type="Shader" path="res://Shaders/Test.gdshader" id="3_02eog"]
+[ext_resource type="Texture2D" uid="uid://cua8hpi4y6tkw" path="res://Assets/Temporary/statek_z_boku_prototyp.png" id="5_0t84c"]
+[ext_resource type="Texture2D" uid="uid://dfld2xrx1sl4c" path="res://Assets/Temporary/Bez nazwy-3.png" id="6_m761l"]
+[ext_resource type="Texture2D" uid="uid://b3vmwgijdkgby" path="res://Assets/Temporary/lighy.png" id="7_4hfw3"]
+[ext_resource type="Texture2D" uid="uid://3jo3qj58m3m0" path="res://Assets/Background/Grzegorz.png" id="7_nnism"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dn0en"]
+diffuse_texture = ExtResource("5_0t84c")
+normal_texture = ExtResource("6_m761l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_srvdv"]
+shader = ExtResource("3_02eog")
+shader_parameter/color = Vector4(1, 0, 0, 1)
+
+[node name="DaddyTest" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(569, 342)
+scale = Vector2(1.11426, 1.14333)
+texture = ExtResource("1_uv5r3")
+
+[node name="Fish-Up" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(588, 231)
+scale = Vector2(0.420312, 0.4375)
+texture = ExtResource("2_sboc0")
+
+[node name="StatekZBokuPrototyp" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1044, 553)
+scale = Vector2(4.27539, 4.27539)
+texture = SubResource("CanvasTexture_dn0en")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture_filter = 1
+position = Vector2(313, 473)
+scale = Vector2(10.7794, 9.64844)
+energy = 100.0
+texture = ExtResource("7_4hfw3")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+texture_filter = 1
+position = Vector2(1185, 627)
+scale = Vector2(24.7697, 23.8477)
+energy = 100.0
+texture = ExtResource("7_4hfw3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_srvdv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -434.0
+offset_top = -410.0
+offset_right = -434.0
+offset_bottom = -410.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grzegorz" type="Sprite2D" parent="."]
+position = Vector2(187, 880)
+texture = ExtResource("7_nnism")

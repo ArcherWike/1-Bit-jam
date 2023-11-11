@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbtpr2q1iydjk"
-path="res://.godot/imported/Grzegorz.png-f720606f83030b0598b20d33b2940711.ctex"
+uid="uid://cxelussccymph"
+path="res://.godot/imported/Fish- up.png-f231f770d846f964c1f52a81203f771c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Shaders/Grzegorz.png"
-dest_files=["res://.godot/imported/Grzegorz.png-f720606f83030b0598b20d33b2940711.ctex"]
+source_file="res://Assets/Temporary/Fish- up.png"
+dest_files=["res://.godot/imported/Fish- up.png-f231f770d846f964c1f52a81203f771c.ctex"]
 
 [params]
 
