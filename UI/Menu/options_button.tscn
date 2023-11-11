@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs3607v2wamsf"]
+
+[ext_resource type="PackedScene" uid="uid://bv6u24ibtamat" path="res://UI/button.tscn" id="1_uuj3v"]
+
+[node name="options_button" instance=ExtResource("1_uuj3v")]
+
+[node name="Label" parent="." index="0"]
+offset_right = 361.0
+offset_bottom = 26.0
+text = "OPTIONS"
+horizontal_alignment = 1
