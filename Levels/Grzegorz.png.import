@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3vmwgijdkgby"
-path="res://.godot/imported/lighy.png-e680f1247f6b7ffc3b82b92fc07ea10f.ctex"
+uid="uid://d3rfbek8qegs8"
+path="res://.godot/imported/Grzegorz.png-4e269517b98063e8dd583e6e8130b3cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temporary/lighy.png"
-dest_files=["res://.godot/imported/lighy.png-e680f1247f6b7ffc3b82b92fc07ea10f.ctex"]
+source_file="res://Levels/Grzegorz.png"
+dest_files=["res://.godot/imported/Grzegorz.png-4e269517b98063e8dd583e6e8130b3cf.ctex"]
 
 [params]
 
