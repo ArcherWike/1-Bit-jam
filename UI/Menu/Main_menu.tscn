@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://burlalgp7jhia"]
+[gd_scene load_steps=5 format=3 uid="uid://burlalgp7jhia"]
 
 [ext_resource type="Texture2D" uid="uid://cuvepw7eegsu1" path="res://UI/Grzegorz.png" id="1_waebb"]
 [ext_resource type="PackedScene" uid="uid://bs3607v2wamsf" path="res://UI/Menu/options_button.tscn" id="2_avpha"]
 [ext_resource type="PackedScene" uid="uid://bdqej7gaod4p3" path="res://UI/Menu/start_button.tscn" id="3_a0341"]
+[ext_resource type="PackedScene" uid="uid://3y0xj3cggkib" path="res://UI/Menu/exit_button.tscn" id="4_mp51q"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -34,11 +35,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="options_button" parent="VBoxContainer" instance=ExtResource("2_avpha")]
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
 layout_mode = 2
 
-[node name="Start_Button" parent="VBoxContainer" instance=ExtResource("3_a0341")]
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
+[node name="start_Button" parent="VBoxContainer" instance=ExtResource("3_a0341")]
+layout_mode = 2
+
+[node name="exit_button" parent="VBoxContainer" instance=ExtResource("4_mp51q")]
 layout_mode = 2

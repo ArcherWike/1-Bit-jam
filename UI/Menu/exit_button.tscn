@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://3y0xj3cggkib"]
+
+[ext_resource type="PackedScene" uid="uid://bv6u24ibtamat" path="res://UI/button.tscn" id="1_8t357"]
+
+[node name="exit_button" instance=ExtResource("1_8t357")]
+
+[node name="Label" parent="." index="0"]
+text = "EXIT"
