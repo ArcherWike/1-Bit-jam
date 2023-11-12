@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvyi5vnrda8or"]
 
 [ext_resource type="Script" path="res://Objects/B_interact.gd" id="1_daix2"]
-[ext_resource type="Texture2D" uid="uid://d3rfbek8qegs8" path="res://Levels/Grzegorz.png" id="2_lqlxy"]
+[ext_resource type="Texture2D" uid="uid://bu18lqnlmjy3y" path="res://Assets/Characters/Grzegorz.png" id="2_4pds7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgnu5"]
 radius = 35.0143
@@ -22,7 +22,7 @@ shape = SubResource("CircleShape2D_jgnu5")
 self_modulate = Color(0, 0.615686, 0.603922, 0.301961)
 position = Vector2(0, 2.40741e-35)
 scale = Vector2(0.046875, 0.0390625)
-texture = ExtResource("2_lqlxy")
+texture = ExtResource("2_4pds7")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(1, -1)

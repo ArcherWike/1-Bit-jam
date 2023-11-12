@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://lq4i1hoxthc4"]
+
+[ext_resource type="Texture2D" uid="uid://5arc1eq7lvo0" path="res://Assets/Temp/Background.png" id="2_1qrtj"]
+[ext_resource type="Texture2D" uid="uid://dykt6t3a72sbb" path="res://Assets/Temp/Background (2).png" id="2_jxe6f"]
+[ext_resource type="Texture2D" uid="uid://ejphpkym2l4y" path="res://Assets/Temp/light.png" id="3_qg1qe"]
+[ext_resource type="Texture2D" uid="uid://bloxp8u13mbcm" path="res://Assets/Temp/image.png" id="4_xbbgt"]
+[ext_resource type="PackedScene" uid="uid://cvocetncvlnnt" path="res://Characters/Hero/hero.tscn" id="6_8scqk"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_or27j"]
+diffuse_texture = ExtResource("2_1qrtj")
+normal_texture = ExtResource("2_jxe6f")
+texture_filter = 1
+
+[sub_resource type="Shader" id="Shader_pcwf7"]
+code = "shader_type canvas_item;
+uniform vec4 color = vec4(1, 0, 0, 1);
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+void fragment() {
+vec4 curr_color = texture(screen_texture,SCREEN_UV);
+COLOR= curr_color * vec4(color);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5ngx"]
+shader = SubResource("Shader_pcwf7")
+shader_parameter/color = Vector4(0.6, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(526, 312)
+texture = SubResource("CanvasTexture_or27j")
+
+[node name="Image" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1196, 406)
+scale = Vector2(5.18189, 5.18189)
+texture = ExtResource("4_xbbgt")
+
+[node name="Hero" parent="." instance=ExtResource("6_8scqk")]
+position = Vector2(525, 250)
+scale = Vector2(3.52, 2.69823)
+
+[node name="PointLight2D" type="PointLight2D" parent="Hero"]
+texture_filter = 1
+position = Vector2(-0.568184, 0.370613)
+scale = Vector2(2.35928, 3.07783)
+energy = 10.0
+texture = ExtResource("3_qg1qe")
+
+[node name="Camera2D" type="Camera2D" parent="Hero"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_t5ngx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -9.0
+offset_right = -57.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
