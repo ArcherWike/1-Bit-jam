@@ -7,8 +7,6 @@ uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_n
 void fragment() {
 //vec2 disortedUV = SCREEN_UV + texture(TEXTURE, UV).r * 0.005 ;
 vec4 curr_color = texture(screen_texture, SCREEN_UV);
-float brightness = (curr_color.r + curr_color.g + curr_color.b);
-vec4 grayScale = vec4(brightness, brightness, brightness, curr_color.a);
-COLOR = grayScale * color;
+COLOR = curr_color * color;
 
 }

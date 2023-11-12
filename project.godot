@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Bit_jam"
+run/main_scene="res://Levels/Ship.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -52,3 +53,4 @@ ui_down={
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+anti_aliasing/screen_space_roughness_limiter/enabled=false
