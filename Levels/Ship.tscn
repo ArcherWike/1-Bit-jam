@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhv6vwvrdrf6x"]
+
+[ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/water.tscn" id="1_rlr5f"]
+[ext_resource type="Texture2D" uid="uid://b4crd0hud487e" path="res://Assets/Background/Ship.png" id="2_fixcm"]
+[ext_resource type="Texture2D" uid="uid://de55l5yn3sneu" path="res://Assets/Background/Ship_N.png" id="3_g52by"]
+[ext_resource type="PackedScene" uid="uid://1vbusn87ko7w" path="res://Characters/Hero/hero.tscn" id="3_ngwxs"]
+[ext_resource type="Texture2D" uid="uid://ejphpkym2l4y" path="res://Assets/Temp/light.png" id="4_xep55"]
+[ext_resource type="Shader" path="res://Shaders/ColorChanging.gdshader" id="5_khtri"]
+[ext_resource type="Texture2D" uid="uid://dwcggre2cets4" path="res://Assets/Background/poles.png" id="5_xa3o0"]
+[ext_resource type="Texture2D" uid="uid://8mjnou66b1qc" path="res://Assets/Background/front.png" id="6_aq6ra"]
+[ext_resource type="Texture2D" uid="uid://beshetbu3xf14" path="res://Assets/Background/Poles_N.png" id="6_oewh8"]
+[ext_resource type="Texture2D" uid="uid://chwykk3swigea" path="res://Assets/Background/front_N.png" id="9_idlwu"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
+diffuse_texture = ExtResource("2_fixcm")
+normal_texture = ExtResource("3_g52by")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g5v2o"]
+diffuse_texture = ExtResource("5_xa3o0")
+normal_texture = ExtResource("6_oewh8")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_koqq4"]
+diffuse_texture = ExtResource("6_aq6ra")
+normal_texture = ExtResource("9_idlwu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26ky6"]
+shader = ExtResource("5_khtri")
+shader_parameter/color = Color(0.333333, 0, 0.141176, 1)
+
+[node name="Ship" type="Node2D"]
+
+[node name="Water" parent="." instance=ExtResource("1_rlr5f")]
+position = Vector2(1027, 873)
+scale = Vector2(73.2184, 40.7258)
+metadata/_edit_lock_ = true
+
+[node name="Ship" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1034, 518)
+scale = Vector2(2.92773, 2.92773)
+texture = SubResource("CanvasTexture_4wdfq")
+metadata/_edit_lock_ = true
+
+[node name="Hero" parent="." instance=ExtResource("3_ngwxs")]
+position = Vector2(587, 323)
+scale = Vector2(3.52, 2.69823)
+
+[node name="PointLight2D" type="PointLight2D" parent="Hero"]
+texture_filter = 1
+position = Vector2(-4.26135, -2.9649)
+scale = Vector2(10.657, 10.657)
+energy = 100.0
+texture = ExtResource("4_xep55")
+
+[node name="Camera2D" type="Camera2D" parent="Hero"]
+visible = false
+
+[node name="Poles" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1024, 13)
+scale = Vector2(2.97838, 2.97838)
+texture = SubResource("CanvasTexture_g5v2o")
+metadata/_edit_lock_ = true
+
+[node name="Front" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(633.221, 621.226)
+scale = Vector2(2.92836, 2.92836)
+texture = SubResource("CanvasTexture_koqq4")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_26ky6")
+anchors_preset = -1
+anchor_left = -0.907118
+anchor_right = 4.43837
+anchor_bottom = 5.34541
+offset_left = -767.0
+offset_top = -906.0
+offset_right = -767.0
+offset_bottom = -905.824
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)

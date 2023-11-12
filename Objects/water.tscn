@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://duleay7pp45ge"]
+
+[ext_resource type="Shader" path="res://Levels/Wave.gdshader" id="1_grjfr"]
+[ext_resource type="Script" path="res://Objects/water.gd" id="2_3s5qb"]
+[ext_resource type="Texture2D" uid="uid://dxp655ody10cd" path="res://Assets/Textures/Bez nazwy-1.png" id="2_ssbgp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6p1k"]
+shader = ExtResource("1_grjfr")
+shader_parameter/tiling = Vector2(30, 30)
+shader_parameter/aspect_ratio = 0.5
+shader_parameter/wave = ExtResource("2_ssbgp")
+
+[node name="Water" type="Sprite2D"]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_v6p1k")
+position = Vector2(583.312, 325.125)
+scale = Vector2(17.8028, 9.90234)
+texture = ExtResource("2_ssbgp")
+script = ExtResource("2_3s5qb")
+
+[connection signal="item_rect_changed" from="." to="." method="calculate_aspect_ratio"]

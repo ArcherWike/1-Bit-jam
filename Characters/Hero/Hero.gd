@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var ACCELERATION = 500
-@export var MAX_SPEED = 75
+@export var MAX_SPEED = 500
 @export var FRICTION = 500
 @export var Y_AXIS_MOVE_DECELERATION = 0.5
 
