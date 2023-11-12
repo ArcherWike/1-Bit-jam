@@ -42,12 +42,12 @@ texture = SubResource("CanvasTexture_4wdfq")
 metadata/_edit_lock_ = true
 
 [node name="Hero" parent="." instance=ExtResource("3_ngwxs")]
-position = Vector2(587, 323)
+position = Vector2(844, 576)
 scale = Vector2(3.52, 2.69823)
 
 [node name="PointLight2D" type="PointLight2D" parent="Hero"]
 texture_filter = 1
-position = Vector2(-4.26135, -2.9649)
+position = Vector2(-12.2159, 4.44739)
 scale = Vector2(10.657, 10.657)
 energy = 100.0
 texture = ExtResource("4_xep55")
@@ -89,4 +89,37 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
-color = Color(0, 0, 0, 1)
+color = Color(0.184314, 0.184314, 0.184314, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-515, 521, -31, 771, 393, 908, 536, 922, 1155, 920, 1706, 913, 1904, 822, 2348, 813, 2396, 807, 1923, 1266, 556, 1282, -116, 962)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-513, 504, 335, 200, 512, 207, 578, 246, 1610, 224, 1765, 66, 2314, 89, 2439, 782, 2377, 773, 2269, 126, 1773, 107, 1628, 254, 569, 273, 499, 234, 314, 236, -470, 516)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(503, 463, 614, 460, 656, 473, 499, 473, 489, 749, 472, 686, 486, 461)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(147, 585, 193, 554, 215, 561, 218, 593, 197, 611, 173, 614, 155, 604)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(893, 182)
+scale = Vector2(0.680458, 0.729167)
+polygon = PackedVector2Array(147, 585, 193, 554, 215, 561, 218, 593, 197, 611, 173, 614, 155, 604)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(1982.79, -51.9601)
+scale = Vector2(0.875553, 0.938228)
+polygon = PackedVector2Array(147, 585, 170.421, 561.655, 193, 554, 215, 561, 218, 593, 197, 611, 173, 614, 155, 604)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1583, 471, 1642, 436, 1757, 342, 1794, 331, 1797, 281, 1844, 288, 1854, 389, 1912, 387, 1948, 560, 1887, 561, 1878, 660, 1790, 663, 1756, 725, 1785, 628, 1771, 492, 1731, 546, 1716, 475)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1242, 470, 1249, 720, 1422, 721, 1407, 470)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(471, 735, 487, 729, 633, 824, 501, 771)
