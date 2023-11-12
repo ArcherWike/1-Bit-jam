@@ -34,10 +34,10 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="options_button" parent="VBoxContainer" instance=ExtResource("2_avpha")]
+[node name="start_Button" parent="VBoxContainer" instance=ExtResource("3_a0341")]
 layout_mode = 2
 
-[node name="start_Button" parent="VBoxContainer" instance=ExtResource("3_a0341")]
+[node name="options_button" parent="VBoxContainer" instance=ExtResource("2_avpha")]
 layout_mode = 2
 
 [node name="exit_button" parent="VBoxContainer" instance=ExtResource("4_mp51q")]

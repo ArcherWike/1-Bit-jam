@@ -1,0 +1,240 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1xeax3cpinri"]
+
+[ext_resource type="Script" path="res://Objects/MiniGames/Game_rotate.gd" id="1_85del"]
+[ext_resource type="Texture2D" uid="uid://cuvepw7eegsu1" path="res://UI/Grzegorz.png" id="2_i3nb8"]
+
+[node name="GamePanel" type="Node2D"]
+script = ExtResource("1_85del")
+
+[node name="background" type="ColorRect" parent="."]
+offset_left = 341.0
+offset_top = 92.0
+offset_right = 934.0
+offset_bottom = 519.0
+size_flags_vertical = 4
+color = Color(1, 1, 1, 0.270588)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 416.0
+offset_top = 118.0
+offset_right = 655.0
+offset_bottom = 354.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Slot1" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="image" type="TextureRect" parent="GridContainer/Slot1"]
+custom_minimum_size = Vector2(40, 42)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_i3nb8")
+
+[node name="Slot2" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="image" type="TextureRect" parent="GridContainer/Slot2"]
+custom_minimum_size = Vector2(40, 42)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_i3nb8")
+
+[node name="Slot3" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="image" type="TextureRect" parent="GridContainer/Slot3"]
+custom_minimum_size = Vector2(40, 42)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_i3nb8")
+
+[node name="Slot4" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="image" type="TextureRect" parent="GridContainer/Slot4"]
+custom_minimum_size = Vector2(40, 42)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_i3nb8")
+
+[node name="Slot5" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="image" type="TextureRect" parent="GridContainer/Slot5"]
+custom_minimum_size = Vector2(40, 42)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_i3nb8")
+
+[node name="Slot6" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="image" type="TextureRect" parent="GridContainer/Slot6"]
+custom_minimum_size = Vector2(40, 42)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_i3nb8")
+
+[node name="Slot7" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="image" type="TextureRect" parent="GridContainer/Slot7"]
+custom_minimum_size = Vector2(40, 42)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_i3nb8")
+
+[node name="Slot8" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="image" type="TextureRect" parent="GridContainer/Slot8"]
+custom_minimum_size = Vector2(40, 42)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_i3nb8")
+
+[node name="Slot9" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="image" type="TextureRect" parent="GridContainer/Slot9"]
+custom_minimum_size = Vector2(40, 42)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_i3nb8")
