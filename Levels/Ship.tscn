@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dhv6vwvrdrf6x"]
 
-[ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/water.tscn" id="1_rlr5f"]
+[ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="1_rlr5f"]
 [ext_resource type="Texture2D" uid="uid://b4crd0hud487e" path="res://Assets/Background/Ship.png" id="2_fixcm"]
 [ext_resource type="Texture2D" uid="uid://de55l5yn3sneu" path="res://Assets/Background/Ship_N.png" id="3_g52by"]
 [ext_resource type="PackedScene" uid="uid://1vbusn87ko7w" path="res://Characters/Hero/hero.tscn" id="3_ngwxs"]

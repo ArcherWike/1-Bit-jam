@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://lq4i1hoxthc4"]
 
-[ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/water.tscn" id="1_0nu2e"]
+[ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="1_0nu2e"]
 [ext_resource type="Texture2D" uid="uid://ejphpkym2l4y" path="res://Assets/Temp/light.png" id="3_qg1qe"]
-[ext_resource type="Texture2D" uid="uid://endml06d3cbx" path="res://Assets/Temp/Nataliowystatus.png" id="4_uhrj5"]
+[ext_resource type="Texture2D" path="res://Assets/Temp/Nataliowystatus.png" id="4_uhrj5"]
 [ext_resource type="PackedScene" uid="uid://1vbusn87ko7w" path="res://Characters/Hero/hero.tscn" id="6_8scqk"]
 [ext_resource type="Shader" path="res://Shaders/ColorChanging.gdshader" id="6_62lfq"]
 
