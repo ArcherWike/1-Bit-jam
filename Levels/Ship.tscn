@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://dhv6vwvrdrf6x"]
+[gd_scene load_steps=22 format=3 uid="uid://dhv6vwvrdrf6x"]
 
+[ext_resource type="Script" path="res://Levels/Ship.gd" id="1_mincd"]
 [ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="1_rlr5f"]
 [ext_resource type="Texture2D" uid="uid://b4crd0hud487e" path="res://Assets/Background/Ship.png" id="2_fixcm"]
 [ext_resource type="Texture2D" uid="uid://de55l5yn3sneu" path="res://Assets/Background/Ship_N.png" id="3_g52by"]
@@ -14,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://nqf60sdusu2x" path="res://Assets/Background/front_Line.png" id="11_xlmxm"]
 [ext_resource type="Texture2D" uid="uid://bxoky6fj2onws" path="res://Assets/Background/poles_Line.png" id="13_audj6"]
 [ext_resource type="PackedScene" uid="uid://dqhkvlai4mh0m" path="res://Shaders/Storm.tscn" id="13_dmehm"]
+[ext_resource type="AudioStream" uid="uid://bnry6acd5vud2" path="res://Audio/Sounds/light-rain-109591.mp3" id="16_f0ylm"]
+[ext_resource type="AudioStream" uid="uid://c4c0aj18145xd" path="res://Audio/Sounds/thunder.mp3" id="17_1003v"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("2_fixcm")
@@ -32,23 +35,27 @@ texture_filter = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_26ky6"]
 shader = ExtResource("10_43eyt")
+shader_parameter/multiply = 1.0
 shader_parameter/color = Color(0.839216, 0.184314, 0.227451, 1)
 
 [node name="Ship" type="Node2D"]
+script = ExtResource("1_mincd")
 
-[node name="Water" parent="." instance=ExtResource("1_rlr5f")]
+[node name="BackAssets" type="Node2D" parent="."]
+
+[node name="Water" parent="BackAssets" instance=ExtResource("1_rlr5f")]
 position = Vector2(1027, 873)
 scale = Vector2(73.2184, 40.7258)
 metadata/_edit_lock_ = true
 
-[node name="Ship" type="Sprite2D" parent="."]
+[node name="Ship" type="Sprite2D" parent="BackAssets"]
 texture_filter = 1
 position = Vector2(1034, 518)
 scale = Vector2(3, 3)
 texture = SubResource("CanvasTexture_4wdfq")
 metadata/_edit_lock_ = true
 
-[node name="ShipLine" type="Sprite2D" parent="."]
+[node name="ShipLine" type="Sprite2D" parent="BackAssets"]
 texture_filter = 1
 position = Vector2(1034, 518)
 scale = Vector2(3, 3)
@@ -69,36 +76,36 @@ shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_xep55")
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
-
-[node name="Front" type="Sprite2D" parent="."]
 texture_filter = 1
+
+[node name="FrontAssets" type="Node2D" parent="."]
 position = Vector2(623, 625)
 scale = Vector2(3, 3)
+
+[node name="Front" type="Sprite2D" parent="FrontAssets"]
+texture_filter = 1
 texture = SubResource("CanvasTexture_koqq4")
 metadata/_edit_lock_ = true
 
-[node name="FrontLine" type="Sprite2D" parent="."]
+[node name="FrontLine" type="Sprite2D" parent="FrontAssets"]
 texture_filter = 1
-position = Vector2(545, 853)
-scale = Vector2(3, 3)
+position = Vector2(-26, 76)
 texture = ExtResource("11_xlmxm")
 metadata/_edit_lock_ = true
 
-[node name="rain" parent="." instance=ExtResource("13_dmehm")]
-position = Vector2(342, 715)
-scale = Vector2(3.52, 2.69823)
+[node name="rain" parent="FrontAssets" instance=ExtResource("13_dmehm")]
+position = Vector2(-93.6667, 30)
+scale = Vector2(1.17333, 0.89941)
 
-[node name="Poles" type="Sprite2D" parent="."]
+[node name="Poles" type="Sprite2D" parent="FrontAssets"]
 texture_filter = 1
-position = Vector2(1024, 13)
-scale = Vector2(3, 3)
+position = Vector2(133.667, -204)
 texture = SubResource("CanvasTexture_g5v2o")
 metadata/_edit_lock_ = true
 
-[node name="PolesLine" type="Sprite2D" parent="."]
+[node name="PolesLine" type="Sprite2D" parent="FrontAssets"]
 texture_filter = 1
-position = Vector2(1210, 16)
-scale = Vector2(3, 3)
+position = Vector2(195.667, -203)
 texture = ExtResource("13_audj6")
 metadata/_edit_lock_ = true
 
@@ -156,3 +163,21 @@ polygon = PackedVector2Array(1242, 470, 1249, 720, 1422, 721, 1407, 470)
 
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(442, 729, 487, 729, 566, 793, 505, 765)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 5.4
+autostart = true
+
+[node name="Rain" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_f0ylm")
+autoplay = true
+
+[node name="Thunder" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_1003v")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
