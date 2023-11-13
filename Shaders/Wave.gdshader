@@ -6,8 +6,8 @@ void fragment() {
 	vec2 tiled_UV = UV * tiling;
 	tiled_UV.y *= aspect_ratio;
 	vec2 wave_move;
-	wave_move.x = cos(TIME) * 0.05;
-	wave_move.y = sin(TIME) * 0.05;
+	wave_move.x = cos(TIME) * 0.3;
+	wave_move.y = sin(TIME) * 0.3;
 	COLOR= texture(wave, tiled_UV + wave_move);
 	//COLOR = vec4(tiled_UV, 0, 1);
 }

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1yrrwnlkoymq"]
+
+[ext_resource type="Texture2D" uid="uid://d0oyfmec7hlf" path="res://Assets/Textures/lightning.png" id="1_bq86t"]
+
+[sub_resource type="Environment" id="Environment_giq76"]
+background_mode = 3
+glow_enabled = true
+glow_strength = 2.0
+glow_blend_mode = 0
+
+[node name="lightning" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 50)
+texture = ExtResource("1_bq86t")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Sprite2D"]
+environment = SubResource("Environment_giq76")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]

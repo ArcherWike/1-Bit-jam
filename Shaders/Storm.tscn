@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqhkvlai4mh0m"]
+
+[ext_resource type="Texture2D" uid="uid://5csia8d47q2i" path="res://Assets/Textures/Rain.png" id="1_r0mp5"]
+[ext_resource type="Texture2D" uid="uid://nnmkwa7ylroe" path="res://Assets/Textures/raindrop.png" id="2_u32ip"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(494, -402)
+amount = 1000
+lifetime = 2.0
+speed_scale = 0.9
+texture = ExtResource("1_r0mp5")
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+gravity = Vector2(200, 980)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(421, 90)
+amount = 500
+texture = ExtResource("2_u32ip")
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 400)
+gravity = Vector2(0, 0)
+scale_amount_max = 1.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dhv6vwvrdrf6x"]
+[gd_scene load_steps=19 format=3 uid="uid://dhv6vwvrdrf6x"]
 
 [ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="1_rlr5f"]
 [ext_resource type="Texture2D" uid="uid://b4crd0hud487e" path="res://Assets/Background/Ship.png" id="2_fixcm"]
@@ -13,20 +13,21 @@
 [ext_resource type="Texture2D" uid="uid://cy7mogr0l02db" path="res://Assets/Background/Ship_Line.png" id="11_0a30r"]
 [ext_resource type="Texture2D" uid="uid://nqf60sdusu2x" path="res://Assets/Background/front_Line.png" id="11_xlmxm"]
 [ext_resource type="Texture2D" uid="uid://bxoky6fj2onws" path="res://Assets/Background/poles_Line.png" id="13_audj6"]
+[ext_resource type="PackedScene" uid="uid://dqhkvlai4mh0m" path="res://Shaders/Storm.tscn" id="13_dmehm"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("2_fixcm")
 normal_texture = ExtResource("3_g52by")
 texture_filter = 1
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_g5v2o"]
-diffuse_texture = ExtResource("5_xa3o0")
-normal_texture = ExtResource("6_oewh8")
-texture_filter = 1
-
 [sub_resource type="CanvasTexture" id="CanvasTexture_koqq4"]
 diffuse_texture = ExtResource("6_aq6ra")
 normal_texture = ExtResource("9_idlwu")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g5v2o"]
+diffuse_texture = ExtResource("5_xa3o0")
+normal_texture = ExtResource("6_oewh8")
 texture_filter = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_26ky6"]
@@ -60,7 +61,7 @@ scale = Vector2(3.52, 2.69823)
 
 [node name="PointLight2D" type="PointLight2D" parent="Hero"]
 texture_filter = 1
-position = Vector2(-7.38635, 5.92981)
+position = Vector2(-0.568192, 1.48245)
 scale = Vector2(10.657, 10.657)
 color = Color(0.521569, 0.521569, 0.521569, 1)
 energy = 100.0
@@ -68,20 +69,6 @@ shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_xep55")
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
-
-[node name="Poles" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(1024, 13)
-scale = Vector2(3, 3)
-texture = SubResource("CanvasTexture_g5v2o")
-metadata/_edit_lock_ = true
-
-[node name="PolesLine" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(1210, 16)
-scale = Vector2(3, 3)
-texture = ExtResource("13_audj6")
-metadata/_edit_lock_ = true
 
 [node name="Front" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -95,6 +82,24 @@ texture_filter = 1
 position = Vector2(545, 853)
 scale = Vector2(3, 3)
 texture = ExtResource("11_xlmxm")
+metadata/_edit_lock_ = true
+
+[node name="rain" parent="." instance=ExtResource("13_dmehm")]
+position = Vector2(342, 715)
+scale = Vector2(3.52, 2.69823)
+
+[node name="Poles" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1024, 13)
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_g5v2o")
+metadata/_edit_lock_ = true
+
+[node name="PolesLine" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1210, 16)
+scale = Vector2(3, 3)
+texture = ExtResource("13_audj6")
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
