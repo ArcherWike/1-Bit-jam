@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr1416rbqfgub"]
+
+[ext_resource type="Script" path="res://Characters/Enemies/Enemy.gd" id="1_pj5e5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1ham"]
+radius = 26.0
+height = 72.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjedp"]
+size = Vector2(34.5, 55)
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource("1_pj5e5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_r1ham")
+
+[node name="KillingRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillingRange"]
+position = Vector2(-21.75, 0)
+shape = SubResource("RectangleShape2D_kjedp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 13.0
+offset_bottom = 25.0
+
+[connection signal="body_entered" from="KillingRange" to="." method="_on_killing_range_body_entered"]
+[connection signal="body_exited" from="KillingRange" to="." method="_on_killing_range_body_exited"]
