@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://burlalgp7jhia"]
 
-[ext_resource type="Texture2D" uid="uid://cuvepw7eegsu1" path="res://UI/Grzegorz.png" id="1_waebb"]
+[ext_resource type="Texture2D" uid="uid://cy6dqc888bch7" path="res://Assets/UI/uozenie_.png" id="1_2dsbm"]
 [ext_resource type="PackedScene" uid="uid://bs3607v2wamsf" path="res://UI/Menu/options_button.tscn" id="2_avpha"]
 [ext_resource type="PackedScene" uid="uid://bdqej7gaod4p3" path="res://UI/Menu/start_button.tscn" id="3_a0341"]
-[ext_resource type="PackedScene" uid="uid://3y0xj3cggkib" path="res://UI/Menu/exit_button.tscn" id="4_mp51q"]
+[ext_resource type="PackedScene" path="res://UI/Menu/exit_button.tscn" id="4_mp51q"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,11 +14,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.0784314, 0.188235, 0.811765, 0.752941)
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 645.0
-texture = ExtResource("1_waebb")
+texture = ExtResource("1_2dsbm")
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -34,11 +34,23 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="start_Button" parent="VBoxContainer" instance=ExtResource("3_a0341")]
+[node name="start_Button" parent="." instance=ExtResource("3_a0341")]
 layout_mode = 2
+offset_left = 1268.0
+offset_top = 171.0
+offset_right = 1629.0
+offset_bottom = 357.0
 
-[node name="options_button" parent="VBoxContainer" instance=ExtResource("2_avpha")]
+[node name="options_button" parent="." instance=ExtResource("2_avpha")]
 layout_mode = 2
+offset_left = 1044.0
+offset_top = 423.0
+offset_right = 1477.0
+offset_bottom = 624.0
 
-[node name="exit_button" parent="VBoxContainer" instance=ExtResource("4_mp51q")]
+[node name="exit_button" parent="." instance=ExtResource("4_mp51q")]
 layout_mode = 2
+offset_left = 833.0
+offset_top = 690.0
+offset_right = 1193.0
+offset_bottom = 885.0

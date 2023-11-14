@@ -6,6 +6,4 @@
 
 [node name="Label" parent="." index="0"]
 offset_right = 361.0
-offset_bottom = 26.0
-text = "OPTIONS"
-horizontal_alignment = 1
+text = "CREDITS"

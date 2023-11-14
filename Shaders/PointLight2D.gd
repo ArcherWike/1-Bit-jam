@@ -9,8 +9,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var noise = sin(1*PI*current_time)+sin(0.3*PI*current_time)+sin(0.5*PI*current_time)
 	current_time += delta * color_speed
-	$".".energy= remap(sin(current_time),-1,1,100,500)
+	$".".energy= remap(noise,-2.73,2.73,300,600 )
+	#remap(sin(current_time),-1,1,100,500)
 	pass
 
 

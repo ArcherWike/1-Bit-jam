@@ -9,5 +9,5 @@ func _ready():
 
 func _on_timer_timeout():
 	$AnimationPlayer.play("Lightning")
-	$Timer.wait_time = int(RandomNumberGenerator.new().randf_range(3, 5))
+	$Timer.wait_time = int(RandomNumberGenerator.new().randf_range(7,10))
 	$Timer.start() 

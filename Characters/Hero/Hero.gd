@@ -4,14 +4,14 @@ extends CharacterBody2D
 @export var MAX_SPEED = 500
 @export var FRICTION = 500
 @export var Y_AXIS_MOVE_DECELERATION = 0.5
-
+@onready var ANIMATIONS = $AnimatedSprite2D
 
 func _process(delta):
 	move_state(delta)
 
 var roll_vector = Vector2.DOWN
 
-const SPEED = 300.0
+const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 
 func move_state(delta):
@@ -25,9 +25,16 @@ func move_state(delta):
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	move()
-
+func updateAnimation():
+	var direction = "Left" #down
+	if velocity.x < 0: direction = "Left"
+	elif velocity.x > 0: direction = "Right"
+	elif velocity.y < 0: direction = "Right" #up
+	ANIMATIONS.play(direction)
+	
 func move():
 	set_velocity(velocity)
 	move_and_slide()
 	velocity = velocity
+	updateAnimation()
 
