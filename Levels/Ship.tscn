@@ -1,14 +1,15 @@
-[gd_scene load_steps=22 format=3 uid="uid://dhv6vwvrdrf6x"]
+[gd_scene load_steps=27 format=3 uid="uid://dhv6vwvrdrf6x"]
 
 [ext_resource type="Script" path="res://Levels/Ship.gd" id="1_mincd"]
 [ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="1_rlr5f"]
 [ext_resource type="Texture2D" uid="uid://b4crd0hud487e" path="res://Assets/Background/Ship.png" id="2_fixcm"]
 [ext_resource type="Texture2D" uid="uid://de55l5yn3sneu" path="res://Assets/Background/Ship_N.png" id="3_g52by"]
 [ext_resource type="PackedScene" uid="uid://1vbusn87ko7w" path="res://Characters/Hero/hero.tscn" id="3_ngwxs"]
-[ext_resource type="Texture2D" uid="uid://ejphpkym2l4y" path="res://Assets/Temp/light.png" id="4_xep55"]
 [ext_resource type="Texture2D" uid="uid://dwcggre2cets4" path="res://Assets/Background/poles.png" id="5_xa3o0"]
 [ext_resource type="Texture2D" uid="uid://8mjnou66b1qc" path="res://Assets/Background/front.png" id="6_aq6ra"]
 [ext_resource type="Texture2D" uid="uid://beshetbu3xf14" path="res://Assets/Background/Poles_N.png" id="6_oewh8"]
+[ext_resource type="Texture2D" uid="uid://ejphpkym2l4y" path="res://Assets/Textures/light.png" id="7_43a1f"]
+[ext_resource type="Script" path="res://Shaders/PointLight2D.gd" id="8_vhkvf"]
 [ext_resource type="Texture2D" uid="uid://chwykk3swigea" path="res://Assets/Background/front_N.png" id="9_idlwu"]
 [ext_resource type="Shader" path="res://Shaders/ColorChanging1.gdshader" id="10_43eyt"]
 [ext_resource type="Texture2D" uid="uid://cy7mogr0l02db" path="res://Assets/Background/Ship_Line.png" id="11_0a30r"]
@@ -37,6 +38,130 @@ texture_filter = 1
 shader = ExtResource("10_43eyt")
 shader_parameter/multiply = 1.0
 shader_parameter/color = Color(0.839216, 0.184314, 0.227451, 1)
+
+[sub_resource type="GDScript" id="GDScript_enqu4"]
+script/source = "extends Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+	
+"
+
+[sub_resource type="Animation" id="Animation_t2cs0"]
+resource_name = "Lightning"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero/Thunder:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect2:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/ColorRect2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ml638"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero/Thunder:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect2:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/ColorRect2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2srdg"]
+_data = {
+"Lightning": SubResource("Animation_t2cs0"),
+"RESET": SubResource("Animation_ml638")
+}
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_mincd")
@@ -68,15 +193,27 @@ scale = Vector2(3.52, 2.69823)
 
 [node name="PointLight2D" type="PointLight2D" parent="Hero"]
 texture_filter = 1
-position = Vector2(-0.568192, 1.48245)
-scale = Vector2(10.657, 10.657)
+position = Vector2(-5.39772, 4.81798)
+scale = Vector2(2.57715, 2.89364)
 color = Color(0.521569, 0.521569, 0.521569, 1)
-energy = 100.0
 shadow_color = Color(0, 0, 0, 1)
-texture = ExtResource("4_xep55")
+texture = ExtResource("7_43a1f")
+script = ExtResource("8_vhkvf")
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
 texture_filter = 1
+position = Vector2(1.00671, -3.3557)
+
+[node name="Rain" type="AudioStreamPlayer2D" parent="Hero"]
+position = Vector2(-239.773, -213.473)
+scale = Vector2(0.284091, 0.370613)
+stream = ExtResource("16_f0ylm")
+autoplay = true
+
+[node name="Thunder" type="AudioStreamPlayer2D" parent="Hero"]
+position = Vector2(-239.773, -213.473)
+scale = Vector2(0.284091, 0.370613)
+stream = ExtResource("17_1003v")
 
 [node name="FrontAssets" type="Node2D" parent="."]
 position = Vector2(623, 625)
@@ -110,6 +247,18 @@ texture = ExtResource("13_audj6")
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1088.0
+offset_top = -444.0
+offset_right = 1220.0
+offset_bottom = 947.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 texture_filter = 1
@@ -165,19 +314,13 @@ polygon = PackedVector2Array(1242, 470, 1249, 720, 1422, 721, 1407, 470)
 polygon = PackedVector2Array(442, 729, 487, 729, 566, 793, 505, 765)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
+script = SubResource("GDScript_enqu4")
 
-[node name="Timer2" type="Timer" parent="."]
-wait_time = 5.4
-autostart = true
-
-[node name="Rain" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("16_f0ylm")
-autoplay = true
-
-[node name="Thunder" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("17_1003v")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2srdg")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

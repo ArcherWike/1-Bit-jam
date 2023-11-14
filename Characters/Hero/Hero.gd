@@ -30,3 +30,4 @@ func move():
 	set_velocity(velocity)
 	move_and_slide()
 	velocity = velocity
+

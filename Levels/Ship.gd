@@ -5,10 +5,9 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 #
+
+
 func _on_timer_timeout():
-	$CanvasModulate.visible = false
-	$Thunder.play()
-	$CanvasLayer/ColorRect.material.set("Multiply", 3);
-func _on_timer_2_timeout():
-	$CanvasModulate.visible = true
-	$CanvasLayer/ColorRect.material.set("Multiply", 1);
+	$AnimationPlayer.play("Lightning")
+	$Timer.wait_time = int(RandomNumberGenerator.new().randf_range(3, 5))
+	$Timer.start() 
