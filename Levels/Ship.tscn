@@ -10,13 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://beshetbu3xf14" path="res://Assets/Background/Poles_N.png" id="6_oewh8"]
 [ext_resource type="Texture2D" uid="uid://ejphpkym2l4y" path="res://Assets/Textures/light.png" id="7_43a1f"]
 [ext_resource type="Script" path="res://Shaders/PointLight2D.gd" id="8_vhkvf"]
+[ext_resource type="AudioStream" uid="uid://cjcaqvscguown" path="res://Audio/Music/epic-storm-thunder-rainwindwaves-no-loops-106800.mp3" id="9_7qvec"]
 [ext_resource type="Texture2D" uid="uid://chwykk3swigea" path="res://Assets/Background/front_N.png" id="9_idlwu"]
 [ext_resource type="Shader" path="res://Shaders/ColorChanging1.gdshader" id="10_43eyt"]
 [ext_resource type="Texture2D" uid="uid://cy7mogr0l02db" path="res://Assets/Background/Ship_Line.png" id="11_0a30r"]
 [ext_resource type="Texture2D" uid="uid://nqf60sdusu2x" path="res://Assets/Background/front_Line.png" id="11_xlmxm"]
 [ext_resource type="Texture2D" uid="uid://bxoky6fj2onws" path="res://Assets/Background/poles_Line.png" id="13_audj6"]
 [ext_resource type="PackedScene" uid="uid://dqhkvlai4mh0m" path="res://Shaders/Storm.tscn" id="13_dmehm"]
-[ext_resource type="AudioStream" uid="uid://bnry6acd5vud2" path="res://Audio/Sounds/light-rain-109591.mp3" id="16_f0ylm"]
 [ext_resource type="AudioStream" uid="uid://c4c0aj18145xd" path="res://Audio/Sounds/thunder.mp3" id="17_1003v"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
@@ -207,7 +207,7 @@ position = Vector2(1.00671, -3.3557)
 [node name="Rain" type="AudioStreamPlayer2D" parent="Hero"]
 position = Vector2(-239.773, -213.473)
 scale = Vector2(0.284091, 0.370613)
-stream = ExtResource("16_f0ylm")
+stream = ExtResource("9_7qvec")
 autoplay = true
 
 [node name="Thunder" type="AudioStreamPlayer2D" parent="Hero"]

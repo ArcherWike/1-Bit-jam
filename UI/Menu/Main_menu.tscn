@@ -1,23 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://burlalgp7jhia"]
+[gd_scene load_steps=11 format=3 uid="uid://burlalgp7jhia"]
 
-[ext_resource type="Texture2D" uid="uid://cy6dqc888bch7" path="res://Assets/UI/uozenie_.png" id="1_2dsbm"]
-[ext_resource type="PackedScene" uid="uid://bs3607v2wamsf" path="res://UI/Menu/options_button.tscn" id="2_avpha"]
-[ext_resource type="PackedScene" uid="uid://bdqej7gaod4p3" path="res://UI/Menu/start_button.tscn" id="3_a0341"]
-[ext_resource type="PackedScene" path="res://UI/Menu/exit_button.tscn" id="4_mp51q"]
+[ext_resource type="Script" path="res://UI/Menu/Main_menu.gd" id="1_iu660"]
+[ext_resource type="Texture2D" uid="uid://bcc0pd0goxaca" path="res://Assets/UI/Menu_Background.png" id="2_paueq"]
+[ext_resource type="Texture2D" uid="uid://b8om4w0m101fj" path="res://Assets/UI/credits_.png" id="5_segq5"]
+[ext_resource type="Texture2D" uid="uid://dpk7j4gojp1xc" path="res://Assets/UI/credits_Hover.png" id="5_wm10f"]
+[ext_resource type="AudioStream" uid="uid://by2ddq0hmnf8a" path="res://Audio/Sounds/Click.wav" id="6_p2bt1"]
+[ext_resource type="Texture2D" uid="uid://cutihn7igoogv" path="res://Assets/UI/new_game_Hover.png" id="7_h1ooh"]
+[ext_resource type="Texture2D" uid="uid://b1sey604y8vsu" path="res://Assets/UI/quit_Hover.png" id="7_ty04n"]
+[ext_resource type="Texture2D" uid="uid://le5a6b5hwqeq" path="res://Assets/UI/quit.png" id="8_8ks0s"]
+[ext_resource type="Texture2D" uid="uid://d1t1xb5u4u02d" path="res://Assets/UI/new_game_.png" id="9_eqtmm"]
+[ext_resource type="AudioStream" uid="uid://blx2mjuypwfpu" path="res://Audio/Music/gentle-ocean-waves-birdsong-and-gull-7109.mp3" id="10_kk4of"]
 
 [node name="MainMenu" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iu660")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 645.0
-texture = ExtResource("1_2dsbm")
+texture = ExtResource("2_paueq")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -34,23 +43,43 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="start_Button" parent="." instance=ExtResource("3_a0341")]
-layout_mode = 2
-offset_left = 1268.0
-offset_top = 171.0
-offset_right = 1629.0
-offset_bottom = 357.0
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_p2bt1")
 
-[node name="options_button" parent="." instance=ExtResource("2_avpha")]
-layout_mode = 2
-offset_left = 1044.0
-offset_top = 423.0
-offset_right = 1477.0
-offset_bottom = 624.0
+[node name="Credits" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1091.0
+offset_top = 395.0
+offset_right = 1523.0
+offset_bottom = 620.0
+texture_normal = ExtResource("5_segq5")
+texture_pressed = ExtResource("5_segq5")
+texture_hover = ExtResource("5_wm10f")
 
-[node name="exit_button" parent="." instance=ExtResource("4_mp51q")]
-layout_mode = 2
-offset_left = 833.0
-offset_top = 690.0
-offset_right = 1193.0
-offset_bottom = 885.0
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 658.0
+offset_right = 1196.0
+offset_bottom = 883.0
+texture_normal = ExtResource("8_8ks0s")
+texture_pressed = ExtResource("8_8ks0s")
+texture_hover = ExtResource("7_ty04n")
+
+[node name="NewGame" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1263.0
+offset_top = 118.0
+offset_right = 1695.0
+offset_bottom = 348.0
+texture_normal = ExtResource("9_eqtmm")
+texture_pressed = ExtResource("9_eqtmm")
+texture_hover = ExtResource("7_h1ooh")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_kk4of")
+autoplay = true
+
+[connection signal="button_up" from="Credits" to="." method="_on_credits_button_up"]
+[connection signal="button_up" from="Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="NewGame" to="." method="_on_new_game_button_up"]
