@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://bx86haurrfd67"]
+
+[ext_resource type="Script" path="res://UI/Menu/pause.gd" id="1_oknh8"]
+[ext_resource type="Texture2D" uid="uid://c12ihe41tn76" path="res://Assets/UI/Pause.png" id="1_p03le"]
+[ext_resource type="Texture2D" uid="uid://37onwwqcg3jr" path="res://Assets/UI/Continue.png" id="2_5wsqb"]
+[ext_resource type="Texture2D" uid="uid://bm22tcsxswvyh" path="res://Assets/UI/Continue_Hover.png" id="3_mddxk"]
+[ext_resource type="Texture2D" uid="uid://le5a6b5hwqeq" path="res://Assets/UI/quit.png" id="4_7h7kq"]
+[ext_resource type="Texture2D" uid="uid://b1sey604y8vsu" path="res://Assets/UI/quit_Hover.png" id="5_idu3w"]
+[ext_resource type="Texture2D" uid="uid://bkiuaplrh78n0" path="res://Assets/UI/menu.png" id="6_2u2r6"]
+[ext_resource type="Texture2D" uid="uid://b26g01tggo54m" path="res://Assets/UI/menu_Hover.png" id="7_xv473"]
+[ext_resource type="AudioStream" uid="uid://by2ddq0hmnf8a" path="res://Audio/Sounds/Click.wav" id="9_5ygha"]
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oknh8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.733333)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -387.5
+offset_top = -516.5
+offset_right = 387.5
+offset_bottom = 516.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p03le")
+
+[node name="Continue" type="TextureButton" parent="TextureRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -216.0
+offset_top = 68.0
+offset_right = 216.0
+offset_bottom = 293.0
+grow_horizontal = 2
+texture_normal = ExtResource("2_5wsqb")
+texture_pressed = ExtResource("2_5wsqb")
+texture_hover = ExtResource("3_mddxk")
+
+[node name="Quit" type="TextureButton" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -400.0
+offset_right = 216.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("4_7h7kq")
+texture_pressed = ExtResource("4_7h7kq")
+texture_hover = ExtResource("5_idu3w")
+
+[node name="Menu" type="TextureButton" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -170.5
+offset_right = 216.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_2u2r6")
+texture_pressed = ExtResource("6_2u2r6")
+texture_hover = ExtResource("7_xv473")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_5ygha")
+
+[connection signal="button_up" from="TextureRect/Continue" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="TextureRect/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="TextureRect/Menu" to="." method="_on_menu_button_up"]

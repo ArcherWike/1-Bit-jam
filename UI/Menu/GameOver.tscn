@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://emjvrmjl6h2y"]
+
+[ext_resource type="Script" path="res://UI/Menu/GameOver.gd" id="1_30eqd"]
+[ext_resource type="Texture2D" uid="uid://djucal6pfy1jo" path="res://Assets/UI/gameover_screen.png" id="1_ka7wt"]
+[ext_resource type="Texture2D" uid="uid://d1t1xb5u4u02d" path="res://Assets/UI/new_game_.png" id="2_drpdw"]
+[ext_resource type="Texture2D" uid="uid://cutihn7igoogv" path="res://Assets/UI/new_game_Hover.png" id="3_a5ptp"]
+[ext_resource type="Texture2D" uid="uid://bkiuaplrh78n0" path="res://Assets/UI/menu.png" id="4_x03os"]
+[ext_resource type="Texture2D" uid="uid://b26g01tggo54m" path="res://Assets/UI/menu_Hover.png" id="5_c46uu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_30eqd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ka7wt")
+
+[node name="Menu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1289.0
+offset_top = 721.0
+offset_right = 1721.0
+offset_bottom = 946.0
+texture_normal = ExtResource("4_x03os")
+texture_pressed = ExtResource("4_x03os")
+texture_hover = ExtResource("5_c46uu")
+
+[node name="NewGame" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 806.0
+offset_top = 714.0
+offset_right = 1238.0
+offset_bottom = 939.0
+texture_normal = ExtResource("2_drpdw")
+texture_pressed = ExtResource("2_drpdw")
+texture_hover = ExtResource("3_a5ptp")
