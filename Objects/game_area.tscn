@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvyi5vnrda8or"]
+[gd_scene load_steps=5 format=3 uid="uid://db68bumn2aqv4"]
 
-[ext_resource type="Script" path="res://Objects/B_interact.gd" id="1_daix2"]
-[ext_resource type="Texture2D" uid="uid://bu18lqnlmjy3y" path="res://Assets/Characters/Grzegorz.png" id="2_4pds7"]
+[ext_resource type="Script" path="res://Objects/game_area.gd" id="1_kqslb"]
+[ext_resource type="Texture2D" uid="uid://cuvepw7eegsu1" path="res://UI/Grzegorz.png" id="2_wnwv5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgnu5"]
-radius = 35.0143
+radius = 121.017
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gxunu"]
 particle_flag_disable_z = true
@@ -13,16 +13,17 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 
 [node name="interact" type="Area2D"]
-script = ExtResource("1_daix2")
+script = ExtResource("1_kqslb")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jgnu5")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0.615686, 0.603922, 0.301961)
-position = Vector2(0, 2.40741e-35)
-scale = Vector2(0.046875, 0.0390625)
-texture = ExtResource("2_4pds7")
+position = Vector2(-1.5, -2)
+scale = Vector2(0.445313, 0.421875)
+texture = ExtResource("2_wnwv5")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(1, -1)
@@ -32,5 +33,5 @@ process_material = SubResource("ParticleProcessMaterial_gxunu")
 lifetime = 0.5
 speed_scale = 0.55
 
-[connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

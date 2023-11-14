@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8avskmgbnqut"]
+
+[ext_resource type="Texture2D" uid="uid://cuvepw7eegsu1" path="res://UI/Grzegorz.png" id="1_ccjap"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e2ncs"]
+texture = ExtResource("1_ccjap")
+modulate_color = Color(0.560784, 0.654902, 0.898039, 0.427451)
+
+[node name="Slot1" type="Panel"]
+custom_minimum_size = Vector2(75, 75)
+theme_override_styles/panel = SubResource("StyleBoxTexture_e2ncs")

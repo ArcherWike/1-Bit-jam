@@ -1,39 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1xeax3cpinri"]
+[gd_scene load_steps=3 format=3 uid="uid://dcoq2haf661y5"]
 
-[ext_resource type="Script" path="res://Objects/MiniGames/Game_rotate.gd" id="1_85del"]
-[ext_resource type="Texture2D" uid="uid://cuvepw7eegsu1" path="res://UI/Grzegorz.png" id="2_i3nb8"]
+[ext_resource type="Script" path="res://Objects/MiniGames/Game_panel.gd" id="1_2rqxp"]
+[ext_resource type="Texture2D" uid="uid://cuvepw7eegsu1" path="res://UI/Grzegorz.png" id="2_a3v5o"]
 
-[node name="Game_rotate" type="Node2D"]
-process_mode = 3
-script = ExtResource("1_85del")
+[node name="GamePanel" type="Node2D"]
+script = ExtResource("1_2rqxp")
 
 [node name="background" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 241.0
-offset_top = 43.0
-offset_right = 834.0
-offset_bottom = 470.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(298, 198)
+offset_left = 341.0
+offset_top = 92.0
+offset_right = 934.0
+offset_bottom = 519.0
 size_flags_vertical = 4
 color = Color(1, 1, 1, 0.270588)
-
-[node name="TimerLabel" type="Label" parent="."]
-offset_left = 253.0
-offset_top = 54.0
-offset_right = 329.0
-offset_bottom = 99.0
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 30
-text = "00:00"
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 51.049
 
 [node name="GridContainer" type="GridContainer" parent="."]
 offset_left = 416.0
@@ -66,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("2_i3nb8")
+texture = ExtResource("2_a3v5o")
 
 [node name="Slot2" type="ColorRect" parent="GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -90,7 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("2_i3nb8")
+texture = ExtResource("2_a3v5o")
 
 [node name="Slot3" type="ColorRect" parent="GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -114,7 +93,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("2_i3nb8")
+texture = ExtResource("2_a3v5o")
 
 [node name="Slot4" type="ColorRect" parent="GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -138,7 +117,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("2_i3nb8")
+texture = ExtResource("2_a3v5o")
 
 [node name="Slot5" type="ColorRect" parent="GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -162,7 +141,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("2_i3nb8")
+texture = ExtResource("2_a3v5o")
 
 [node name="Slot6" type="ColorRect" parent="GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -186,7 +165,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("2_i3nb8")
+texture = ExtResource("2_a3v5o")
 
 [node name="Slot7" type="ColorRect" parent="GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -210,7 +189,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("2_i3nb8")
+texture = ExtResource("2_a3v5o")
 
 [node name="Slot8" type="ColorRect" parent="GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -234,7 +213,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("2_i3nb8")
+texture = ExtResource("2_a3v5o")
 
 [node name="Slot9" type="ColorRect" parent="GridContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -258,6 +237,4 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("2_i3nb8")
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+texture = ExtResource("2_a3v5o")
