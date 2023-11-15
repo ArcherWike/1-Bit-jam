@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://by2ddq0hmnf8a" path="res://Audio/Sounds/Click.wav" id="9_5ygha"]
 
 [node name="Pause" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -60,6 +61,7 @@ texture_pressed = ExtResource("2_5wsqb")
 texture_hover = ExtResource("3_mddxk")
 
 [node name="Quit" type="TextureButton" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -77,6 +79,7 @@ texture_pressed = ExtResource("4_7h7kq")
 texture_hover = ExtResource("5_idu3w")
 
 [node name="Menu" type="TextureButton" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

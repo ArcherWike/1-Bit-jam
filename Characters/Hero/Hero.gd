@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-@export var ACCELERATION = 500
+var lastdirection = "Up"
+var direction = "Up"
+@export var ACCELERATION = 1000
 @export var MAX_SPEED = 500
-@export var FRICTION = 500
+@export var FRICTION = 1000
 @export var Y_AXIS_MOVE_DECELERATION = 0.5
 @onready var ANIMATIONS = $AnimatedSprite2D
 
@@ -10,13 +12,9 @@ func _process(delta):
 	move_state(delta)
 
 var roll_vector = Vector2.DOWN
-
-const SPEED = 500.0
-const JUMP_VELOCITY = -400.0
-
 func move_state(delta):
 	var input_vector = Vector2.ZERO
-	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input_vector.x = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")) * Y_AXIS_MOVE_DECELERATION
 	input_vector.y = (Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")) * Y_AXIS_MOVE_DECELERATION
 	
 	if input_vector != Vector2.ZERO:
@@ -26,15 +24,18 @@ func move_state(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	move()
 func updateAnimation():
-	var direction = "Left" #down
-	if velocity.x < 0: direction = "Left"
+	if velocity.x < 0: direction = "Left" 
 	elif velocity.x > 0: direction = "Right"
-	elif velocity.y < 0: direction = "Right" #up
+	elif velocity.y > 0: direction = "Down" 
+	elif velocity.y < 0: direction = "Up"
+	elif velocity == Vector2(0,0):  ANIMATIONS.play("Idle_" + lastdirection)
 	ANIMATIONS.play(direction)
+	lastdirection = direction
 	
 func move():
 	set_velocity(velocity)
 	move_and_slide()
 	velocity = velocity
 	updateAnimation()
+
 

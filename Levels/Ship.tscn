@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dhv6vwvrdrf6x"]
+[gd_scene load_steps=28 format=3 uid="uid://dhv6vwvrdrf6x"]
 
 [ext_resource type="Script" path="res://Levels/Ship.gd" id="1_mincd"]
 [ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="1_rlr5f"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bxoky6fj2onws" path="res://Assets/Background/poles_Line.png" id="13_audj6"]
 [ext_resource type="PackedScene" uid="uid://dqhkvlai4mh0m" path="res://Shaders/Storm.tscn" id="13_dmehm"]
 [ext_resource type="AudioStream" uid="uid://c4c0aj18145xd" path="res://Audio/Sounds/thunder.mp3" id="17_1003v"]
+[ext_resource type="PackedScene" uid="uid://bx86haurrfd67" path="res://UI/Menu/pause.tscn" id="19_atylr"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("2_fixcm")
@@ -37,7 +38,7 @@ texture_filter = 1
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_26ky6"]
 shader = ExtResource("10_43eyt")
 shader_parameter/multiply = 1.0
-shader_parameter/color = Color(0.839216, 0.184314, 0.227451, 1)
+shader_parameter/color = Color(0.870588, 0.870588, 0.870588, 1)
 
 [sub_resource type="GDScript" id="GDScript_enqu4"]
 script/source = "extends Timer
@@ -191,9 +192,21 @@ metadata/_edit_lock_ = true
 position = Vector2(844, 576)
 scale = Vector2(3.52, 2.69823)
 
+[node name="Pause" parent="Hero" instance=ExtResource("19_atylr")]
+visible = false
+top_level = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = 36.0
+offset_right = -115.0
+offset_bottom = 36.0
+
 [node name="PointLight2D" type="PointLight2D" parent="Hero"]
 texture_filter = 1
-position = Vector2(-5.39772, 4.81798)
 scale = Vector2(2.57715, 2.89364)
 color = Color(0.521569, 0.521569, 0.521569, 1)
 shadow_color = Color(0, 0, 0, 1)
@@ -202,7 +215,6 @@ script = ExtResource("8_vhkvf")
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
 texture_filter = 1
-position = Vector2(1.00671, -3.3557)
 
 [node name="Rain" type="AudioStreamPlayer2D" parent="Hero"]
 position = Vector2(-239.773, -213.473)
@@ -280,10 +292,12 @@ metadata/_edit_lock_ = true
 color = Color(0, 0, 0, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+top_level = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-515, 521, -31, 771, 374, 885, 531, 921, 1036, 928, 1559, 919, 1706, 913, 1904, 822, 2348, 813, 2396, 807, 1923, 1266, 556, 1282, -116, 962)
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-513, 504, 335, 200, 512, 207, 578, 246, 1610, 224, 1765, 66, 2314, 89, 2439, 782, 2377, 773, 2269, 126, 1773, 107, 1628, 254, 569, 273, 499, 234, 314, 236, -470, 516)
