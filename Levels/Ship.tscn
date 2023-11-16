@@ -289,6 +289,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -340,24 +341,19 @@ libraries = {
 [node name="Enemy" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemy" instance=ExtResource("21_sotxq")]
-position = Vector2(225, 352)
+position = Vector2(1223, 352)
 
 [node name="Enemy2" parent="Enemy" instance=ExtResource("21_sotxq")]
-position = Vector2(222, 767)
+position = Vector2(2044, 408)
 
 [node name="Enemy3" parent="Enemy" instance=ExtResource("21_sotxq")]
 position = Vector2(-105, 460)
-
-[node name="Enemy4" parent="Enemy" instance=ExtResource("21_sotxq")]
-position = Vector2(1179, 385)
-
-[node name="Enemy5" parent="Enemy" instance=ExtResource("21_sotxq")]
-position = Vector2(2073, 688)
 
 [node name="Task_system" parent="." instance=ExtResource("19_j17sv")]
 
 [node name="interact" parent="Task_system/Game_interact" index="0" instance=ExtResource("20_7rfqb")]
 position = Vector2(315, 438)
+run_game = 1
 
 [node name="interact2" parent="Task_system/Game_interact" index="1" instance=ExtResource("20_7rfqb")]
 position = Vector2(863, 824)

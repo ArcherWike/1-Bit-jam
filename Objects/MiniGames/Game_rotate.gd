@@ -42,8 +42,8 @@ func ChangeActiveBlock(value):
 		active_slot = max_val
 
 	ActiveSlot = get_node("GridContainer/Slot"+ str(active_slot))
-	ActiveSlot.set_color(Color(0,0,0))
-	
+	#ActiveSlot.set_color(Color(0,0,0))
+	ActiveSlot.light_mask = 2
 func Randomize_Slot():
 	for t in range(1, max_val + 1):
 		active_slot = t
