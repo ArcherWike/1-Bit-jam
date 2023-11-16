@@ -1,10 +1,11 @@
 extends Area2D
 
 var endangered = false
+var killing_option_active = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	GameStat.connect("change_state", Callable(self, "_game_stat_was_changed"))
 			
 
 
@@ -14,7 +15,9 @@ func _process(delta):
 		$KillingRange.show()
 	elif !GameStat.EnemyKilable() && $KillingRange.visible:
 		$KillingRange.hide()
-	if Input.is_action_just_pressed("ui_accept") && endangered:
+		
+		#if Hero can kill - destroy me
+	if Input.is_action_just_pressed("ui_accept") && endangered && killing_option_active:
 		Self_destroy()
 		
 		
@@ -33,3 +36,9 @@ func Self_destroy():
 	print("ded")
 	GameStat.ChangeState()
 	self.queue_free()
+
+func _game_stat_was_changed():
+	if GameStat.ActiveStat == 1:
+		killing_option_active = true
+	else:
+		killing_option_active = false

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://hu5wbr4kaeo0"]
+
+[ext_resource type="Texture2D" uid="uid://cuvepw7eegsu1" path="res://UI/Grzegorz.png" id="1_j4y7e"]
+
+[node name="Slot2" type="ColorRect"]
+custom_minimum_size = Vector2(75, 75)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="image" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 17.0
+offset_right = 57.0
+offset_bottom = 57.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 22.0
+offset_right = 151.0
+offset_bottom = 150.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_j4y7e")

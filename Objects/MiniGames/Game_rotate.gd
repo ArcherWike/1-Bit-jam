@@ -54,7 +54,7 @@ func Randomize_Slot():
 	ActiveSlot = get_node("GridContainer/Slot"+ str(active_slot))
 	
 func TaskIsCompleted():
-	for t in range(1, max_val):
+	for t in range(1, max_val + 1):
 		if ((int(get_node("GridContainer/Slot"+ str(t)).get_node("image").get_rotation_degrees())%360) != 0):
 			return false
 	return true
@@ -74,11 +74,12 @@ func set_label_timer():
 		$TimerLabel.text += str(seconds)
 		
 func SetGameTimer(get_seconds):
-	timer_run = true
-	seconds = get_seconds
-	$Timer.wait_time = seconds
-	set_label_timer()
-	$Timer.start()
+	if get_seconds > 0:
+		timer_run = true
+		seconds = get_seconds
+		$Timer.wait_time = seconds
+		set_label_timer()
+		$Timer.start()
 
 
 func _on_timer_timeout():

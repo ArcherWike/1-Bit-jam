@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dhv6vwvrdrf6x"]
+[gd_scene load_steps=31 format=3 uid="uid://dhv6vwvrdrf6x"]
 
 [ext_resource type="Script" path="res://Levels/Ship.gd" id="1_mincd"]
 [ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="1_rlr5f"]
@@ -18,7 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://bxoky6fj2onws" path="res://Assets/Background/poles_Line.png" id="13_audj6"]
 [ext_resource type="PackedScene" uid="uid://dqhkvlai4mh0m" path="res://Shaders/Storm.tscn" id="13_dmehm"]
 [ext_resource type="AudioStream" uid="uid://c4c0aj18145xd" path="res://Audio/Sounds/thunder.mp3" id="17_1003v"]
-[ext_resource type="PackedScene" uid="uid://bx86haurrfd67" path="res://UI/Menu/pause.tscn" id="19_atylr"]
+[ext_resource type="PackedScene" path="res://UI/Menu/pause.tscn" id="19_atylr"]
+[ext_resource type="PackedScene" uid="uid://cabutbkyqaiom" path="res://Objects/tasks_system.tscn" id="19_j17sv"]
+[ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area.tscn" id="20_7rfqb"]
+[ext_resource type="PackedScene" uid="uid://dr1416rbqfgub" path="res://Characters/Enemies/enemy.tscn" id="21_sotxq"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("2_fixcm")
@@ -289,6 +292,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -337,4 +341,34 @@ libraries = {
 "": SubResource("AnimationLibrary_2srdg")
 }
 
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemy" instance=ExtResource("21_sotxq")]
+position = Vector2(225, 352)
+
+[node name="Enemy2" parent="Enemy" instance=ExtResource("21_sotxq")]
+position = Vector2(222, 767)
+
+[node name="Enemy3" parent="Enemy" instance=ExtResource("21_sotxq")]
+position = Vector2(-105, 460)
+
+[node name="Enemy4" parent="Enemy" instance=ExtResource("21_sotxq")]
+position = Vector2(1179, 385)
+
+[node name="Enemy5" parent="Enemy" instance=ExtResource("21_sotxq")]
+position = Vector2(2073, 688)
+
+[node name="Task_system" parent="." instance=ExtResource("19_j17sv")]
+
+[node name="interact" parent="Task_system/Game_interact" index="0" instance=ExtResource("20_7rfqb")]
+position = Vector2(315, 438)
+
+[node name="interact2" parent="Task_system/Game_interact" index="1" instance=ExtResource("20_7rfqb")]
+position = Vector2(863, 824)
+
+[node name="interact3" parent="Task_system/Game_interact" index="2" instance=ExtResource("20_7rfqb")]
+position = Vector2(-151, 597)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Task_system"]

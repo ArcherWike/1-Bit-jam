@@ -33,5 +33,11 @@ process_material = SubResource("ParticleProcessMaterial_gxunu")
 lifetime = 0.5
 speed_scale = 0.55
 
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -60.0
+offset_right = 21.0
+offset_bottom = -37.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

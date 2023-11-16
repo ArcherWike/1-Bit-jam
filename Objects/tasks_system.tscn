@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cabutbkyqaiom"]
+
+[ext_resource type="Script" path="res://UI/Gameplay/tasks_system.gd" id="1_g7aqp"]
+
+[node name="Task_system" type="Node2D"]
+script = ExtResource("1_g7aqp")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 35
+
+[node name="TimerKillEnemyTask" type="Timer" parent="UI"]
+wait_time = 80.018
+
+[node name="TimeLabel" type="Label" parent="UI"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -187.0
+offset_bottom = 69.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "xx:XX"
+
+[node name="Game_interact" type="Node2D" parent="."]
+
+[connection signal="timeout" from="UI/TimerKillEnemyTask" to="UI" method="_on_timer_kill_enemy_task_timeout"]
