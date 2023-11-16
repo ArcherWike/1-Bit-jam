@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bxoky6fj2onws" path="res://Assets/Background/poles_Line.png" id="13_audj6"]
 [ext_resource type="PackedScene" uid="uid://dqhkvlai4mh0m" path="res://Shaders/Storm.tscn" id="13_dmehm"]
 [ext_resource type="AudioStream" uid="uid://c4c0aj18145xd" path="res://Audio/Sounds/thunder.mp3" id="17_1003v"]
-[ext_resource type="PackedScene" path="res://UI/Menu/pause.tscn" id="19_atylr"]
+[ext_resource type="PackedScene" uid="uid://bx86haurrfd67" path="res://UI/Menu/pause.tscn" id="19_atylr"]
 [ext_resource type="PackedScene" uid="uid://cabutbkyqaiom" path="res://Objects/tasks_system.tscn" id="19_j17sv"]
 [ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area.tscn" id="20_7rfqb"]
 [ext_resource type="PackedScene" uid="uid://dr1416rbqfgub" path="res://Characters/Enemies/enemy.tscn" id="21_sotxq"]
@@ -88,7 +88,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/ColorRect2:color")
+tracks/2/path = NodePath("CanvasLayer/Flash:color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -100,7 +100,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/ColorRect2:visible")
+tracks/3/path = NodePath("CanvasLayer/Flash:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -139,7 +139,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/ColorRect2:color")
+tracks/2/path = NodePath("CanvasLayer/Flash:color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -151,7 +151,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/ColorRect2:visible")
+tracks/3/path = NodePath("CanvasLayer/Flash:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -195,19 +195,6 @@ metadata/_edit_lock_ = true
 [node name="Hero" parent="." instance=ExtResource("3_ngwxs")]
 position = Vector2(844, 576)
 scale = Vector2(3.52, 2.69823)
-
-[node name="Pause" parent="Hero" instance=ExtResource("19_atylr")]
-visible = false
-top_level = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -115.0
-offset_top = 36.0
-offset_right = -115.0
-offset_bottom = 36.0
 
 [node name="PointLight2D" type="PointLight2D" parent="Hero"]
 texture_filter = 1
@@ -264,7 +251,16 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("19_atylr")]
+visible = false
+top_level = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Flash" type="ColorRect" parent="CanvasLayer"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -276,7 +272,7 @@ offset_bottom = 947.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorChange" type="ColorRect" parent="CanvasLayer"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_26ky6")
 anchors_preset = -1

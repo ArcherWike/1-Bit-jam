@@ -15,12 +15,12 @@ func _on_timer_timeout():
 
 func pauseMenu():
 	if paused == true:
-		$Hero/Pause.hide()
+		$CanvasLayer/Pause.hide()
 		get_tree().paused = false
 		$CanvasModulate.show()
 	else:
 		get_tree().paused = true
-		$Hero/Pause.show()
+		$CanvasLayer/Pause.show()
 		$CanvasModulate.hide()
 	paused = !paused
 	
