@@ -6,6 +6,9 @@ var Game_interact_List = []
 var active_game_area = null 
 
 func _ready():
+	#Game time
+	SetKillTimer(GameStat.time_kill)
+	
 	GameStat.connect("change_state", Callable(self, "_game_stat_was_changed"))
 	for child in get_node("Game_interact").get_children():
 		Game_interact_List.append(child)
@@ -16,18 +19,14 @@ func _ready():
 	Select_starting_area()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#print()
-	
+func _process(delta):	
 	if timer_run:
 		set_label_timer()
 
 #Select the starting area of game and start the collision activity
 func Select_starting_area():
 	#print(int(RandomNumberGenerator.new().randf_range(0, 3)))
-	var random_index = randi() % len(Game_interact_List)
-	print(len(Game_interact_List))
-	print(random_index, Game_interact_List)
+	var random_index = 0 + randi() % len(Game_interact_List)
 	active_game_area = Game_interact_List[random_index]
 	active_game_area.Set_activity(true)	
 
@@ -57,12 +56,12 @@ func _on_interact_start_game(game_type):
 func _game_stat_was_changed():
 	if GameStat.ActiveStat == 0:
 		$UI/Label.text = "TASKS"
-		GameStat.time_kill -= 20
+		#GameStat.time_kill -= 20
 		Select_starting_area()
 	else:
 		$UI/Label.text = "KILLING"
 		GameStat.time_task -= 20
-		SetKillTimer(GameStat.time_kill)
+		
 		
 ## ----------------------------------## Timer - GameStat = KILLING enemy ##-------------------------##
 var minutes = 0
