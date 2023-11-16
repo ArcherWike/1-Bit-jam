@@ -18,6 +18,7 @@ func _process(delta):
 		
 		#if Hero can kill - destroy me
 	if Input.is_action_just_pressed("ui_accept") && endangered && killing_option_active:
+		#RenderingServer.global_shader_parameter_set("Paranoia",var4(0,0,0,1))
 		Self_destroy()
 		
 		

@@ -64,3 +64,10 @@ ui_down={
 
 renderer/rendering_method="gl_compatibility"
 anti_aliasing/screen_space_roughness_limiter/enabled=false
+
+[shader_globals]
+
+Paranoia={
+"type": "vec4",
+"value": Vector4(1, 1, 1, 1)
+}

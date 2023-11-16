@@ -33,6 +33,7 @@ func Select_starting_area():
 func _completed_game(is_completed):
 	if (!is_completed):
 		print("GAME OVER")
+		get_tree().change_scene_to_file("res://UI/Menu/GameOver.tscn")
 	get_tree().paused = false
 	active_game_node.queue_free()
 	##Change mode
@@ -94,3 +95,4 @@ func _on_timer_kill_enemy_task_timeout():
 	timer_run = false
 	$UI/TimeLabel.visible = false
 	print("GAME OVER")
+	get_tree().change_scene_to_file("res://UI/Menu/GameOver.tscn")

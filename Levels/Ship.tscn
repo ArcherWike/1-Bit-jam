@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dhv6vwvrdrf6x"]
+[gd_scene load_steps=33 format=3 uid="uid://dhv6vwvrdrf6x"]
 
 [ext_resource type="Script" path="res://Levels/Ship.gd" id="1_mincd"]
 [ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="1_rlr5f"]
@@ -21,7 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://bx86haurrfd67" path="res://UI/Menu/pause.tscn" id="19_atylr"]
 [ext_resource type="PackedScene" uid="uid://cabutbkyqaiom" path="res://Objects/tasks_system.tscn" id="19_j17sv"]
 [ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area.tscn" id="20_7rfqb"]
+[ext_resource type="PackedScene" uid="uid://dt85pvmpwm855" path="res://Characters/Enemies/enemy2.tscn" id="21_fx5g0"]
 [ext_resource type="PackedScene" uid="uid://dr1416rbqfgub" path="res://Characters/Enemies/enemy.tscn" id="21_sotxq"]
+[ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="22_xs6ws"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("2_fixcm")
@@ -172,6 +174,7 @@ process_mode = 3
 script = ExtResource("1_mincd")
 
 [node name="BackAssets" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="Water" parent="BackAssets" instance=ExtResource("1_rlr5f")]
 position = Vector2(1027, 873)
@@ -193,6 +196,7 @@ texture = ExtResource("11_0a30r")
 metadata/_edit_lock_ = true
 
 [node name="Hero" parent="." instance=ExtResource("3_ngwxs")]
+process_mode = 1
 position = Vector2(844, 576)
 scale = Vector2(3.52, 2.69823)
 
@@ -219,6 +223,7 @@ scale = Vector2(0.284091, 0.370613)
 stream = ExtResource("17_1003v")
 
 [node name="FrontAssets" type="Node2D" parent="."]
+process_mode = 1
 position = Vector2(623, 625)
 scale = Vector2(3, 3)
 
@@ -250,6 +255,7 @@ texture = ExtResource("13_audj6")
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 1
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("19_atylr")]
 visible = false
@@ -261,6 +267,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 
 [node name="Flash" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -273,6 +280,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorChange" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
 texture_filter = 1
 material = SubResource("ShaderMaterial_26ky6")
 anchors_preset = -1
@@ -289,10 +297,11 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
+process_mode = 1
 color = Color(0, 0, 0, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+process_mode = 1
 top_level = true
 metadata/_edit_lock_ = true
 
@@ -302,38 +311,48 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-513, 504, 335, 200, 512, 207, 578, 246, 1610, 224, 1765, 66, 2314, 89, 2439, 782, 2377, 773, 2269, 126, 1773, 107, 1628, 254, 569, 273, 499, 234, 314, 236, -470, 516)
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(487, 364, 596, 442, 651, 465, 656, 473, 497, 478, 488, 755, 450, 731, 439, 739, 416, 743, 402, 694, 415, 359, 433, 362, 445, 364, 468, 367)
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(147, 585, 193, 554, 215, 561, 218, 593, 197, 611, 173, 614, 155, 604)
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(893, 182)
 scale = Vector2(0.680458, 0.729167)
 polygon = PackedVector2Array(147, 585, 193, 554, 215, 561, 218, 593, 197, 611, 173, 614, 155, 604)
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(1982.79, -51.9601)
 scale = Vector2(0.875553, 0.938228)
 polygon = PackedVector2Array(147, 585, 170.421, 561.655, 193, 554, 215, 561, 218, 593, 197, 611, 173, 614, 155, 604)
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(1583, 471, 1642, 436, 1757, 342, 1794, 331, 1797, 281, 1844, 288, 1854, 389, 1912, 387, 1948, 560, 1887, 561, 1878, 660, 1790, 663, 1756, 725, 1785, 628, 1771, 492, 1731, 546, 1716, 475)
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(1242, 470, 1249, 720, 1422, 721, 1407, 470)
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(442, 729, 487, 729, 566, 793, 505, 765)
+metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
+process_mode = 1
 wait_time = 3.0
 autostart = true
 script = SubResource("GDScript_enqu4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 1
 libraries = {
 "": SubResource("AnimationLibrary_2srdg")
 }
@@ -341,19 +360,21 @@ libraries = {
 [node name="Enemy" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemy" instance=ExtResource("21_sotxq")]
-position = Vector2(1223, 352)
+position = Vector2(-28, 458)
+metadata/_edit_lock_ = true
 
-[node name="Enemy2" parent="Enemy" instance=ExtResource("21_sotxq")]
-position = Vector2(2044, 408)
+[node name="Enemy2" parent="Enemy" instance=ExtResource("21_fx5g0")]
+position = Vector2(1307, 349)
+metadata/_edit_lock_ = true
 
-[node name="Enemy3" parent="Enemy" instance=ExtResource("21_sotxq")]
-position = Vector2(-105, 460)
+[node name="Enemy3" parent="Enemy" instance=ExtResource("22_xs6ws")]
+position = Vector2(2099, 414)
+metadata/_edit_lock_ = true
 
 [node name="Task_system" parent="." instance=ExtResource("19_j17sv")]
 
 [node name="interact" parent="Task_system/Game_interact" index="0" instance=ExtResource("20_7rfqb")]
-position = Vector2(315, 438)
-run_game = 1
+position = Vector2(2080, 325)
 
 [node name="interact2" parent="Task_system/Game_interact" index="1" instance=ExtResource("20_7rfqb")]
 position = Vector2(863, 824)

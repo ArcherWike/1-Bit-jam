@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1xeax3cpinri"]
+[gd_scene load_steps=31 format=3 uid="uid://c1xeax3cpinri"]
 
 [ext_resource type="Script" path="res://Objects/MiniGames/Game_rotate.gd" id="1_85del"]
 [ext_resource type="Texture2D" uid="uid://b2opxx6q6kxin" path="res://Assets/UI/MiniGames/1minigamebackground.png" id="2_cceay"]
+[ext_resource type="Shader" path="res://Shaders/Brightness.gdshader" id="2_mnrh3"]
 [ext_resource type="Texture2D" uid="uid://cagcskxfrwva" path="res://Assets/UI/MiniGames/kafelek1.png" id="3_okafn"]
 [ext_resource type="Texture2D" uid="uid://dcewdjpe1xmki" path="res://Assets/UI/MiniGames/kafelek2.png" id="4_ichvy"]
 [ext_resource type="Texture2D" uid="uid://b7uqbed71lalx" path="res://Assets/UI/MiniGames/kafelek3.png" id="5_dvprd"]
@@ -12,12 +13,103 @@
 [ext_resource type="Texture2D" uid="uid://bplnyj7puuvl7" path="res://Assets/UI/MiniGames/kafelek8.png" id="10_ip6i0"]
 [ext_resource type="Texture2D" uid="uid://bx842e4fkrr35" path="res://Assets/UI/MiniGames/kafelek9.png" id="11_8xvs3"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_88ndr"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pycx3"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6j8jq"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efgg7"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6r30"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r5n65"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flbgm"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_42sef"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lj466"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8mepk"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5phm"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2xdtb"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wg7pk"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfywn"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u45tf"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehmcl"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xkd5j"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yik37"]
+shader = ExtResource("2_mnrh3")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
 [node name="Game_rotate" type="Node2D"]
 process_mode = 3
 position = Vector2(969, 569)
 script = ExtResource("1_85del")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+process_mode = 3
 light_mask = 2
 texture_filter = 1
 anchors_preset = 8
@@ -35,6 +127,7 @@ texture = ExtResource("2_cceay")
 metadata/_edit_lock_ = true
 
 [node name="TimerLabel" type="Label" parent="."]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,9 +143,11 @@ text = "00:00"
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
+process_mode = 3
 wait_time = 51.049
 
 [node name="GridContainer" type="GridContainer" parent="."]
+process_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -70,13 +165,17 @@ theme_override_constants/v_separation = 100
 columns = 3
 
 [node name="Slot1" type="ColorRect" parent="GridContainer"]
+process_mode = 3
+material = SubResource("ShaderMaterial_88ndr")
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="image" type="TextureRect" parent="GridContainer/Slot1"]
+[node name="image1" type="TextureRect" parent="GridContainer/Slot1"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_pycx3")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -93,14 +192,18 @@ pivot_offset = Vector2(225, 225)
 texture = ExtResource("3_okafn")
 
 [node name="Slot2" type="ColorRect" parent="GridContainer"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_6j8jq")
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="image" type="TextureRect" parent="GridContainer/Slot2"]
+[node name="image2" type="TextureRect" parent="GridContainer/Slot2"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_efgg7")
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 8
@@ -118,14 +221,18 @@ pivot_offset = Vector2(225, 225)
 texture = ExtResource("4_ichvy")
 
 [node name="Slot3" type="ColorRect" parent="GridContainer"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_u6r30")
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="image" type="TextureRect" parent="GridContainer/Slot3"]
+[node name="image3" type="TextureRect" parent="GridContainer/Slot3"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_r5n65")
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 8
@@ -143,14 +250,18 @@ pivot_offset = Vector2(225, 225)
 texture = ExtResource("5_dvprd")
 
 [node name="Slot4" type="ColorRect" parent="GridContainer"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_flbgm")
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="image" type="TextureRect" parent="GridContainer/Slot4"]
+[node name="image4" type="TextureRect" parent="GridContainer/Slot4"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_42sef")
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 8
@@ -168,14 +279,18 @@ pivot_offset = Vector2(225, 225)
 texture = ExtResource("6_ygjbj")
 
 [node name="Slot5" type="ColorRect" parent="GridContainer"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_lj466")
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="image" type="TextureRect" parent="GridContainer/Slot5"]
+[node name="image5" type="TextureRect" parent="GridContainer/Slot5"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_8mepk")
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 8
@@ -193,14 +308,18 @@ pivot_offset = Vector2(225, 225)
 texture = ExtResource("7_w6aw1")
 
 [node name="Slot6" type="ColorRect" parent="GridContainer"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_q5phm")
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="image" type="TextureRect" parent="GridContainer/Slot6"]
+[node name="image6" type="TextureRect" parent="GridContainer/Slot6"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_2xdtb")
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 8
@@ -218,14 +337,18 @@ pivot_offset = Vector2(225, 225)
 texture = ExtResource("8_mnhx8")
 
 [node name="Slot7" type="ColorRect" parent="GridContainer"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_wg7pk")
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="image" type="TextureRect" parent="GridContainer/Slot7"]
+[node name="image7" type="TextureRect" parent="GridContainer/Slot7"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_pfywn")
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 8
@@ -243,14 +366,18 @@ pivot_offset = Vector2(225, 225)
 texture = ExtResource("9_eawh1")
 
 [node name="Slot8" type="ColorRect" parent="GridContainer"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_u45tf")
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="image" type="TextureRect" parent="GridContainer/Slot8"]
+[node name="image8" type="TextureRect" parent="GridContainer/Slot8"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_ehmcl")
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 8
@@ -268,14 +395,18 @@ pivot_offset = Vector2(225, 225)
 texture = ExtResource("10_ip6i0")
 
 [node name="Slot9" type="ColorRect" parent="GridContainer"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_xkd5j")
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="image" type="TextureRect" parent="GridContainer/Slot9"]
+[node name="image9" type="TextureRect" parent="GridContainer/Slot9"]
+process_mode = 3
 texture_filter = 1
+material = SubResource("ShaderMaterial_yik37")
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 8
@@ -293,6 +424,7 @@ pivot_offset = Vector2(225, 225)
 texture = ExtResource("11_8xvs3")
 
 [node name="Label" type="Label" parent="."]
+process_mode = 3
 offset_left = 568.0
 offset_top = -316.0
 offset_right = 931.0

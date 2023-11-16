@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr1416rbqfgub"]
+[gd_scene load_steps=5 format=3 uid="uid://dt85pvmpwm855"]
 
-[ext_resource type="Script" path="res://Characters/Enemies/Enemy.gd" id="1_pj5e5"]
-[ext_resource type="Texture2D" uid="uid://d1gqxsoc30we4" path="res://Assets/Characters/comrade3.png" id="2_yywn7"]
+[ext_resource type="Script" path="res://Characters/Enemies/Enemy.gd" id="1_t6nqr"]
+[ext_resource type="Texture2D" uid="uid://d4huwy0xixh3l" path="res://Assets/Characters/comrade1.png" id="2_r032b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1ham"]
 radius = 26.0
@@ -11,7 +11,7 @@ height = 72.0
 size = Vector2(34.5, 55)
 
 [node name="Enemy" type="Area2D"]
-script = ExtResource("1_pj5e5")
+script = ExtResource("1_t6nqr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_r1ham")
@@ -24,9 +24,9 @@ shape = SubResource("RectangleShape2D_kjedp")
 
 [node name="Comrade1" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -7)
-scale = Vector2(1.84722, 1.84722)
-texture = ExtResource("2_yywn7")
+position = Vector2(-2.875, -6.91532)
+scale = Vector2(1.54032, 1.54032)
+texture = ExtResource("2_r032b")
 
 [connection signal="body_entered" from="KillingRange" to="." method="_on_killing_range_body_entered"]
 [connection signal="body_exited" from="KillingRange" to="." method="_on_killing_range_body_exited"]
