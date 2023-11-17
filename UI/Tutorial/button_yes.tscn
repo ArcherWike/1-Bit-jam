@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbyr8856e7ywh"]
+
+[ext_resource type="PackedScene" uid="uid://2xf3iodvr4lf" path="res://UI/button.tscn" id="1_hedvk"]
+
+[node name="Button_yes" instance=ExtResource("1_hedvk")]
+text = "YES"

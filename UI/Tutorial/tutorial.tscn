@@ -1,0 +1,545 @@
+[gd_scene load_steps=39 format=3 uid="uid://bat5femen1w7s"]
+
+[ext_resource type="Script" path="res://Levels/Ship.gd" id="1_ufd3t"]
+[ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="2_1mh07"]
+[ext_resource type="Texture2D" uid="uid://b4crd0hud487e" path="res://Assets/Background/Ship.png" id="3_oavry"]
+[ext_resource type="Texture2D" uid="uid://de55l5yn3sneu" path="res://Assets/Background/Ship_N.png" id="4_sghw5"]
+[ext_resource type="Texture2D" uid="uid://cy7mogr0l02db" path="res://Assets/Background/Ship_Line.png" id="5_665r8"]
+[ext_resource type="PackedScene" uid="uid://1vbusn87ko7w" path="res://Characters/Hero/hero.tscn" id="6_wi7oa"]
+[ext_resource type="Texture2D" uid="uid://ejphpkym2l4y" path="res://Assets/Textures/light.png" id="7_5rl5x"]
+[ext_resource type="Script" path="res://Shaders/PointLight2D.gd" id="8_cc62k"]
+[ext_resource type="AudioStream" uid="uid://cjcaqvscguown" path="res://Audio/Music/epic-storm-thunder-rainwindwaves-no-loops-106800.mp3" id="9_o4324"]
+[ext_resource type="AudioStream" uid="uid://c4c0aj18145xd" path="res://Audio/Sounds/thunder.mp3" id="10_oyt6f"]
+[ext_resource type="Texture2D" uid="uid://8mjnou66b1qc" path="res://Assets/Background/front.png" id="11_ptxea"]
+[ext_resource type="Texture2D" uid="uid://chwykk3swigea" path="res://Assets/Background/front_N.png" id="12_1iin2"]
+[ext_resource type="Texture2D" uid="uid://nqf60sdusu2x" path="res://Assets/Background/front_Line.png" id="13_optm2"]
+[ext_resource type="PackedScene" uid="uid://dqhkvlai4mh0m" path="res://Shaders/Storm.tscn" id="14_v28o5"]
+[ext_resource type="Texture2D" uid="uid://dwcggre2cets4" path="res://Assets/Background/poles.png" id="15_khmgh"]
+[ext_resource type="Texture2D" uid="uid://beshetbu3xf14" path="res://Assets/Background/Poles_N.png" id="16_k42x0"]
+[ext_resource type="Texture2D" uid="uid://bxoky6fj2onws" path="res://Assets/Background/poles_Line.png" id="17_0df40"]
+[ext_resource type="PackedScene" uid="uid://bx86haurrfd67" path="res://UI/Menu/pause.tscn" id="18_7hwno"]
+[ext_resource type="Shader" path="res://Shaders/ColorChanging1.gdshader" id="19_ksh2o"]
+[ext_resource type="Shader" path="res://Levels/Glitch.gdshader" id="20_bhlgs"]
+[ext_resource type="Texture2D" uid="uid://bw8wquq0p4ytr" path="res://Assets/Textures/noise.png" id="21_mbcys"]
+[ext_resource type="PackedScene" uid="uid://dt85pvmpwm855" path="res://Characters/Enemies/enemy2.tscn" id="23_noht7"]
+[ext_resource type="PackedScene" uid="uid://dbyr8856e7ywh" path="res://UI/Tutorial/button_yes.tscn" id="24_hlkvd"]
+[ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="24_t730p"]
+[ext_resource type="Script" path="res://UI/Tutorial/TutorialTask.gd" id="25_75qiv"]
+[ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area.tscn" id="26_vnvyk"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
+diffuse_texture = ExtResource("3_oavry")
+normal_texture = ExtResource("4_sghw5")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_koqq4"]
+diffuse_texture = ExtResource("11_ptxea")
+normal_texture = ExtResource("12_1iin2")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g5v2o"]
+diffuse_texture = ExtResource("15_khmgh")
+normal_texture = ExtResource("16_k42x0")
+texture_filter = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26ky6"]
+shader = ExtResource("19_ksh2o")
+shader_parameter/multiply = 1.0
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8girg"]
+shader = ExtResource("20_bhlgs")
+shader_parameter/dispAmt = 1.0
+shader_parameter/abberationAMt = 0.1
+shader_parameter/displace = ExtResource("21_mbcys")
+
+[sub_resource type="GDScript" id="GDScript_enqu4"]
+script/source = "extends Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+	
+"
+
+[sub_resource type="Animation" id="Animation_t2cs0"]
+resource_name = "Lightning"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero/Thunder:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Flash:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.501961, 0.501961, 0.501961, 0.792157)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Flash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ml638"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero/Thunder:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Flash:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Flash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2srdg"]
+_data = {
+"Lightning": SubResource("Animation_t2cs0"),
+"RESET": SubResource("Animation_ml638")
+}
+
+[sub_resource type="Animation" id="Animation_i0qvc"]
+resource_name = "notify of problems"
+length = 50.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Enemy/Enemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9, 1.3, 1.9, 2.5, 3.1, 3.8, 4.9, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1323, 344), Vector2(1257, 373), Vector2(1168, 421), Vector2(1103, 456), Vector2(981, 460), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Enemy/Enemy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TutorialTask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_bsv5k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Enemy/Enemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1323, 344)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Enemy/Enemy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mia1t"]
+_data = {
+"RESET": SubResource("Animation_bsv5k"),
+"notify of problems": SubResource("Animation_i0qvc")
+}
+
+[node name="Ship" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_ufd3t")
+
+[node name="BackAssets" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="Water" parent="BackAssets" instance=ExtResource("2_1mh07")]
+position = Vector2(1027, 873)
+scale = Vector2(73.2184, 40.7258)
+metadata/_edit_lock_ = true
+
+[node name="Ship" type="Sprite2D" parent="BackAssets"]
+texture_filter = 1
+position = Vector2(1034, 518)
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_4wdfq")
+metadata/_edit_lock_ = true
+
+[node name="ShipLine" type="Sprite2D" parent="BackAssets"]
+texture_filter = 1
+position = Vector2(1034, 518)
+scale = Vector2(3, 3)
+texture = ExtResource("5_665r8")
+metadata/_edit_lock_ = true
+
+[node name="Hero" parent="." instance=ExtResource("6_wi7oa")]
+process_mode = 1
+position = Vector2(844, 576)
+scale = Vector2(3.52, 2.69823)
+
+[node name="PointLight2D" type="PointLight2D" parent="Hero"]
+texture_filter = 1
+scale = Vector2(2.57715, 2.89364)
+color = Color(0.521569, 0.521569, 0.521569, 1)
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("7_5rl5x")
+script = ExtResource("8_cc62k")
+
+[node name="Camera2D" type="Camera2D" parent="Hero"]
+texture_filter = 1
+
+[node name="Rain" type="AudioStreamPlayer2D" parent="Hero"]
+position = Vector2(-239.773, -213.473)
+scale = Vector2(0.284091, 0.370613)
+stream = ExtResource("9_o4324")
+autoplay = true
+
+[node name="Thunder" type="AudioStreamPlayer2D" parent="Hero"]
+position = Vector2(-239.773, -213.473)
+scale = Vector2(0.284091, 0.370613)
+stream = ExtResource("10_oyt6f")
+
+[node name="FrontAssets" type="Node2D" parent="."]
+process_mode = 1
+position = Vector2(623, 625)
+scale = Vector2(3, 3)
+
+[node name="Front" type="Sprite2D" parent="FrontAssets"]
+texture_filter = 1
+texture = SubResource("CanvasTexture_koqq4")
+metadata/_edit_lock_ = true
+
+[node name="FrontLine" type="Sprite2D" parent="FrontAssets"]
+texture_filter = 1
+position = Vector2(-26, 76)
+texture = ExtResource("13_optm2")
+metadata/_edit_lock_ = true
+
+[node name="rain" parent="FrontAssets" instance=ExtResource("14_v28o5")]
+position = Vector2(-93.6667, 30)
+scale = Vector2(1.17333, 0.89941)
+
+[node name="Poles" type="Sprite2D" parent="FrontAssets"]
+texture_filter = 1
+position = Vector2(133.667, -204)
+texture = SubResource("CanvasTexture_g5v2o")
+metadata/_edit_lock_ = true
+
+[node name="PolesLine" type="Sprite2D" parent="FrontAssets"]
+texture_filter = 1
+position = Vector2(195.667, -203)
+texture = ExtResource("17_0df40")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 1
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("18_7hwno")]
+visible = false
+top_level = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Flash" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1088.0
+offset_top = -444.0
+offset_right = 1220.0
+offset_bottom = 947.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorChange" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
+texture_filter = 1
+material = SubResource("ShaderMaterial_26ky6")
+anchors_preset = -1
+anchor_left = -0.907118
+anchor_right = 4.43837
+anchor_bottom = 5.34541
+offset_left = -767.0
+offset_top = -906.0
+offset_right = -767.0
+offset_bottom = -905.824
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Glitch" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_8girg")
+anchors_preset = -1
+anchor_left = -0.336979
+anchor_top = -0.337037
+anchor_right = 0.459375
+anchor_bottom = 0.459259
+offset_left = -17.0
+offset_top = 144.0
+offset_right = 1903.0
+offset_bottom = 1224.0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+process_mode = 1
+visible = false
+color = Color(0, 0, 0, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+process_mode = 1
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-515, 521, -31, 771, 374, 885, 531, 921, 1036, 928, 1559, 919, 1706, 913, 1904, 822, 2348, 813, 2396, 807, 1923, 1266, 556, 1282, -116, 962)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-513, 504, 335, 200, 512, 207, 578, 246, 1610, 224, 1765, 66, 2314, 89, 2439, 782, 2377, 773, 2269, 126, 1773, 107, 1628, 254, 569, 273, 499, 234, 314, 236, -470, 516)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(487, 364, 596, 442, 651, 465, 656, 473, 497, 478, 488, 755, 450, 731, 439, 739, 416, 743, 402, 694, 415, 359, 433, 362, 445, 364, 468, 367)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(147, 585, 193, 554, 215, 561, 218, 593, 197, 611, 173, 614, 155, 604)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(893, 182)
+scale = Vector2(0.680458, 0.729167)
+polygon = PackedVector2Array(147, 585, 193, 554, 215, 561, 218, 593, 197, 611, 173, 614, 155, 604)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(1982.79, -51.9601)
+scale = Vector2(0.875553, 0.938228)
+polygon = PackedVector2Array(147, 585, 170.421, 561.655, 193, 554, 215, 561, 218, 593, 197, 611, 173, 614, 155, 604)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1583, 471, 1642, 436, 1757, 342, 1794, 331, 1797, 281, 1844, 288, 1854, 389, 1912, 387, 1948, 560, 1887, 561, 1878, 660, 1790, 663, 1756, 725, 1785, 628, 1771, 492, 1731, 546, 1716, 475)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1242, 470, 1249, 720, 1422, 721, 1407, 470)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(442, 729, 487, 729, 566, 793, 505, 765)
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 3.0
+autostart = true
+script = SubResource("GDScript_enqu4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 1
+libraries = {
+"": SubResource("AnimationLibrary_2srdg")
+}
+
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="Enemy2" parent="Enemy" instance=ExtResource("23_noht7")]
+position = Vector2(611, 582)
+
+[node name="Enemy" parent="Enemy" instance=ExtResource("24_t730p")]
+position = Vector2(1323, 344)
+
+[node name="TutorialTask" type="CanvasLayer" parent="."]
+script = ExtResource("25_75qiv")
+
+[node name="Panel" type="Panel" parent="TutorialTask"]
+visible = false
+custom_minimum_size = Vector2(300, 250)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -555.0
+offset_top = 42.0
+offset_right = -105.0
+offset_bottom = 292.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialTask/Panel"]
+offset_left = 16.0
+offset_top = 26.0
+offset_right = 405.0
+offset_bottom = 206.0
+
+[node name="Description" type="Label" parent="TutorialTask/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(40, 45)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quest:
+A strange picture says it all"
+
+[node name="Quest1" type="Label" parent="TutorialTask/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(40, 45)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Kill companion"
+
+[node name="Quest2" type="Label" parent="TutorialTask/Panel/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(40, 45)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Check the rudder"
+
+[node name="StartInfo" type="Panel" parent="TutorialTask"]
+process_mode = 3
+offset_left = 628.0
+offset_top = 351.0
+offset_right = 1128.0
+offset_bottom = 751.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialTask/StartInfo"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 131.0
+offset_right = 194.0
+offset_bottom = 171.0
+
+[node name="Info" type="Label" parent="TutorialTask/StartInfo/VBoxContainer"]
+layout_mode = 2
+text = "WSAD for movement
+Enter for interactions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_yes" parent="TutorialTask/StartInfo/VBoxContainer" instance=ExtResource("24_hlkvd")]
+layout_mode = 2
+text = "OK"
+
+[node name="NotifyByEnemy" type="AnimationPlayer" parent="TutorialTask"]
+root_node = NodePath("../../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_mia1t")
+}
+
+[node name="interact" parent="." instance=ExtResource("26_vnvyk")]
+position = Vector2(1997, 470)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="child_exiting_tree" from="Enemy/Enemy2" to="TutorialTask" method="_on_enemy_2_child_exiting_tree"]
+[connection signal="pressed" from="TutorialTask/StartInfo/VBoxContainer/Button_yes" to="TutorialTask" method="_on_button_yes_tutorial_info_pressed"]
+[connection signal="start_game" from="interact" to="TutorialTask" method="_on_interact_start_game"]
