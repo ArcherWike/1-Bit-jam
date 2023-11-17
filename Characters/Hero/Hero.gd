@@ -9,7 +9,8 @@ var direction = "Up"
 @onready var ANIMATIONS = $AnimatedSprite2D
 
 func _process(delta):
-	move_state(delta)
+	if !(GameStat.MiniGameIsActive):
+		move_state(delta)
 
 var roll_vector = Vector2.DOWN
 func move_state(delta):

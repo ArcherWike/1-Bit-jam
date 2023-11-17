@@ -15,8 +15,9 @@ func _ready():
 		child.connect("start_game", Callable(self, "_on_interact_start_game"))
 	if len(Game_interact_List) <= 0:
 		push_error("Game starting points missing - interact scene in Game_interact Node")
+	else:
 		#if has_methon
-	Select_starting_area()
+		Select_starting_area()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
@@ -31,6 +32,7 @@ func Select_starting_area():
 	active_game_area.Set_activity(true)	
 
 func _completed_game(is_completed):
+	GameStat.MiniGameIsActive = false
 	if (!is_completed):
 		print("GAME OVER")
 		get_tree().change_scene_to_file("res://UI/Menu/GameOver.tscn")
@@ -38,7 +40,7 @@ func _completed_game(is_completed):
 	active_game_node.queue_free()
 	##Change mode
 	GameStat.ChangeState()
-	active_game_area.Set_activity(false)
+	active_game_area.call_deferred("Set_activity",false)
 	active_game_area = null
 	
 func _on_interact_start_game(game_type):
@@ -48,11 +50,12 @@ func _on_interact_start_game(game_type):
 				var Game_load = load("res://Objects/MiniGames/Game_"+str(game_type)+".tscn")
 				var Game_instance = Game_load.instantiate()
 				$UI.add_child(Game_instance)
-				#active_game_node.set_process = PROCESS_MODE_ALWAYS
+				GameStat.MiniGameIsActive = true
 				active_game_node = $UI.get_node("Game_"+str(game_type))
 				active_game_node.SetGameTimer(GameStat.time_task)
 				active_game_node.connect("completed_game", Callable(self, "_completed_game"))			
-	get_tree().paused = true
+	if game_type != GameStat.Games[1]:
+		get_tree().paused = true
 
 func _game_stat_was_changed():
 	if GameStat.ActiveStat == 0:
