@@ -2,6 +2,7 @@ extends Node
 
 signal change_state(new_state)
 
+var MiniGameIsActive = false
 var time_task = 60
 var time_kill = 120
 var killed = 0
@@ -32,5 +33,5 @@ func Paranoia():
 	
 var Games = {
 	0: "rotate", #0
-	1: "memory"  #1
+	1: "fisherman"  #1
 }
