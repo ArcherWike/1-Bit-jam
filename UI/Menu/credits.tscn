@@ -71,7 +71,7 @@ grow_vertical = 2
 theme_override_fonts/font = SubResource("SystemFont_biaoo")
 theme_override_font_sizes/font_size = 50
 text = "ArcheryWike - Programmer
-DaddyMilker/Dushka - Tech Artist
+DaddyMilker/Dushka - Generalist
 Ikien - 2D Artist, UI Designer"
 horizontal_alignment = 1
 
