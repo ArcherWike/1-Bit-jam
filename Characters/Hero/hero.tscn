@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ddxmrkjqjjxjx" path="res://Assets/Characters/frontspriteidle.png" id="6_gtiwk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ecib"]
+radius = 9.0
+height = 28.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqahd"]
 atlas = ExtResource("6_gtiwk")

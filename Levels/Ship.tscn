@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dhv6vwvrdrf6x"]
+[gd_scene load_steps=39 format=3 uid="uid://dhv6vwvrdrf6x"]
 
 [ext_resource type="Script" path="res://Levels/Ship.gd" id="1_mincd"]
 [ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="1_rlr5f"]
@@ -21,11 +21,13 @@
 [ext_resource type="AudioStream" uid="uid://c4c0aj18145xd" path="res://Audio/Sounds/thunder.mp3" id="17_1003v"]
 [ext_resource type="PackedScene" uid="uid://bx86haurrfd67" path="res://UI/Menu/pause.tscn" id="19_atylr"]
 [ext_resource type="PackedScene" uid="uid://cabutbkyqaiom" path="res://Objects/tasks_system.tscn" id="19_j17sv"]
-[ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area.tscn" id="20_7rfqb"]
 [ext_resource type="Shader" path="res://Levels/Glitch.gdshader" id="20_xqbag"]
 [ext_resource type="PackedScene" uid="uid://dt85pvmpwm855" path="res://Characters/Enemies/enemy2.tscn" id="21_fx5g0"]
 [ext_resource type="PackedScene" uid="uid://dr1416rbqfgub" path="res://Characters/Enemies/enemy.tscn" id="21_sotxq"]
 [ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="22_xs6ws"]
+[ext_resource type="PackedScene" uid="uid://s0uqf1f2taoy" path="res://Objects/game_area3.tscn" id="26_v43r6"]
+[ext_resource type="PackedScene" uid="uid://cx8gxrx0ybjr" path="res://Objects/game_area2.tscn" id="27_50r60"]
+[ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area1.tscn" id="28_4je3m"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("2_fixcm")
@@ -177,6 +179,9 @@ _data = {
 "RESET": SubResource("Animation_ml638")
 }
 
+[sub_resource type="SystemFont" id="SystemFont_puskh"]
+font_names = PackedStringArray("ThaleahFat")
+
 [node name="Ship" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_mincd")
@@ -202,6 +207,12 @@ position = Vector2(1034, 518)
 scale = Vector2(3, 3)
 texture = ExtResource("11_0a30r")
 metadata/_edit_lock_ = true
+
+[node name="interact3" parent="." instance=ExtResource("28_4je3m")]
+position = Vector2(-145, 541)
+
+[node name="interact2" parent="." instance=ExtResource("27_50r60")]
+position = Vector2(1230, 291)
 
 [node name="Hero" parent="." instance=ExtResource("3_ngwxs")]
 process_mode = 1
@@ -229,6 +240,9 @@ autoplay = true
 position = Vector2(-239.773, -213.473)
 scale = Vector2(0.284091, 0.370613)
 stream = ExtResource("17_1003v")
+
+[node name="interact" parent="." instance=ExtResource("26_v43r6")]
+position = Vector2(2038, 477)
 
 [node name="FrontAssets" type="Node2D" parent="."]
 process_mode = 1
@@ -323,6 +337,7 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 process_mode = 1
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -398,14 +413,8 @@ metadata/_edit_lock_ = true
 
 [node name="Task_system" parent="." instance=ExtResource("19_j17sv")]
 
-[node name="interact" parent="Task_system/Game_interact" index="0" instance=ExtResource("20_7rfqb")]
-position = Vector2(2080, 325)
-
-[node name="interact2" parent="Task_system/Game_interact" index="1" instance=ExtResource("20_7rfqb")]
-position = Vector2(863, 824)
-
-[node name="interact3" parent="Task_system/Game_interact" index="2" instance=ExtResource("20_7rfqb")]
-position = Vector2(-151, 597)
+[node name="TimeLabel" parent="Task_system/UI" index="2"]
+theme_override_fonts/font = SubResource("SystemFont_puskh")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

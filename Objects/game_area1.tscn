@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://db68bumn2aqv4"]
+[gd_scene load_steps=6 format=3 uid="uid://db68bumn2aqv4"]
 
-[ext_resource type="Script" path="res://Objects/game_area.gd" id="1_kqslb"]
-[ext_resource type="Texture2D" uid="uid://cuvepw7eegsu1" path="res://UI/Grzegorz.png" id="2_wnwv5"]
+[ext_resource type="Script" path="res://Objects/game_area.gd" id="1_p0bey"]
+[ext_resource type="Texture2D" uid="uid://cnprv8r26xgwi" path="res://Assets/Items/planks.png" id="2_dw0ym"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgnu5"]
 radius = 121.017
@@ -12,8 +12,11 @@ gravity = Vector3(0, 98, 0)
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8kw7"]
+radius = 19.0263
+
 [node name="interact" type="Area2D"]
-script = ExtResource("1_kqslb")
+script = ExtResource("1_p0bey")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,9 +24,10 @@ shape = SubResource("CircleShape2D_jgnu5")
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-1.5, -2)
-scale = Vector2(0.445313, 0.421875)
-texture = ExtResource("2_wnwv5")
+scale = Vector2(2, 2)
+texture = ExtResource("2_dw0ym")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(1, -1)
@@ -38,6 +42,12 @@ offset_left = -19.0
 offset_top = -60.0
 offset_right = 21.0
 offset_bottom = -37.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-3, 15)
+
+[node name="BlockPlayer" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_l8kw7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
