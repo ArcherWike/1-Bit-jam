@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bom34sva7dstj"]
+[gd_scene load_steps=7 format=3 uid="uid://df2iftvyjhf1w"]
 
 [ext_resource type="Script" path="res://Objects/MiniGames/Game_fisherman.gd" id="1_rha2s"]
 [ext_resource type="Texture2D" uid="uid://c2bu1wxxwghnn" path="res://Assets/UI/MiniGames/RodBackground.png" id="2_c3xap"]

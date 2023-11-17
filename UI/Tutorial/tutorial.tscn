@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dbyr8856e7ywh" path="res://UI/Tutorial/button_yes.tscn" id="24_hlkvd"]
 [ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="24_t730p"]
 [ext_resource type="Script" path="res://UI/Tutorial/TutorialTask.gd" id="25_75qiv"]
-[ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area.tscn" id="26_vnvyk"]
+[ext_resource type="PackedScene" path="res://Objects/game_area1.tscn" id="26_xvrgy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("3_oavry")
@@ -177,6 +177,33 @@ _data = {
 "RESET": SubResource("Animation_ml638")
 }
 
+[sub_resource type="Animation" id="Animation_bsv5k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Enemy/Enemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1323, 344)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Enemy/Enemy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_i0qvc"]
 resource_name = "notify of problems"
 length = 50.0
@@ -215,33 +242,6 @@ tracks/2/keys = {
 "times": PackedFloat32Array(),
 "transitions": PackedFloat32Array(),
 "values": []
-}
-
-[sub_resource type="Animation" id="Animation_bsv5k"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Enemy/Enemy:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1323, 344)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Enemy/Enemy:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mia1t"]
@@ -480,6 +480,7 @@ offset_bottom = 292.0
 grow_horizontal = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TutorialTask/Panel"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 26.0
 offset_right = 405.0
@@ -536,10 +537,8 @@ libraries = {
 "": SubResource("AnimationLibrary_mia1t")
 }
 
-[node name="interact" parent="." instance=ExtResource("26_vnvyk")]
-position = Vector2(1997, 470)
+[node name="interact" parent="." instance=ExtResource("26_xvrgy")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="child_exiting_tree" from="Enemy/Enemy2" to="TutorialTask" method="_on_enemy_2_child_exiting_tree"]
 [connection signal="pressed" from="TutorialTask/StartInfo/VBoxContainer/Button_yes" to="TutorialTask" method="_on_button_yes_tutorial_info_pressed"]
-[connection signal="start_game" from="interact" to="TutorialTask" method="_on_interact_start_game"]

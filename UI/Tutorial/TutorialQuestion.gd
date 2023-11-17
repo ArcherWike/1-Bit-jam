@@ -12,8 +12,9 @@ func _process(delta):
 
 
 func _on_button_yes_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Levels/Ship.tscn")
 
 
 func _on_button_no_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://UI/Tutorial/tutorial.tscn")
+	

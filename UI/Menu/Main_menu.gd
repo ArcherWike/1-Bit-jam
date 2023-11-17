@@ -9,7 +9,7 @@ extends Control
 func _on_new_game_button_up():
 	select.play()
 	await select.finished
-	get_tree().change_scene_to_file("res://Levels/Ship.tscn")
+	get_tree().change_scene_to_file("res://UI/Tutorial/tutorial_question.tscn")
 	
 func _on_credits_button_up():
 	select.play()
