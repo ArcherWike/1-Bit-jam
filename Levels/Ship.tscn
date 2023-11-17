@@ -34,6 +34,9 @@ diffuse_texture = ExtResource("2_fixcm")
 normal_texture = ExtResource("3_g52by")
 texture_filter = 1
 
+[sub_resource type="SystemFont" id="SystemFont_puskh"]
+font_names = PackedStringArray("ThaleahFat")
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_koqq4"]
 diffuse_texture = ExtResource("6_aq6ra")
 normal_texture = ExtResource("9_idlwu")
@@ -179,9 +182,6 @@ _data = {
 "RESET": SubResource("Animation_ml638")
 }
 
-[sub_resource type="SystemFont" id="SystemFont_puskh"]
-font_names = PackedStringArray("ThaleahFat")
-
 [node name="Ship" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_mincd")
@@ -208,11 +208,21 @@ scale = Vector2(3, 3)
 texture = ExtResource("11_0a30r")
 metadata/_edit_lock_ = true
 
-[node name="interact3" parent="." instance=ExtResource("28_4je3m")]
+[node name="Task_system" parent="." instance=ExtResource("19_j17sv")]
+
+[node name="TimeLabel" parent="Task_system/UI" index="2"]
+theme_override_fonts/font = SubResource("SystemFont_puskh")
+
+[node name="interact2" parent="Task_system/Game_interact" index="0" instance=ExtResource("28_4je3m")]
 position = Vector2(-145, 541)
 
-[node name="interact2" parent="." instance=ExtResource("27_50r60")]
+[node name="interact0" parent="Task_system/Game_interact" index="1" instance=ExtResource("26_v43r6")]
+position = Vector2(2038, 477)
+run_game = 2
+
+[node name="interact1" parent="Task_system/Game_interact" index="2" instance=ExtResource("27_50r60")]
 position = Vector2(1230, 291)
+run_game = 1
 
 [node name="Hero" parent="." instance=ExtResource("3_ngwxs")]
 process_mode = 1
@@ -240,9 +250,6 @@ autoplay = true
 position = Vector2(-239.773, -213.473)
 scale = Vector2(0.284091, 0.370613)
 stream = ExtResource("17_1003v")
-
-[node name="interact" parent="." instance=ExtResource("26_v43r6")]
-position = Vector2(2038, 477)
 
 [node name="FrontAssets" type="Node2D" parent="."]
 process_mode = 1
@@ -410,11 +417,6 @@ metadata/_edit_lock_ = true
 [node name="Enemy3" parent="Enemy" instance=ExtResource("22_xs6ws")]
 position = Vector2(2099, 414)
 metadata/_edit_lock_ = true
-
-[node name="Task_system" parent="." instance=ExtResource("19_j17sv")]
-
-[node name="TimeLabel" parent="Task_system/UI" index="2"]
-theme_override_fonts/font = SubResource("SystemFont_puskh")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

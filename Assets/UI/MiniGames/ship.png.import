@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu18lqnlmjy3y"
-path="res://.godot/imported/Grzegorz.png-1e386d1ad6fdef3af40771a720caa117.ctex"
+uid="uid://dqeme2iojrcc8"
+path="res://.godot/imported/ship.png-2ba9a98b4876196d2f4d831bd72b69fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Grzegorz.png"
-dest_files=["res://.godot/imported/Grzegorz.png-1e386d1ad6fdef3af40771a720caa117.ctex"]
+source_file="res://Assets/UI/MiniGames/ship.png"
+dest_files=["res://.godot/imported/ship.png-2ba9a98b4876196d2f4d831bd72b69fa.ctex"]
 
 [params]
 

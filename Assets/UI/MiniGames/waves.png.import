@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmr6shinlfr6c"
-path="res://.godot/imported/Grzegorz.png-1f550dbb23a602cc61d69cac217e2027.ctex"
+uid="uid://de0xp766gkmf0"
+path="res://.godot/imported/waves.png-863335ace6f08f103e03a2908e8dd6f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Audio/Music/Grzegorz.png"
-dest_files=["res://.godot/imported/Grzegorz.png-1f550dbb23a602cc61d69cac217e2027.ctex"]
+source_file="res://Assets/UI/MiniGames/waves.png"
+dest_files=["res://.godot/imported/waves.png-863335ace6f08f103e03a2908e8dd6f8.ctex"]
 
 [params]
 

@@ -7,7 +7,8 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		pauseMenu()
-
+	if GameStat.killed == 3:
+		get_tree().change_scene_to_file("res://UI/Menu/WinScreen.tscn")
 func _on_timer_timeout():
 	$AnimationPlayer.play("Lightning")
 	$Timer.wait_time = int(RandomNumberGenerator.new().randf_range(7,10))

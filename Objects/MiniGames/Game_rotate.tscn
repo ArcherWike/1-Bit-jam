@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c1xeax3cpinri"]
+[gd_scene load_steps=33 format=3 uid="uid://c1xeax3cpinri"]
 
 [ext_resource type="Script" path="res://Objects/MiniGames/Game_rotate.gd" id="1_85del"]
 [ext_resource type="Texture2D" uid="uid://b2opxx6q6kxin" path="res://Assets/UI/MiniGames/1minigamebackground.png" id="2_cceay"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://vkcunl2k62wi" path="res://Assets/UI/MiniGames/kafelek7.png" id="9_eawh1"]
 [ext_resource type="Texture2D" uid="uid://bplnyj7puuvl7" path="res://Assets/UI/MiniGames/kafelek8.png" id="10_ip6i0"]
 [ext_resource type="Texture2D" uid="uid://bx842e4fkrr35" path="res://Assets/UI/MiniGames/kafelek9.png" id="11_8xvs3"]
+
+[sub_resource type="SystemFont" id="SystemFont_xd857"]
+font_names = PackedStringArray("ThaleahFat")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88ndr"]
 shader = ExtResource("2_mnrh3")
@@ -103,6 +106,9 @@ shader = ExtResource("2_mnrh3")
 shader_parameter/alpha = 0.8
 shader_parameter/complete = 1.0
 
+[sub_resource type="SystemFont" id="SystemFont_r2dt2"]
+font_names = PackedStringArray("ThaleahFat")
+
 [node name="Game_rotate" type="Node2D"]
 process_mode = 3
 position = Vector2(969, 569)
@@ -138,7 +144,8 @@ offset_bottom = -376.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = SubResource("SystemFont_xd857")
+theme_override_font_sizes/font_size = 150
 text = "00:00"
 metadata/_edit_lock_ = true
 
@@ -425,14 +432,18 @@ texture = ExtResource("11_8xvs3")
 
 [node name="Label" type="Label" parent="."]
 process_mode = 3
+texture_filter = 1
 offset_left = 568.0
 offset_top = -316.0
 offset_right = 931.0
 offset_bottom = -192.0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = SubResource("SystemFont_r2dt2")
+theme_override_font_sizes/font_size = 30
 text = "Move with <- and -> or A and D
+
 Rotate with Enter
-Rotate to make all pictures hotizontal
-before time ends"
+
+Rotate to make all pictures 
+hotizontal before time ends"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

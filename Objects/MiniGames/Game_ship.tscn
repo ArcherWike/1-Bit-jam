@@ -1,19 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8av4ys2w20av"]
+[gd_scene load_steps=9 format=3 uid="uid://drxmisgs67qt"]
 
 [ext_resource type="Script" path="res://Objects/MiniGames/Game_ship.gd" id="1_5kpai"]
-[ext_resource type="Texture2D" uid="uid://b2opxx6q6kxin" path="res://Assets/UI/MiniGames/1minigamebackground.png" id="2_emu7m"]
+[ext_resource type="Texture2D" uid="uid://dkrluc3fl21ha" path="res://Assets/UI/MiniGames/shipbackground.png" id="2_inomt"]
 [ext_resource type="Shader" path="res://Shaders/Brightness.gdshader" id="3_kmcdq"]
-[ext_resource type="Texture2D" uid="uid://cagcskxfrwva" path="res://Assets/UI/MiniGames/kafelek1.png" id="4_n6kjj"]
+[ext_resource type="Texture2D" uid="uid://dqeme2iojrcc8" path="res://Assets/UI/MiniGames/ship.png" id="4_l35au"]
+[ext_resource type="Texture2D" uid="uid://de0xp766gkmf0" path="res://Assets/UI/MiniGames/waves.png" id="5_gnmxl"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_88ndr"]
-shader = ExtResource("3_kmcdq")
-shader_parameter/alpha = 0.8
-shader_parameter/complete = 1.0
+[sub_resource type="SystemFont" id="SystemFont_jkxgu"]
+font_names = PackedStringArray("ThaleahFat")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pycx3"]
 shader = ExtResource("3_kmcdq")
 shader_parameter/alpha = 0.8
 shader_parameter/complete = 1.0
+
+[sub_resource type="SystemFont" id="SystemFont_xcx4f"]
+font_names = PackedStringArray("ThaleahFat")
 
 [node name="Game_ship" type="Node2D"]
 process_mode = 3
@@ -35,7 +37,7 @@ offset_right = 960.0
 offset_bottom = 604.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_emu7m")
+texture = ExtResource("2_inomt")
 metadata/_edit_lock_ = true
 
 [node name="TimerLabel" type="Label" parent="."]
@@ -50,7 +52,8 @@ offset_bottom = -376.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = SubResource("SystemFont_jkxgu")
+theme_override_font_sizes/font_size = 120
 text = "00:00"
 metadata/_edit_lock_ = true
 
@@ -78,46 +81,51 @@ columns = 3
 
 [node name="Slot1" type="ColorRect" parent="GridContainer"]
 process_mode = 3
-material = SubResource("ShaderMaterial_88ndr")
-custom_minimum_size = Vector2(1000, 1000)
+custom_minimum_size = Vector2(900, 900)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+color = Color(0, 0, 0, 0)
 
 [node name="image1" type="TextureRect" parent="GridContainer/Slot1"]
 process_mode = 3
 texture_filter = 1
 material = SubResource("ShaderMaterial_pycx3")
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -494.444
-offset_top = -497.778
-offset_right = 505.556
-offset_bottom = 502.222
+layout_mode = 2
+offset_left = 215.556
+offset_top = 215.0
+offset_right = 715.556
+offset_bottom = 715.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(500, 500)
-texture = ExtResource("4_n6kjj")
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("4_l35au")
 
 [node name="Label" type="Label" parent="."]
 process_mode = 3
-offset_left = 568.0
-offset_top = -316.0
-offset_right = 931.0
-offset_bottom = -192.0
-theme_override_font_sizes/font_size = 20
-text = "Move with <- and -> or A and D
-Rotate with Enter
-Rotate to make all pictures hotizontal
-before time ends"
+texture_filter = 1
+offset_left = 600.0
+offset_top = -312.0
+offset_right = 963.0
+offset_bottom = -188.0
+theme_override_fonts/font = SubResource("SystemFont_xcx4f")
+theme_override_font_sizes/font_size = 30
+text = "Press enter to set ship 
+rotation to match waves"
 
 [node name="TimerChange" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
+
+[node name="Waves" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-41, 298)
+scale = Vector2(0.55, 0.875817)
+texture = ExtResource("5_gnmxl")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(-969, -569)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerChange" to="." method="_on_timer_change_timeout"]

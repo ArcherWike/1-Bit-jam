@@ -19,8 +19,7 @@ signal completed_game(is_completed)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#ActiveSlot.set_color(Color(0,0,0))
-	ActiveSlot.material.set_shader_parameter("alpha", 1);
-	ActiveImage.material.set_shader_parameter("alpha", 1);
+
 	Randomize_Slot()
 	$TimerChange.start()
 	
@@ -46,8 +45,6 @@ func _process(delta):
 
 		
 func ChangeActiveBlock(value):
-	ActiveSlot.material.set_shader_parameter("alpha", 0.8);
-	ActiveImage.material.set_shader_parameter("alpha", 0.8);
 	#ActiveSlot.set_color(Color(1,1,1))
 	active_slot += value
 	if (active_slot > max_val): 
@@ -58,8 +55,7 @@ func ChangeActiveBlock(value):
 	ActiveSlot = get_node("GridContainer/Slot"+ str(active_slot))
 	ActiveImage = get_node("GridContainer/Slot"+str(active_slot)+"/image"+ str(active_slot))
 	#ActiveSlot.set_color(Color(0,0,0))
-	ActiveSlot.material.set_shader_parameter("alpha", 1);
-	ActiveImage.material.set_shader_parameter("alpha", 1);
+
 	
 func Randomize_Slot():
 	for t in range(1, max_val + 1):
