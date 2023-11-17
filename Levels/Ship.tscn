@@ -208,6 +208,12 @@ scale = Vector2(3, 3)
 texture = ExtResource("11_0a30r")
 metadata/_edit_lock_ = true
 
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
 [node name="Task_system" parent="." instance=ExtResource("19_j17sv")]
 
 [node name="TimeLabel" parent="Task_system/UI" index="2"]
@@ -343,8 +349,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-process_mode = 1
-visible = false
+process_mode = 3
 color = Color(0, 0, 0, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
