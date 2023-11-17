@@ -33,5 +33,6 @@ func Paranoia():
 	
 var Games = {
 	0: "rotate", #0
-	1: "fisherman"  #1
+	1: "fisherman",  #1
+	2: "ship" #2
 }

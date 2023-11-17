@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8av4ys2w20av"]
+
+[ext_resource type="Script" path="res://Objects/MiniGames/Game_ship.gd" id="1_5kpai"]
+[ext_resource type="Texture2D" uid="uid://b2opxx6q6kxin" path="res://Assets/UI/MiniGames/1minigamebackground.png" id="2_emu7m"]
+[ext_resource type="Shader" path="res://Shaders/Brightness.gdshader" id="3_kmcdq"]
+[ext_resource type="Texture2D" uid="uid://cagcskxfrwva" path="res://Assets/UI/MiniGames/kafelek1.png" id="4_n6kjj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_88ndr"]
+shader = ExtResource("3_kmcdq")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pycx3"]
+shader = ExtResource("3_kmcdq")
+shader_parameter/alpha = 0.8
+shader_parameter/complete = 1.0
+
+[node name="Game_ship" type="Node2D"]
+process_mode = 3
+position = Vector2(969, 569)
+script = ExtResource("1_5kpai")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+process_mode = 3
+light_mask = 2
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1024.0
+offset_top = -662.0
+offset_right = 960.0
+offset_bottom = 604.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_emu7m")
+metadata/_edit_lock_ = true
+
+[node name="TimerLabel" type="Label" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 629.0
+offset_top = -528.0
+offset_right = 920.0
+offset_bottom = -376.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 100
+text = "00:00"
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 51.049
+
+[node name="GridContainer" type="GridContainer" parent="."]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -475.0
+offset_top = -475.0
+offset_right = 475.0
+offset_bottom = 475.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 100
+columns = 3
+
+[node name="Slot1" type="ColorRect" parent="GridContainer"]
+process_mode = 3
+material = SubResource("ShaderMaterial_88ndr")
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="image1" type="TextureRect" parent="GridContainer/Slot1"]
+process_mode = 3
+texture_filter = 1
+material = SubResource("ShaderMaterial_pycx3")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.444
+offset_top = -497.778
+offset_right = 505.556
+offset_bottom = 502.222
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(500, 500)
+texture = ExtResource("4_n6kjj")
+
+[node name="Label" type="Label" parent="."]
+process_mode = 3
+offset_left = 568.0
+offset_top = -316.0
+offset_right = 931.0
+offset_bottom = -192.0
+theme_override_font_sizes/font_size = 20
+text = "Move with <- and -> or A and D
+Rotate with Enter
+Rotate to make all pictures hotizontal
+before time ends"
+
+[node name="TimerChange" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerChange" to="." method="_on_timer_change_timeout"]
