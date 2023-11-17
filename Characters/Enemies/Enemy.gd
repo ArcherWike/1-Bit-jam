@@ -6,7 +6,7 @@ var killing_option_active = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameStat.connect("change_state", Callable(self, "_game_stat_was_changed"))
-			
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,7 +18,7 @@ func _process(delta):
 		
 		#if Hero can kill - destroy me
 	if Input.is_action_just_pressed("ui_accept") && endangered && killing_option_active:
-		#RenderingServer.global_shader_parameter_set("Paranoia",var4(0,0,0,1))
+		GameStat.Paranoia()
 		Self_destroy()
 		
 		

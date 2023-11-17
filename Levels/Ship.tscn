@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dhv6vwvrdrf6x"]
+[gd_scene load_steps=36 format=3 uid="uid://dhv6vwvrdrf6x"]
 
 [ext_resource type="Script" path="res://Levels/Ship.gd" id="1_mincd"]
 [ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="1_rlr5f"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cjcaqvscguown" path="res://Audio/Music/epic-storm-thunder-rainwindwaves-no-loops-106800.mp3" id="9_7qvec"]
 [ext_resource type="Texture2D" uid="uid://chwykk3swigea" path="res://Assets/Background/front_N.png" id="9_idlwu"]
 [ext_resource type="Shader" path="res://Shaders/ColorChanging1.gdshader" id="10_43eyt"]
+[ext_resource type="Texture2D" uid="uid://bw8wquq0p4ytr" path="res://Assets/Textures/noise.png" id="10_ulkfs"]
 [ext_resource type="Texture2D" uid="uid://cy7mogr0l02db" path="res://Assets/Background/Ship_Line.png" id="11_0a30r"]
 [ext_resource type="Texture2D" uid="uid://nqf60sdusu2x" path="res://Assets/Background/front_Line.png" id="11_xlmxm"]
 [ext_resource type="Texture2D" uid="uid://bxoky6fj2onws" path="res://Assets/Background/poles_Line.png" id="13_audj6"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bx86haurrfd67" path="res://UI/Menu/pause.tscn" id="19_atylr"]
 [ext_resource type="PackedScene" uid="uid://cabutbkyqaiom" path="res://Objects/tasks_system.tscn" id="19_j17sv"]
 [ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area.tscn" id="20_7rfqb"]
+[ext_resource type="Shader" path="res://Levels/Glitch.gdshader" id="20_xqbag"]
 [ext_resource type="PackedScene" uid="uid://dt85pvmpwm855" path="res://Characters/Enemies/enemy2.tscn" id="21_fx5g0"]
 [ext_resource type="PackedScene" uid="uid://dr1416rbqfgub" path="res://Characters/Enemies/enemy.tscn" id="21_sotxq"]
 [ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="22_xs6ws"]
@@ -43,7 +45,13 @@ texture_filter = 1
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_26ky6"]
 shader = ExtResource("10_43eyt")
 shader_parameter/multiply = 1.0
-shader_parameter/color = Color(0.870588, 0.870588, 0.870588, 1)
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8girg"]
+shader = ExtResource("20_xqbag")
+shader_parameter/dispAmt = 1.0
+shader_parameter/abberationAMt = 0.1
+shader_parameter/displace = ExtResource("10_ulkfs")
 
 [sub_resource type="GDScript" id="GDScript_enqu4"]
 script/source = "extends Timer
@@ -293,6 +301,23 @@ offset_right = -767.0
 offset_bottom = -905.824
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Glitch" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_8girg")
+anchors_preset = -1
+anchor_left = -0.336979
+anchor_top = -0.337037
+anchor_right = 0.459375
+anchor_bottom = 0.459259
+offset_left = -17.0
+offset_top = 144.0
+offset_right = 1903.0
+offset_bottom = 1224.0
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
