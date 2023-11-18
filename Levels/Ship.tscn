@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dhv6vwvrdrf6x"]
+[gd_scene load_steps=42 format=3 uid="uid://dhv6vwvrdrf6x"]
 
 [ext_resource type="Script" path="res://Levels/Ship.gd" id="1_mincd"]
 [ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="1_rlr5f"]
@@ -72,6 +72,14 @@ func _process(delta):
 	pass
 	
 "
+
+[sub_resource type="Animation" id="Animation_r6450"]
+resource_name = "Flash"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70xke"]
+_data = {
+"Flash": SubResource("Animation_r6450")
+}
 
 [sub_resource type="Animation" id="Animation_t2cs0"]
 resource_name = "Lightning"
@@ -176,9 +184,62 @@ tracks/3/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_gbglu"]
+resource_name = "Lightning_2"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero/Thunder:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Flash:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.792157)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Flash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2srdg"]
 _data = {
 "Lightning": SubResource("Animation_t2cs0"),
+"Lightning_2": SubResource("Animation_gbglu"),
 "RESET": SubResource("Animation_ml638")
 }
 
@@ -402,6 +463,12 @@ process_mode = 1
 wait_time = 3.0
 autostart = true
 script = SubResource("GDScript_enqu4")
+
+[node name="FlashKill" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Hero")
+libraries = {
+"": SubResource("AnimationLibrary_70xke")
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 1

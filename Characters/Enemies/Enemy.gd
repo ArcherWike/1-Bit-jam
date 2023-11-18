@@ -19,6 +19,7 @@ func _process(delta):
 		#if Hero can kill - destroy me
 	if Input.is_action_just_pressed("ui_accept") && endangered && killing_option_active:
 		GameStat.Paranoia()
+		$"../../AnimationPlayer".play("Lightning_2")
 		Self_destroy()
 		
 		

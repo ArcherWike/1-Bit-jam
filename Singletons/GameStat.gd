@@ -36,7 +36,7 @@ func ChangeState():
 		
 func Paranoia():
 	killed += 1
-	RenderingServer.global_shader_parameter_set("Paranoia",Vector4(1,1-(0.3*killed),1-(0.3*killed),1))
+	RenderingServer.global_shader_parameter_set("Paranoia",Vector4(1,1-(0.3*killed),1-(0.3*killed),1))	
 	
 var Games = {
 	0: "rotate", #0
