@@ -26,9 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="24_t730p"]
 [ext_resource type="Script" path="res://UI/Tutorial/TutorialTask.gd" id="25_75qiv"]
 [ext_resource type="FontFile" uid="uid://big1u6km314tu" path="res://Assets/Temp/THALEAHFAT.TTF" id="25_b10cg"]
-[ext_resource type="PackedScene" uid="uid://vk66v5kxafsu" path="res://UI/Tutorial/fault.tscn" id="26_jhjhm"]
+[ext_resource type="PackedScene" uid="uid://f83nyb8q7nde" path="res://UI/Tutorial/fault.tscn" id="26_jhjhm"]
 [ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area1.tscn" id="26_xvrgy"]
-[ext_resource type="PackedScene" uid="uid://st2265ftqflf" path="res://UI/Tutorial/info2.tscn" id="27_r6jph"]
+[ext_resource type="PackedScene" uid="uid://cdnh5xy7kdj37" path="res://UI/Tutorial/info2.tscn" id="27_r6jph"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("3_oavry")
@@ -564,9 +564,6 @@ offset_left = 680.0
 offset_top = 400.0
 offset_right = 1180.0
 offset_bottom = 800.0
-
-[node name="Label" parent="TutorialTask/fault/VBoxContainer" index="1"]
-theme_override_fonts/font = ExtResource("25_b10cg")
 
 [node name="infoCapitan" parent="TutorialTask" instance=ExtResource("27_r6jph")]
 visible = false
