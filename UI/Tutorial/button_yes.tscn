@@ -1,11 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbyr8856e7ywh"]
 
 [ext_resource type="PackedScene" uid="uid://2xf3iodvr4lf" path="res://UI/button.tscn" id="1_hedvk"]
+[ext_resource type="FontFile" uid="uid://big1u6km314tu" path="res://Assets/Temp/THALEAHFAT.TTF" id="2_8rkkp"]
 
 [sub_resource type="SystemFont" id="SystemFont_a8lgb"]
-font_names = PackedStringArray("ThaleahFat")
-
-[sub_resource type="SystemFont" id="SystemFont_0e22r"]
 font_names = PackedStringArray("ThaleahFat")
 
 [node name="Button_yes" instance=ExtResource("1_hedvk")]
@@ -14,4 +12,4 @@ theme_override_fonts/font = SubResource("SystemFont_a8lgb")
 text = "YES"
 
 [node name="Label" parent="." index="0"]
-theme_override_fonts/font = SubResource("SystemFont_0e22r")
+theme_override_fonts/font = ExtResource("2_8rkkp")

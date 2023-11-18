@@ -1,21 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://drxmisgs67qt"]
+[gd_scene load_steps=8 format=3 uid="uid://drxmisgs67qt"]
 
 [ext_resource type="Script" path="res://Objects/MiniGames/Game_ship.gd" id="1_5kpai"]
 [ext_resource type="Texture2D" uid="uid://dkrluc3fl21ha" path="res://Assets/UI/MiniGames/shipbackground.png" id="2_inomt"]
+[ext_resource type="FontFile" uid="uid://big1u6km314tu" path="res://Assets/Temp/THALEAHFAT.TTF" id="3_64dgk"]
 [ext_resource type="Shader" path="res://Shaders/Brightness.gdshader" id="3_kmcdq"]
 [ext_resource type="Texture2D" uid="uid://dqeme2iojrcc8" path="res://Assets/UI/MiniGames/ship.png" id="4_l35au"]
 [ext_resource type="Texture2D" uid="uid://de0xp766gkmf0" path="res://Assets/UI/MiniGames/waves.png" id="5_gnmxl"]
-
-[sub_resource type="SystemFont" id="SystemFont_jkxgu"]
-font_names = PackedStringArray("ThaleahFat")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pycx3"]
 shader = ExtResource("3_kmcdq")
 shader_parameter/alpha = 0.8
 shader_parameter/complete = 1.0
-
-[sub_resource type="SystemFont" id="SystemFont_xcx4f"]
-font_names = PackedStringArray("ThaleahFat")
 
 [node name="Game_ship" type="Node2D"]
 process_mode = 3
@@ -52,7 +47,7 @@ offset_bottom = -376.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
-theme_override_fonts/font = SubResource("SystemFont_jkxgu")
+theme_override_fonts/font = ExtResource("3_64dgk")
 theme_override_font_sizes/font_size = 120
 text = "00:00"
 metadata/_edit_lock_ = true
@@ -108,7 +103,7 @@ offset_left = 600.0
 offset_top = -312.0
 offset_right = 963.0
 offset_bottom = -188.0
-theme_override_fonts/font = SubResource("SystemFont_xcx4f")
+theme_override_fonts/font = ExtResource("3_64dgk")
 theme_override_font_sizes/font_size = 30
 text = "Press enter to set ship 
 rotation to match waves"

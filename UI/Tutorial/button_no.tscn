@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://8xpxhbg6vcae"]
+[gd_scene load_steps=3 format=3 uid="uid://8xpxhbg6vcae"]
 
 [ext_resource type="PackedScene" uid="uid://2xf3iodvr4lf" path="res://UI/button.tscn" id="1_slxo2"]
+[ext_resource type="FontFile" uid="uid://big1u6km314tu" path="res://Assets/Temp/THALEAHFAT.TTF" id="2_wukyo"]
 
 [node name="Button_no" instance=ExtResource("1_slxo2")]
 text = "NO"
+
+[node name="Label" parent="." index="0"]
+theme_override_fonts/font = ExtResource("2_wukyo")

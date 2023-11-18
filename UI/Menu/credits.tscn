@@ -7,9 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b26g01tggo54m" path="res://Assets/UI/menu_Hover.png" id="4_q06oj"]
 [ext_resource type="AudioStream" uid="uid://blx2mjuypwfpu" path="res://Audio/Music/gentle-ocean-waves-birdsong-and-gull-7109.mp3" id="6_hep2v"]
 [ext_resource type="Texture2D" uid="uid://k7c1uvavrq0v" path="res://Assets/UI/creditscredits.png" id="7_tsmhv"]
-
-[sub_resource type="SystemFont" id="SystemFont_biaoo"]
-font_names = PackedStringArray("ThaleahFat")
+[ext_resource type="FontFile" uid="uid://big1u6km314tu" path="res://Assets/Temp/THALEAHFAT.TTF" id="8_34l2o"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -68,7 +66,7 @@ offset_right = 358.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = SubResource("SystemFont_biaoo")
+theme_override_fonts/font = ExtResource("8_34l2o")
 theme_override_font_sizes/font_size = 50
 text = "ArcheryWike - Programmer
 DaddyMilker/Dushka - Generalist

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://vk66v5kxafsu"]
+[gd_scene load_steps=3 format=3 uid="uid://f83nyb8q7nde"]
 
-[ext_resource type="PackedScene" uid="uid://st2265ftqflf" path="res://UI/Tutorial/info2.tscn" id="1_bmg7t"]
+[ext_resource type="PackedScene" uid="uid://cdnh5xy7kdj37" path="res://UI/Tutorial/info2.tscn" id="1_bmg7t"]
+[ext_resource type="FontFile" uid="uid://big1u6km314tu" path="res://Assets/Temp/THALEAHFAT.TTF" id="2_h4sg2"]
 
 [node name="fault" instance=ExtResource("1_bmg7t")]
 
@@ -9,6 +10,7 @@ theme_override_constants/separation = 5
 
 [node name="Label2" type="Label" parent="VBoxContainer" index="0"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_h4sg2")
 theme_override_font_sizes/font_size = 40
 text = "Companion:"
 horizontal_alignment = 1
@@ -17,3 +19,6 @@ horizontal_alignment = 1
 text = "There appears to be a 
 hole in the bow of the ship.
 Could you check it out?"
+
+[node name="Button_yes" parent="VBoxContainer" index="2"]
+theme_override_fonts/font = ExtResource("2_h4sg2")
