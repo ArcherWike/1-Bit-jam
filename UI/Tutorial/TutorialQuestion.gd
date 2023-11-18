@@ -11,10 +11,10 @@ func _process(delta):
 	pass
 
 
-func _on_button_yes_pressed():
-	get_tree().change_scene_to_file("res://Levels/Ship.tscn")
 
-
-func _on_button_no_pressed():
+func _on_no_button_up():
 	get_tree().change_scene_to_file("res://UI/Tutorial/tutorial.tscn")
-	
+
+
+func _on_yes_button_up():
+		get_tree().change_scene_to_file("res://Levels/Ship.tscn")

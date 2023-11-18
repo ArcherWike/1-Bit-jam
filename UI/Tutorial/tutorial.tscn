@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bat5femen1w7s"]
+[gd_scene load_steps=42 format=3 uid="uid://bat5femen1w7s"]
 
 [ext_resource type="Script" path="res://Levels/Ship.gd" id="1_ufd3t"]
 [ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="2_1mh07"]
@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dbyr8856e7ywh" path="res://UI/Tutorial/button_yes.tscn" id="24_hlkvd"]
 [ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="24_t730p"]
 [ext_resource type="Script" path="res://UI/Tutorial/TutorialTask.gd" id="25_75qiv"]
-[ext_resource type="PackedScene" path="res://Objects/game_area1.tscn" id="26_xvrgy"]
+[ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area1.tscn" id="26_xvrgy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("3_oavry")
@@ -176,6 +176,15 @@ _data = {
 "Lightning": SubResource("Animation_t2cs0"),
 "RESET": SubResource("Animation_ml638")
 }
+
+[sub_resource type="SystemFont" id="SystemFont_wnfvc"]
+font_names = PackedStringArray("ThaleahFat")
+
+[sub_resource type="SystemFont" id="SystemFont_p7mlk"]
+font_names = PackedStringArray("ThaleahFat")
+
+[sub_resource type="SystemFont" id="SystemFont_y5cr0"]
+font_names = PackedStringArray("ThaleahFat")
 
 [sub_resource type="Animation" id="Animation_bsv5k"]
 length = 0.001
@@ -457,6 +466,7 @@ libraries = {
 }
 
 [node name="Enemy" type="Node2D" parent="."]
+position = Vector2(5, 69)
 
 [node name="Enemy2" parent="Enemy" instance=ExtResource("23_noht7")]
 position = Vector2(611, 582)
@@ -489,6 +499,7 @@ offset_bottom = 206.0
 [node name="Description" type="Label" parent="TutorialTask/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(40, 45)
 layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_wnfvc")
 theme_override_font_sizes/font_size = 30
 text = "Quest:
 A strange picture says it all"
@@ -496,6 +507,7 @@ A strange picture says it all"
 [node name="Quest1" type="Label" parent="TutorialTask/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(40, 45)
 layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_p7mlk")
 theme_override_font_sizes/font_size = 30
 text = "Kill companion"
 
@@ -503,25 +515,36 @@ text = "Kill companion"
 visible = false
 custom_minimum_size = Vector2(40, 45)
 layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_p7mlk")
 theme_override_font_sizes/font_size = 30
 text = "Check the rudder"
 
 [node name="StartInfo" type="Panel" parent="TutorialTask"]
 process_mode = 3
-offset_left = 628.0
-offset_top = 351.0
-offset_right = 1128.0
-offset_bottom = 751.0
+offset_left = 686.0
+offset_top = 353.0
+offset_right = 1186.0
+offset_bottom = 753.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TutorialTask/StartInfo"]
-layout_mode = 0
-offset_left = 154.0
-offset_top = 131.0
-offset_right = 194.0
-offset_bottom = 171.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -83.0
+offset_right = 147.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Info" type="Label" parent="TutorialTask/StartInfo/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_y5cr0")
+theme_override_font_sizes/font_size = 30
 text = "WSAD for movement
 Enter for interactions"
 horizontal_alignment = 1
@@ -538,6 +561,7 @@ libraries = {
 }
 
 [node name="interact" parent="." instance=ExtResource("26_xvrgy")]
+position = Vector2(-74, 557)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="child_exiting_tree" from="Enemy/Enemy2" to="TutorialTask" method="_on_enemy_2_child_exiting_tree"]
