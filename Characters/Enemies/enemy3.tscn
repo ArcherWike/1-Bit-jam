@@ -8,7 +8,7 @@ radius = 26.0
 height = 72.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjedp"]
-size = Vector2(34.5, 55)
+size = Vector2(60, 94)
 
 [node name="Enemy" type="Area2D"]
 script = ExtResource("1_mjjj2")
@@ -19,7 +19,7 @@ shape = SubResource("CapsuleShape2D_r1ham")
 [node name="KillingRange" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillingRange"]
-position = Vector2(-21.75, 0)
+position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_kjedp")
 
 [node name="Comrade2" type="Sprite2D" parent="."]
