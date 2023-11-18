@@ -1,5 +1,7 @@
 extends Node2D
 
+
+
 var speed = 10
 signal completed_game(is_completed)
 
@@ -8,10 +10,12 @@ func _ready():
 	self.set_process(true)
 	self.set_physics_process(true)
 	self.set_process_input(true)
-	$target.position = Vector2(randf_range(100, 1800),randf_range(100, 800))
+
 
 func _process(delta):
 	pass
+
+
 	
 	
 	# We check for each move input and update the direction accordingly.
