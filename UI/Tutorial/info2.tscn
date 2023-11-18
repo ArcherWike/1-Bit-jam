@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdnh5xy7kdj37"]
+[gd_scene load_steps=2 format=3 uid="uid://st2265ftqflf"]
 
-[ext_resource type="FontFile" uid="uid://big1u6km314tu" path="res://Assets/Temp/THALEAHFAT.TTF" id="1_mypj3"]
 [ext_resource type="PackedScene" uid="uid://dbyr8856e7ywh" path="res://UI/Tutorial/button_yes.tscn" id="1_n75l3"]
 
 [node name="infoCapitan" type="Panel"]
@@ -19,7 +18,6 @@ theme_override_constants/separation = 30
 [node name="Label" type="Label" parent="VBoxContainer"]
 custom_minimum_size = Vector2(450, 200)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_mypj3")
 theme_override_font_sizes/font_size = 30
 text = "Captain!
 To reach your destination 

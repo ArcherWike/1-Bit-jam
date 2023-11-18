@@ -28,6 +28,7 @@ func _on_enemy_2_child_exiting_tree(node):
 	active_game_area = root.get_node("/root/Ship_tutorial/interact")
 	active_game_area.Set_activity(true)
 	$fault.show()
+	get_tree().paused = true
 
 func _on_button_yes_tutorial_info_pressed():
 	get_node("/root/Ship_tutorial/CanvasModulate").show()
