@@ -26,9 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="24_t730p"]
 [ext_resource type="Script" path="res://UI/Tutorial/TutorialTask.gd" id="25_75qiv"]
 [ext_resource type="FontFile" uid="uid://big1u6km314tu" path="res://Assets/Temp/THALEAHFAT.TTF" id="25_b10cg"]
-[ext_resource type="PackedScene" uid="uid://f83nyb8q7nde" path="res://UI/Tutorial/fault.tscn" id="26_jhjhm"]
+[ext_resource type="PackedScene" uid="uid://vk66v5kxafsu" path="res://UI/Tutorial/fault.tscn" id="26_jhjhm"]
 [ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area1.tscn" id="26_xvrgy"]
-[ext_resource type="PackedScene" uid="uid://cdnh5xy7kdj37" path="res://UI/Tutorial/info2.tscn" id="27_r6jph"]
+[ext_resource type="PackedScene" uid="uid://st2265ftqflf" path="res://UI/Tutorial/info2.tscn" id="27_r6jph"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("3_oavry")
@@ -112,57 +112,6 @@ tracks/3/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_ml638"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasModulate:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hero/Thunder:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Flash:color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Flash:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_sfeu1"]
 resource_name = "Lightning_2"
 length = 0.6
@@ -213,6 +162,57 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ml638"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero/Thunder:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Flash:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Flash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2srdg"]
@@ -617,6 +617,9 @@ offset_left = 680.0
 offset_top = 400.0
 offset_right = 1180.0
 offset_bottom = 800.0
+
+[node name="Label" parent="TutorialTask/fault/VBoxContainer" index="1"]
+theme_override_fonts/font = ExtResource("25_b10cg")
 
 [node name="infoCapitan" parent="TutorialTask" instance=ExtResource("27_r6jph")]
 visible = false
