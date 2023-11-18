@@ -17,4 +17,4 @@ func _on_no_button_up():
 
 
 func _on_yes_button_up():
-		get_tree().change_scene_to_file("res://Levels/Ship.tscn")
+		get_tree().change_scene_to_file("res://UI/cutscene_start.tscn")

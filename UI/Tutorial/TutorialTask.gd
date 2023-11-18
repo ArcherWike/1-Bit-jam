@@ -49,8 +49,7 @@ func _completed_game(is_completed):
 	active_game_area.Set_activity(false)
 	active_game_node.queue_free()
 	active_game_area = null
-
-	get_tree().change_scene_to_file("res://Levels/Ship.tscn")
+	get_tree().change_scene_to_file("res://UI/cutscene_start.tscn")
 	
 	#interaction with the play game area - interract
 	#gets the signal from her to start the game
