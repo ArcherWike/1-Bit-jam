@@ -92,11 +92,11 @@ func get_minutes_and_seconds():
 	
 func set_label_timer():
 	get_minutes_and_seconds()
-	$UI/TimeLabel.text = "0" + str(minutes) + ":"
+	$UI/Panel_label2/VBoxContainer/TimeLabel.text = "0" + str(minutes) + ":"
 	if seconds < 10:
-		$UI/TimeLabel.text += "0" + str(seconds)
+		$UI/Panel_label2/VBoxContainer/TimeLabel.text += "0" + str(seconds)
 	else:
-		$UI/TimeLabel.text += str(seconds)
+		$UI/Panel_label2/VBoxContainer/TimeLabel.text += str(seconds)
 		
 func SetKillTimer(get_seconds):
 	timer_run = true
@@ -104,11 +104,11 @@ func SetKillTimer(get_seconds):
 	seconds = get_seconds
 	$UI/TimerKillEnemyTask.wait_time = seconds
 	set_label_timer()
-	$UI/TimeLabel.visible = true
+	$UI/Panel_label2/VBoxContainer/TimeLabel.visible = true
 	$UI/TimerKillEnemyTask.start()
 
 func _on_timer_kill_enemy_task_timeout():
 	timer_run = false
-	$UI/TimeLabel.visible = false
+	$UI/Panel_label2/VBoxContainer/TimeLabel.visible = false
 	print("GAME OVER")
 	get_tree().change_scene_to_file("res://UI/Menu/GameOver.tscn")

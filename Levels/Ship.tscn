@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dwcggre2cets4" path="res://Assets/Background/poles.png" id="5_xa3o0"]
 [ext_resource type="Texture2D" uid="uid://8mjnou66b1qc" path="res://Assets/Background/front.png" id="6_aq6ra"]
 [ext_resource type="Texture2D" uid="uid://beshetbu3xf14" path="res://Assets/Background/Poles_N.png" id="6_oewh8"]
+[ext_resource type="Script" path="res://UI/Gameplay/tasks_system.gd" id="6_t425n"]
 [ext_resource type="Texture2D" uid="uid://ejphpkym2l4y" path="res://Assets/Textures/light.png" id="7_43a1f"]
 [ext_resource type="Script" path="res://Shaders/PointLight2D.gd" id="8_vhkvf"]
 [ext_resource type="AudioStream" uid="uid://cjcaqvscguown" path="res://Audio/Music/epic-storm-thunder-rainwindwaves-no-loops-106800.mp3" id="9_7qvec"]
@@ -20,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://dqhkvlai4mh0m" path="res://Shaders/Storm.tscn" id="13_dmehm"]
 [ext_resource type="AudioStream" uid="uid://c4c0aj18145xd" path="res://Audio/Sounds/thunder.mp3" id="17_1003v"]
 [ext_resource type="PackedScene" uid="uid://bx86haurrfd67" path="res://UI/Menu/pause.tscn" id="19_atylr"]
-[ext_resource type="PackedScene" uid="uid://cabutbkyqaiom" path="res://Objects/tasks_system.tscn" id="19_j17sv"]
 [ext_resource type="Shader" path="res://Levels/Glitch.gdshader" id="20_xqbag"]
 [ext_resource type="PackedScene" uid="uid://dt85pvmpwm855" path="res://Characters/Enemies/enemy2.tscn" id="21_fx5g0"]
 [ext_resource type="PackedScene" uid="uid://dr1416rbqfgub" path="res://Characters/Enemies/enemy.tscn" id="21_sotxq"]
@@ -275,45 +275,76 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
-[node name="Task_system" parent="." instance=ExtResource("19_j17sv")]
+[node name="Task_system" type="Node2D" parent="."]
+script = ExtResource("6_t425n")
 
-[node name="Panel_label" type="Panel" parent="Task_system/UI" index="0"]
+[node name="UI" type="CanvasLayer" parent="Task_system"]
+
+[node name="Panel_label" type="Panel" parent="Task_system/UI"]
 offset_left = 1359.0
 offset_top = 75.0
 offset_right = 1775.0
 offset_bottom = 144.0
 
-[node name="Panel_label2" type="Panel" parent="Task_system/UI" index="1"]
-offset_left = 21.0
-offset_top = 101.0
-offset_right = 437.0
-offset_bottom = 176.0
+[node name="Panel_label2" type="Panel" parent="Task_system/UI"]
+offset_left = 27.0
+offset_top = 56.0
+offset_right = 552.0
+offset_bottom = 295.0
 
-[node name="Label" parent="Task_system/UI" index="2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Task_system/UI/Panel_label2"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 516.0
+offset_bottom = 236.0
+theme_override_constants/separation = 20
+
+[node name="message" type="Label" parent="Task_system/UI/Panel_label2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_puskh")
+theme_override_font_sizes/font_size = 50
+text = "Time to kill everyone 
+in the conspiracy:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Task_system/UI/Panel_label2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_puskh")
+theme_override_font_sizes/font_size = 50
+text = "xx:XX"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="Task_system/UI/Panel_label2"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 156.0
+offset_top = 167.0
+offset_right = 370.0
+offset_bottom = 233.0
+
+[node name="Label" type="Label" parent="Task_system/UI"]
 offset_left = 1359.0
-offset_top = 92.0
+offset_top = 85.0
 offset_right = 1774.0
-offset_bottom = 217.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 35
 text = "adasdadasd"
 horizontal_alignment = 1
 
-[node name="TimeLabel" parent="Task_system/UI" index="4"]
-visible = true
-offset_left = -1899.0
-offset_top = 101.0
-offset_right = -1482.0
-offset_bottom = 176.0
-theme_override_fonts/font = SubResource("SystemFont_puskh")
-horizontal_alignment = 1
+[node name="TimerKillEnemyTask" type="Timer" parent="Task_system/UI"]
+wait_time = 80.018
 
-[node name="interact2" parent="Task_system/Game_interact" index="0" instance=ExtResource("28_4je3m")]
+[node name="Game_interact" type="Node2D" parent="Task_system"]
+
+[node name="interact2" parent="Task_system/Game_interact" instance=ExtResource("28_4je3m")]
 position = Vector2(-145, 541)
 
-[node name="interact0" parent="Task_system/Game_interact" index="1" instance=ExtResource("26_v43r6")]
+[node name="interact0" parent="Task_system/Game_interact" instance=ExtResource("26_v43r6")]
 position = Vector2(2038, 477)
 run_game = 2
 
-[node name="interact1" parent="Task_system/Game_interact" index="2" instance=ExtResource("27_50r60")]
+[node name="interact1" parent="Task_system/Game_interact" instance=ExtResource("27_50r60")]
 position = Vector2(1230, 291)
 run_game = 1
 
@@ -517,6 +548,5 @@ metadata/_edit_lock_ = true
 position = Vector2(2099, 414)
 metadata/_edit_lock_ = true
 
+[connection signal="timeout" from="Task_system/UI/TimerKillEnemyTask" to="Task_system/UI" method="_on_timer_kill_enemy_task_timeout" flags=18]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-
-[editable path="Task_system"]
