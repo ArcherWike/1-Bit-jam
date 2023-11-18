@@ -9,6 +9,7 @@ var game_index = 0
 
 func _ready():
 	_game_stat_was_changed()
+	game_index = 0
 	GameStat.MiniGameIsActive = false
 	GameStat.Game_paused = false
 	GameStat.ActiveStat = GameStat.PlayerStat.KILLING
@@ -32,7 +33,7 @@ func _process(delta):
 
 #Select the starting area of game and start the collision activity
 func Select_starting_area():
-	if len(Game_interact_List) > 0:
+	if len(Game_interact_List) > 0 and game_index < 3:
 		active_game_area = Game_interact_List[game_index]
 		game_index += 1	
 		active_game_area.call_deferred("Set_activity",true)
@@ -40,7 +41,6 @@ func Select_starting_area():
 func _completed_game(is_completed):
 	GameStat.MiniGameIsActive = false
 	if (!is_completed):
-		print("GAME OVER")
 		get_tree().change_scene_to_file("res://UI/Menu/GameOver.tscn")
 	get_tree().paused = false
 	active_game_node.queue_free()
@@ -110,5 +110,4 @@ func SetKillTimer(get_seconds):
 func _on_timer_kill_enemy_task_timeout():
 	timer_run = false
 	$UI/Panel_label2/VBoxContainer/TimeLabel.visible = false
-	print("GAME OVER")
 	get_tree().change_scene_to_file("res://UI/Menu/GameOver.tscn")

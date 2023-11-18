@@ -35,7 +35,6 @@ func _process(delta):
 		#ActiveSlot.get_node("image"+str(active_slot)).rotation_degrees += 10
 		#Check Game state
 		if (TaskIsCompleted()):
-			print("win")
 			emit_signal("completed_game", true)
 		else:
 			emit_signal("completed_game", false)

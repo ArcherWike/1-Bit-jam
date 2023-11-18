@@ -35,7 +35,6 @@ func _on_killing_range_body_exited(body):
 		endangered = false
 		
 func Self_destroy():
-	print("ded")
 	GameStat.ChangeState()
 	self.queue_free()
 

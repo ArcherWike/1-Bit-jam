@@ -6,7 +6,6 @@ var speed = 10
 signal completed_game(is_completed)
 
 func _ready():
-	print("dsa yol")
 	self.set_process(true)
 	self.set_physics_process(true)
 	self.set_process_input(true)
