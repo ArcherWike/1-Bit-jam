@@ -6,6 +6,9 @@ var Game_interact_List = []
 var active_game_area = null 
 
 func _ready():
+	GameStat.MiniGameIsActive = false
+	GameStat.Game_paused = false
+	GameStat.ActiveStat = GameStat.PlayerStat.KILLING
 	#Game time
 	SetKillTimer(GameStat.time_kill)
 	GameStat.connect("change_pause", Callable(self, "_game_stat_pause_changed"))
@@ -29,7 +32,7 @@ func Select_starting_area():
 	#print(int(RandomNumberGenerator.new().randf_range(0, 3)))
 	var random_index = 0 + randi() % len(Game_interact_List)
 	active_game_area = Game_interact_List[random_index]
-	active_game_area.Set_activity(true)	
+	active_game_area.call_deferred("Set_activity",true)	
 
 func _completed_game(is_completed):
 	GameStat.MiniGameIsActive = false

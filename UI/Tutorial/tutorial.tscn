@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dbyr8856e7ywh" path="res://UI/Tutorial/button_yes.tscn" id="24_hlkvd"]
 [ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="24_t730p"]
 [ext_resource type="Script" path="res://UI/Tutorial/TutorialTask.gd" id="25_75qiv"]
-[ext_resource type="PackedScene" uid="uid://cagkbnlje2s7i" path="res://Objects/game_area1.tscn" id="26_xvrgy"]
+[ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area1.tscn" id="26_xvrgy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("3_oavry")
@@ -187,7 +187,7 @@ font_names = PackedStringArray("ThaleahFat")
 font_names = PackedStringArray("ThaleahFat")
 
 [sub_resource type="Animation" id="Animation_bsv5k"]
-length = 0.001
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -224,10 +224,10 @@ tracks/0/path = NodePath("../Enemy/Enemy:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9, 1.3, 1.9, 2.5, 3.1, 3.8, 4.9, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 0.8, 1, 1.3, 1.9, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1323, 344), Vector2(1257, 373), Vector2(1168, 421), Vector2(1103, 456), Vector2(981, 460), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490)]
+"values": [Vector2(1323, 344), Vector2(1257, 373), Vector2(1168, 421), Vector2(1103, 456), Vector2(981, 460), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490), Vector2(699, 539)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -523,6 +523,7 @@ text = "Check the rudder"
 
 [node name="StartInfo" type="Panel" parent="TutorialTask"]
 process_mode = 3
+visible = false
 offset_left = 686.0
 offset_top = 353.0
 offset_right = 1186.0
