@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://beshetbu3xf14" path="res://Assets/Background/Poles_N.png" id="6_oewh8"]
 [ext_resource type="Script" path="res://UI/Gameplay/tasks_system.gd" id="6_t425n"]
 [ext_resource type="Texture2D" uid="uid://ejphpkym2l4y" path="res://Assets/Textures/light.png" id="7_43a1f"]
+[ext_resource type="FontFile" uid="uid://big1u6km314tu" path="res://Assets/Temp/THALEAHFAT.TTF" id="7_ophtt"]
 [ext_resource type="Script" path="res://Shaders/PointLight2D.gd" id="8_vhkvf"]
 [ext_resource type="AudioStream" uid="uid://cjcaqvscguown" path="res://Audio/Music/epic-storm-thunder-rainwindwaves-no-loops-106800.mp3" id="9_7qvec"]
 [ext_resource type="Texture2D" uid="uid://chwykk3swigea" path="res://Assets/Background/front_N.png" id="9_idlwu"]
@@ -26,16 +27,13 @@
 [ext_resource type="PackedScene" uid="uid://dr1416rbqfgub" path="res://Characters/Enemies/enemy.tscn" id="21_sotxq"]
 [ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="22_xs6ws"]
 [ext_resource type="PackedScene" uid="uid://s0uqf1f2taoy" path="res://Objects/game_area3.tscn" id="26_v43r6"]
-[ext_resource type="PackedScene" path="res://Objects/game_area2.tscn" id="27_50r60"]
+[ext_resource type="PackedScene" uid="uid://cx8gxrx0ybjr" path="res://Objects/game_area2.tscn" id="27_50r60"]
 [ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area1.tscn" id="28_4je3m"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("2_fixcm")
 normal_texture = ExtResource("3_g52by")
 texture_filter = 1
-
-[sub_resource type="SystemFont" id="SystemFont_puskh"]
-font_names = PackedStringArray("ThaleahFat")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_koqq4"]
 diffuse_texture = ExtResource("6_aq6ra")
@@ -133,58 +131,6 @@ tracks/3/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_gbglu"]
-resource_name = "Lightning_2"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasModulate:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hero/Thunder:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Flash:color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.792157)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Flash:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
 [sub_resource type="Animation" id="Animation_ml638"]
 length = 0.001
 tracks/0/type = "value"
@@ -236,10 +182,62 @@ tracks/3/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_sfeu1"]
+resource_name = "Lightning_2"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero/Thunder:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Flash:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.792157)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Flash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2srdg"]
 _data = {
 "Lightning": SubResource("Animation_t2cs0"),
-"Lightning_2": SubResource("Animation_gbglu"),
+"Lightning_2": SubResource("Animation_sfeu1"),
 "RESET": SubResource("Animation_ml638")
 }
 
@@ -287,21 +285,24 @@ offset_right = 1775.0
 offset_bottom = 144.0
 
 [node name="Panel_label2" type="Panel" parent="Task_system/UI"]
+texture_filter = 1
 offset_left = 27.0
 offset_top = 56.0
 offset_right = 552.0
-offset_bottom = 295.0
+offset_bottom = 245.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Task_system/UI/Panel_label2"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 10.0
 offset_right = 516.0
-offset_bottom = 236.0
+offset_bottom = 192.0
 theme_override_constants/separation = 20
 
 [node name="message" type="Label" parent="Task_system/UI/Panel_label2/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_puskh")
+theme_override_fonts/font = ExtResource("7_ophtt")
 theme_override_font_sizes/font_size = 50
 text = "Time to kill everyone 
 in the conspiracy:"
@@ -309,26 +310,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TimeLabel" type="Label" parent="Task_system/UI/Panel_label2/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_puskh")
+theme_override_fonts/font = ExtResource("7_ophtt")
 theme_override_font_sizes/font_size = 50
 text = "xx:XX"
 horizontal_alignment = 1
 
 [node name="Panel" type="Panel" parent="Task_system/UI/Panel_label2"]
 self_modulate = Color(0, 0, 0, 1)
+texture_filter = 1
 layout_mode = 0
-offset_left = 156.0
-offset_top = 167.0
-offset_right = 370.0
-offset_bottom = 233.0
+offset_left = 150.0
+offset_top = 172.0
+offset_right = 364.0
+offset_bottom = 238.0
+scale = Vector2(0.985507, -0.923077)
 
 [node name="Label" type="Label" parent="Task_system/UI"]
+texture_filter = 1
 offset_left = 1359.0
 offset_top = 85.0
 offset_right = 1774.0
 offset_bottom = 210.0
-theme_override_font_sizes/font_size = 35
+scale = Vector2(1.00376, 0.973103)
+theme_override_fonts/font = ExtResource("7_ophtt")
+theme_override_font_sizes/font_size = 50
 text = "adasdadasd"
 horizontal_alignment = 1
 
@@ -468,7 +475,6 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 process_mode = 3
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
