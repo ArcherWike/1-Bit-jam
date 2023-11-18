@@ -28,3 +28,9 @@ func pauseMenu():
 		$CanvasLayer/Pause.show()
 	paused = !paused
 	
+
+
+func _on_continue_button_up():
+	$CanvasModulate.show()
+	$CanvasLayer/Pause.hide()
+	get_tree().paused = false

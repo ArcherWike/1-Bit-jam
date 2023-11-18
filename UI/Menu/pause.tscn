@@ -111,6 +111,5 @@ texture_hover = ExtResource("7_xv473")
 process_mode = 3
 stream = ExtResource("9_5ygha")
 
-[connection signal="button_up" from="TextureRect/Continue" to="." method="_on_continue_button_up"]
 [connection signal="button_up" from="TextureRect/Quit" to="." method="_on_quit_button_up"]
 [connection signal="button_up" from="TextureRect/Menu" to="." method="_on_menu_button_up"]

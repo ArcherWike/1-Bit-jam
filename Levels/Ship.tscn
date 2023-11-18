@@ -45,17 +45,6 @@ diffuse_texture = ExtResource("5_xa3o0")
 normal_texture = ExtResource("6_oewh8")
 texture_filter = 1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_26ky6"]
-shader = ExtResource("10_43eyt")
-shader_parameter/multiply = 1.0
-shader_parameter/color = Color(1, 1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8girg"]
-shader = ExtResource("20_xqbag")
-shader_parameter/dispAmt = 1.0
-shader_parameter/abberationAMt = 0.1
-shader_parameter/displace = ExtResource("10_ulkfs")
-
 [sub_resource type="GDScript" id="GDScript_enqu4"]
 script/source = "extends Timer
 
@@ -241,6 +230,17 @@ _data = {
 "RESET": SubResource("Animation_ml638")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26ky6"]
+shader = ExtResource("10_43eyt")
+shader_parameter/multiply = 1.0
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8girg"]
+shader = ExtResource("20_xqbag")
+shader_parameter/dispAmt = 1.0
+shader_parameter/abberationAMt = 0.1
+shader_parameter/displace = ExtResource("10_ulkfs")
+
 [node name="Ship" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_mincd")
@@ -414,65 +414,6 @@ position = Vector2(195.667, -203)
 texture = ExtResource("13_audj6")
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 1
-
-[node name="Pause" parent="CanvasLayer" instance=ExtResource("19_atylr")]
-visible = false
-top_level = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-
-[node name="Flash" type="ColorRect" parent="CanvasLayer"]
-process_mode = 1
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1088.0
-offset_top = -444.0
-offset_right = 1220.0
-offset_bottom = 947.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorChange" type="ColorRect" parent="CanvasLayer"]
-process_mode = 1
-texture_filter = 1
-material = SubResource("ShaderMaterial_26ky6")
-anchors_preset = -1
-anchor_left = -0.907118
-anchor_right = 4.43837
-anchor_bottom = 5.34541
-offset_left = -767.0
-offset_top = -906.0
-offset_right = -767.0
-offset_bottom = -905.824
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
-
-[node name="Glitch" type="ColorRect" parent="CanvasLayer"]
-process_mode = 1
-visible = false
-texture_filter = 1
-material = SubResource("ShaderMaterial_8girg")
-anchors_preset = -1
-anchor_left = -0.336979
-anchor_top = -0.337037
-anchor_right = 0.459375
-anchor_bottom = 0.459259
-offset_left = -17.0
-offset_top = 144.0
-offset_right = 1903.0
-offset_bottom = 1224.0
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 process_mode = 3
 color = Color(0, 0, 0, 1)
@@ -554,5 +495,59 @@ metadata/_edit_lock_ = true
 position = Vector2(2099, 414)
 metadata/_edit_lock_ = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Flash" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1088.0
+offset_top = -444.0
+offset_right = 1220.0
+offset_bottom = 947.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorChange" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
+texture_filter = 1
+material = SubResource("ShaderMaterial_26ky6")
+anchors_preset = -1
+anchor_left = -0.907118
+anchor_right = 4.43837
+anchor_bottom = 5.34541
+offset_left = -767.0
+offset_top = -906.0
+offset_right = -767.0
+offset_bottom = -905.824
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Glitch" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_8girg")
+anchors_preset = -1
+anchor_left = -0.336979
+anchor_top = -0.337037
+anchor_right = 0.459375
+anchor_bottom = 0.459259
+offset_left = -17.0
+offset_top = 144.0
+offset_right = 1903.0
+offset_bottom = 1224.0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("19_atylr")]
+
 [connection signal="timeout" from="Task_system/UI/TimerKillEnemyTask" to="Task_system/UI" method="_on_timer_kill_enemy_task_timeout" flags=18]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_up" from="CanvasLayer/Pause/TextureRect/Continue" to="." method="_on_continue_button_up"]
+
+[editable path="CanvasLayer/Pause"]
