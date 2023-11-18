@@ -22,6 +22,7 @@ shape = SubResource("CircleShape2D_jgnu5")
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.701961)
 texture_filter = 1
 position = Vector2(-1.5, -2)
 scale = Vector2(2, 2)
@@ -34,12 +35,6 @@ amount = 100
 process_material = SubResource("ParticleProcessMaterial_gxunu")
 lifetime = 0.5
 speed_scale = 0.55
-
-[node name="Label" type="Label" parent="."]
-offset_left = -19.0
-offset_top = -60.0
-offset_right = 21.0
-offset_bottom = -37.0
 
 [node name="Mark" type="Sprite2D" parent="."]
 visible = false

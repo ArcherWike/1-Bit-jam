@@ -31,7 +31,9 @@ func Set_activity(mode):
 	start = false
 	if is_active == true:
 		$Mark.visible = true
+		$Sprite2D.modulate = Color(1,1,1,1)
 	else:
 		$Mark.visible = false
-	$Label.text = str(is_active)
+		$Sprite2D.modulate = Color(1,1,1,0.5)
+
 		

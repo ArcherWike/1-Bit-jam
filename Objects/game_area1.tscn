@@ -25,6 +25,7 @@ shape = SubResource("CircleShape2D_jgnu5")
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.7)
 texture_filter = 1
 position = Vector2(-1.5, -2)
 scale = Vector2(2, 2)
@@ -43,12 +44,6 @@ visible = false
 texture_filter = 1
 position = Vector2(0, -67)
 texture = ExtResource("3_lvq0a")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -19.0
-offset_top = -60.0
-offset_right = 21.0
-offset_bottom = -37.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-3, 15)
