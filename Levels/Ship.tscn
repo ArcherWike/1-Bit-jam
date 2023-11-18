@@ -545,6 +545,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("19_atylr")]
+visible = false
 
 [connection signal="timeout" from="Task_system/UI/TimerKillEnemyTask" to="Task_system/UI" method="_on_timer_kill_enemy_task_timeout" flags=18]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
