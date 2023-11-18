@@ -332,33 +332,6 @@ scale = Vector2(3, 3)
 texture = ExtResource("5_665r8")
 metadata/_edit_lock_ = true
 
-[node name="Hero" parent="." instance=ExtResource("6_wi7oa")]
-process_mode = 1
-position = Vector2(844, 576)
-scale = Vector2(3.52, 2.69823)
-
-[node name="PointLight2D" type="PointLight2D" parent="Hero"]
-texture_filter = 1
-scale = Vector2(2.57715, 2.89364)
-color = Color(0.521569, 0.521569, 0.521569, 1)
-shadow_color = Color(0, 0, 0, 1)
-texture = ExtResource("7_5rl5x")
-script = ExtResource("8_cc62k")
-
-[node name="Camera2D" type="Camera2D" parent="Hero"]
-texture_filter = 1
-
-[node name="Rain" type="AudioStreamPlayer2D" parent="Hero"]
-position = Vector2(-239.773, -213.473)
-scale = Vector2(0.284091, 0.370613)
-stream = ExtResource("9_o4324")
-autoplay = true
-
-[node name="Thunder" type="AudioStreamPlayer2D" parent="Hero"]
-position = Vector2(-239.773, -213.473)
-scale = Vector2(0.284091, 0.370613)
-stream = ExtResource("10_oyt6f")
-
 [node name="FrontAssets" type="Node2D" parent="."]
 process_mode = 1
 position = Vector2(623, 625)
@@ -630,6 +603,33 @@ offset_bottom = 800.0
 
 [node name="interact" parent="." instance=ExtResource("26_xvrgy")]
 position = Vector2(-74, 557)
+
+[node name="Hero" parent="." instance=ExtResource("6_wi7oa")]
+process_mode = 1
+position = Vector2(844, 576)
+scale = Vector2(3.52, 2.69823)
+
+[node name="PointLight2D" type="PointLight2D" parent="Hero"]
+texture_filter = 1
+scale = Vector2(2.57715, 2.89364)
+color = Color(0.521569, 0.521569, 0.521569, 1)
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("7_5rl5x")
+script = ExtResource("8_cc62k")
+
+[node name="Camera2D" type="Camera2D" parent="Hero"]
+texture_filter = 1
+
+[node name="Rain" type="AudioStreamPlayer2D" parent="Hero"]
+position = Vector2(-239.773, -213.473)
+scale = Vector2(0.284091, 0.370613)
+stream = ExtResource("9_o4324")
+autoplay = true
+
+[node name="Thunder" type="AudioStreamPlayer2D" parent="Hero"]
+position = Vector2(-239.773, -213.473)
+scale = Vector2(0.284091, 0.370613)
+stream = ExtResource("10_oyt6f")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="child_exiting_tree" from="Enemy/Enemy2" to="TutorialTask" method="_on_enemy_2_child_exiting_tree"]

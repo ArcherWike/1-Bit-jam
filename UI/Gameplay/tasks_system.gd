@@ -8,11 +8,11 @@ var active_game_area = null
 var game_index = 0
 
 func _ready():
+	GameStat.ActiveStat = GameStat.PlayerStat.TASKS
 	_game_stat_was_changed()
 	game_index = 0
 	GameStat.MiniGameIsActive = false
 	GameStat.Game_paused = false
-	GameStat.ActiveStat = GameStat.PlayerStat.KILLING
 	#Game time
 	SetKillTimer(GameStat.time_kill)
 	GameStat.connect("change_pause", Callable(self, "_game_stat_pause_changed"))
@@ -64,7 +64,7 @@ func _on_interact_start_game(game_type):
 		get_tree().paused = true
 
 func _game_stat_was_changed():
-	if GameStat.ActiveStat == 0:
+	if GameStat.ActiveStat == 1:
 		$UI/Label.text = "Repair ship"
 		#GameStat.time_kill -= 20
 		Select_starting_area()

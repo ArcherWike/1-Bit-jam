@@ -5,6 +5,7 @@ signal change_pause(new_state)
 
 var MiniGameIsActive = false
 var Game_paused = false
+var ActiveStat = PlayerStat.KILLING
 
 var time_task = 60
 var time_kill = 120
@@ -15,7 +16,6 @@ enum PlayerStat{
 	TASKS
 }
 	
-var ActiveStat = PlayerStat.KILLING
 
 func EnemyKilable():
 	if ActiveStat == PlayerStat.KILLING:

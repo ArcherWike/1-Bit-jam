@@ -2,8 +2,9 @@ extends Control
 
 @onready var select = $AudioStreamPlayer2D
 
-#func _ready():
-	#$start_Button.grab_focus()
+func _ready():
+	$NewGame.grab_focus()
+	#get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
 
 
 func _on_new_game_button_up():
