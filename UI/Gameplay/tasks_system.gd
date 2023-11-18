@@ -59,11 +59,11 @@ func _on_interact_start_game(game_type):
 
 func _game_stat_was_changed():
 	if GameStat.ActiveStat == 0:
-		$UI/Label.text = "TASKS"
+		$UI/Label.text = "Repair ship"
 		#GameStat.time_kill -= 20
 		Select_starting_area()
 	else:
-		$UI/Label.text = "KILLING"
+		$UI/Label.text = "Kill traitors"
 		GameStat.time_task -= 20
 
 #blocking mini game when there is a pause

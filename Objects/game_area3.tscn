@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://s0uqf1f2taoy"]
+[gd_scene load_steps=6 format=3 uid="uid://s0uqf1f2taoy"]
 
 [ext_resource type="Script" path="res://Objects/game_area.gd" id="1_oh26d"]
 [ext_resource type="Texture2D" uid="uid://ytkp7fjcjmka" path="res://Assets/Items/wheel.png" id="2_a3w1t"]
+[ext_resource type="Texture2D" uid="uid://o16adulcfbmo" path="res://Assets/UI/Other/mark.png" id="3_2og7e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgnu5"]
 radius = 121.017
@@ -39,6 +40,12 @@ offset_left = -19.0
 offset_top = -60.0
 offset_right = 21.0
 offset_bottom = -37.0
+
+[node name="Mark" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(1, -106)
+texture = ExtResource("3_2og7e")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

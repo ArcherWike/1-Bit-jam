@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://db68bumn2aqv4"]
+[gd_scene load_steps=7 format=3 uid="uid://db68bumn2aqv4"]
 
 [ext_resource type="Script" path="res://Objects/game_area.gd" id="1_p0bey"]
 [ext_resource type="Texture2D" uid="uid://cnprv8r26xgwi" path="res://Assets/Items/planks.png" id="2_dw0ym"]
+[ext_resource type="Texture2D" uid="uid://o16adulcfbmo" path="res://Assets/UI/Other/mark.png" id="3_lvq0a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgnu5"]
 radius = 121.017
@@ -48,6 +49,12 @@ position = Vector2(-3, 15)
 
 [node name="BlockPlayer" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_l8kw7")
+
+[node name="Mark" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -67)
+texture = ExtResource("3_lvq0a")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
