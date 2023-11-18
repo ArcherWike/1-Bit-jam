@@ -8,7 +8,7 @@ var active_game_area = null
 func _ready():
 	#Game time
 	SetKillTimer(GameStat.time_kill)
-	
+	GameStat.connect("change_pause", Callable(self, "_game_stat_pause_changed"))
 	GameStat.connect("change_state", Callable(self, "_game_stat_was_changed"))
 	for child in get_node("Game_interact").get_children():
 		Game_interact_List.append(child)
@@ -65,7 +65,14 @@ func _game_stat_was_changed():
 	else:
 		$UI/Label.text = "KILLING"
 		GameStat.time_task -= 20
-		
+
+#blocking mini game when there is a pause
+func _game_stat_pause_changed():
+	if GameStat.MiniGameIsActive:
+		if GameStat.Game_paused:
+			active_game_node.process_mode =  Node.PROCESS_MODE_DISABLED
+		else:
+			active_game_node.process_mode =  Node.PROCESS_MODE_PAUSABLE
 		
 ## ----------------------------------## Timer - GameStat = KILLING enemy ##-------------------------##
 var minutes = 0

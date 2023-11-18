@@ -1,8 +1,11 @@
 extends Node
 
 signal change_state(new_state)
+signal change_pause(new_state)
 
 var MiniGameIsActive = false
+var Game_paused = false
+
 var time_task = 60
 var time_kill = 120
 var killed = 0
@@ -18,6 +21,10 @@ func EnemyKilable():
 	if ActiveStat == PlayerStat.KILLING:
 		return true
 	return false
+
+func ChangePause():
+	Game_paused = !Game_paused
+	emit_signal("change_pause")
 
 func ChangeState():
 	match ActiveStat:

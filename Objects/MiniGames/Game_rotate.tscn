@@ -110,7 +110,7 @@ shader_parameter/complete = 1.0
 font_names = PackedStringArray("ThaleahFat")
 
 [node name="Game_rotate" type="Node2D"]
-process_mode = 3
+process_mode = 2
 position = Vector2(969, 569)
 script = ExtResource("1_85del")
 
@@ -150,7 +150,6 @@ text = "00:00"
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
-process_mode = 3
 wait_time = 51.049
 
 [node name="GridContainer" type="GridContainer" parent="."]

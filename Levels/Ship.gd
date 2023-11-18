@@ -15,6 +15,7 @@ func _on_timer_timeout():
 	$Timer.start() 
 
 func pauseMenu():
+	GameStat.ChangePause()
 	if paused == true:
 		$CanvasModulate.show()
 		$CanvasLayer/Pause.hide()

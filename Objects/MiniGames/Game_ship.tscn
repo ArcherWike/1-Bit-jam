@@ -58,7 +58,6 @@ text = "00:00"
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
-process_mode = 3
 wait_time = 51.049
 
 [node name="GridContainer" type="GridContainer" parent="."]
