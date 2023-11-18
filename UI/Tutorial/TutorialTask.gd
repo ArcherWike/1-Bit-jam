@@ -90,3 +90,8 @@ func _on_button_yes_pressed():
 	$infoCapitan/VBoxContainer/Button_yes.grab_focus()
 
 
+
+
+func _on_button_yes_pressed_infoCapitan():
+	$infoCapitan.hide()
+	get_tree().paused = false
