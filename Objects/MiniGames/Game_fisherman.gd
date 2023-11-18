@@ -8,6 +8,7 @@ func _ready():
 	self.set_process(true)
 	self.set_physics_process(true)
 	self.set_process_input(true)
+	$target.position = Vector2(randf_range(100, 1800),randf_range(100, 800))
 
 func _process(delta):
 	pass
