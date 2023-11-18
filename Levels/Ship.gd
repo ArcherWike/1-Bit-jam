@@ -4,6 +4,7 @@ var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameStat.killed = 0
+	RenderingServer.global_shader_parameter_set("Paranoia",Vector4(1,1-(0.3*GameStat.killed),1-(0.3*GameStat.killed),1))	
 	pass # Replace with function body.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
