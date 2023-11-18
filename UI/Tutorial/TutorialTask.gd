@@ -6,6 +6,7 @@ var root
 var tutorial_info = true
 
 func _ready():
+	$StartInfo/VBoxContainer/Button_yes.grab_focus()
 	root = get_tree().get_root()
 	GameStat.ChangeState()
 	GameStat.connect("change_state", Callable(self, "_game_stat_was_changed"))
@@ -28,6 +29,7 @@ func _on_enemy_2_child_exiting_tree(node):
 	active_game_area = root.get_node("/root/Ship_tutorial/interact")
 	active_game_area.Set_activity(true)
 	$fault.show()
+	$fault/VBoxContainer/Button_yes.grab_focus()
 	get_tree().paused = true
 
 func _on_button_yes_tutorial_info_pressed():
@@ -83,6 +85,7 @@ func _on_pause_visibility_changed():
 func _on_button_yes_pressed():
 	$fault.hide()
 	$infoCapitan.show()
+	$infoCapitan/VBoxContainer/Button_yes.grab_focus()
 
 
 func _on_button_yes_pressed_infoCapitan():
