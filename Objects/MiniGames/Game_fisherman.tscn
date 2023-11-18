@@ -1,15 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://df2iftvyjhf1w"]
+[gd_scene load_steps=10 format=3 uid="uid://df2iftvyjhf1w"]
 
 [ext_resource type="Script" path="res://Objects/MiniGames/Game_fisherman.gd" id="1_rha2s"]
 [ext_resource type="Texture2D" uid="uid://c2bu1wxxwghnn" path="res://Assets/UI/MiniGames/RodBackground.png" id="2_c3xap"]
 [ext_resource type="Texture2D" uid="uid://ctr4tdlg4umvh" path="res://Assets/UI/MiniGames/fish.png" id="3_ypj1x"]
 [ext_resource type="Texture2D" uid="uid://bxw8vwhrc7ahv" path="res://Assets/UI/MiniGames/Rod.png" id="4_hdohk"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vq3xt"]
-radius = 93.1343
+[ext_resource type="Script" path="res://Objects/MiniGames/Game_fisherman/Fish.gd" id="5_2tagb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uq5de"]
 size = Vector2(44, 144.5)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_s1qya"]
+vertices = PackedVector2Array(1574.03, 398.596, 1828, 366, 1841, 879, 87, 921, 1041.28, 511.2, 1360.93, 437.46, 1107.15, 341.796, 67.8044, 502.232, 134.64, 349.768, 295.433, 333.825, 324.492, 441.446, 380.673, 424.505, 667.389, 333.825, 899.861, 349.768, 1449.08, 400.589)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(4, 6, 5), PackedInt32Array(7, 8, 9, 10, 3), PackedInt32Array(3, 10, 11, 4), PackedInt32Array(12, 13, 4, 11), PackedInt32Array(0, 5, 14)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(67.8044, 502.232, 87, 921, 1841, 879, 1828, 366, 1574.03, 398.596, 1449.08, 400.589, 1360.93, 437.46, 1107.15, 341.796, 1041.28, 511.2, 899.861, 349.768, 667.389, 333.825, 380.673, 424.505, 324.492, 441.446, 295.433, 333.825, 134.64, 349.768)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sn06g"]
+size = Vector2(181, 92)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vq3xt"]
+radius = 93.1343
 
 [node name="Game_fisherman" type="Node2D"]
 process_mode = 1
@@ -24,45 +33,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_c3xap")
 metadata/_edit_lock_ = true
-
-[node name="target" type="Area2D" parent="."]
-process_mode = 3
-process_priority = -1
-process_physics_priority = -1
-process_thread_group = 1
-process_thread_group_order = 0
-process_thread_messages = 0
-light_mask = 2
-visibility_layer = 2
-position = Vector2(608, 413)
-collision_mask = 8
-priority = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="target"]
-process_mode = 3
-process_priority = -1
-process_physics_priority = -1
-light_mask = 8
-visibility_layer = 8
-shape = SubResource("CircleShape2D_vq3xt")
-
-[node name="TextureRect" type="TextureRect" parent="target"]
-texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(64, 64)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("3_ypj1x")
 
 [node name="fishing_rod" type="Area2D" parent="."]
 process_mode = 3
@@ -97,6 +67,63 @@ offset_right = 20.0
 offset_bottom = 115.0
 pivot_offset = Vector2(10, 106)
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_s1qya")
 
-[connection signal="area_shape_entered" from="target" to="." method="_on_target_area_shape_entered"]
+[node name="Fish" type="CharacterBody2D" parent="."]
+position = Vector2(710, 651)
+collision_mask = 9
+script = ExtResource("5_2tagb")
+
+[node name="target" type="Area2D" parent="Fish"]
+process_mode = 3
+process_priority = -1
+process_physics_priority = -1
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
+light_mask = 2
+visibility_layer = 2
+collision_layer = 9
+collision_mask = 8
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish/target"]
+light_mask = 17
+visibility_layer = 17
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_sn06g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish"]
+process_mode = 3
+process_priority = -1
+process_physics_priority = -1
+light_mask = 8
+visibility_layer = 8
+shape = SubResource("CircleShape2D_vq3xt")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Fish"]
+
+[node name="TextureRect" type="TextureRect" parent="Fish"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_ypj1x")
+
+[node name="Timer" type="Timer" parent="Fish"]
+autostart = true
+
+[connection signal="area_shape_entered" from="Fish/target" to="." method="_on_target_area_shape_entered"]
+[connection signal="timeout" from="Fish/Timer" to="Fish" method="_on_timer_timeout"]
