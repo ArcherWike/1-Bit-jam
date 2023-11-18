@@ -5,7 +5,10 @@ var active_game_node
 var Game_interact_List = []
 var active_game_area = null 
 
+var game_index = 0
+
 func _ready():
+	_game_stat_was_changed()
 	GameStat.MiniGameIsActive = false
 	GameStat.Game_paused = false
 	GameStat.ActiveStat = GameStat.PlayerStat.KILLING
@@ -29,10 +32,10 @@ func _process(delta):
 
 #Select the starting area of game and start the collision activity
 func Select_starting_area():
-	#print(int(RandomNumberGenerator.new().randf_range(0, 3)))
-	var random_index = 0 + randi() % len(Game_interact_List)
-	active_game_area = Game_interact_List[random_index]
-	active_game_area.call_deferred("Set_activity",true)	
+	if len(Game_interact_List) > 0:
+		active_game_area = Game_interact_List[game_index]
+		game_index += 1	
+		active_game_area.call_deferred("Set_activity",true)
 
 func _completed_game(is_completed):
 	GameStat.MiniGameIsActive = false

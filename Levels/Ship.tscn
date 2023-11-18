@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1416rbqfgub" path="res://Characters/Enemies/enemy.tscn" id="21_sotxq"]
 [ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="22_xs6ws"]
 [ext_resource type="PackedScene" uid="uid://s0uqf1f2taoy" path="res://Objects/game_area3.tscn" id="26_v43r6"]
-[ext_resource type="PackedScene" uid="uid://cx8gxrx0ybjr" path="res://Objects/game_area2.tscn" id="27_50r60"]
+[ext_resource type="PackedScene" path="res://Objects/game_area2.tscn" id="27_50r60"]
 [ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area1.tscn" id="28_4je3m"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
@@ -133,57 +133,6 @@ tracks/3/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_ml638"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasModulate:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hero/Thunder:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Flash:color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Flash:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_gbglu"]
 resource_name = "Lightning_2"
 length = 0.6
@@ -236,6 +185,57 @@ tracks/3/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_ml638"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero/Thunder:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Flash:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Flash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2srdg"]
 _data = {
 "Lightning": SubResource("Animation_t2cs0"),
@@ -277,8 +277,34 @@ color = Color(0, 0, 0, 1)
 
 [node name="Task_system" parent="." instance=ExtResource("19_j17sv")]
 
-[node name="TimeLabel" parent="Task_system/UI" index="2"]
+[node name="Panel_label" type="Panel" parent="Task_system/UI" index="0"]
+offset_left = 1359.0
+offset_top = 75.0
+offset_right = 1775.0
+offset_bottom = 144.0
+
+[node name="Panel_label2" type="Panel" parent="Task_system/UI" index="1"]
+offset_left = 21.0
+offset_top = 101.0
+offset_right = 437.0
+offset_bottom = 176.0
+
+[node name="Label" parent="Task_system/UI" index="2"]
+offset_left = 1359.0
+offset_top = 92.0
+offset_right = 1774.0
+offset_bottom = 217.0
+text = "adasdadasd"
+horizontal_alignment = 1
+
+[node name="TimeLabel" parent="Task_system/UI" index="4"]
+visible = true
+offset_left = -1899.0
+offset_top = 101.0
+offset_right = -1482.0
+offset_bottom = 176.0
 theme_override_fonts/font = SubResource("SystemFont_puskh")
+horizontal_alignment = 1
 
 [node name="interact2" parent="Task_system/Game_interact" index="0" instance=ExtResource("28_4je3m")]
 position = Vector2(-145, 541)
@@ -411,6 +437,7 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 process_mode = 3
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
