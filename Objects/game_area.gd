@@ -29,5 +29,9 @@ func Set_activity(mode):
 	is_active = mode
 	$CollisionShape2D.disabled = !(is_active)
 	start = false
+	if is_active == true:
+		$Mark.visible = true
+	else:
+		$Mark.visible = false
 	$Label.text = str(is_active)
 		
