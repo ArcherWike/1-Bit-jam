@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bat5femen1w7s"]
+[gd_scene load_steps=44 format=3 uid="uid://bat5femen1w7s"]
 
 [ext_resource type="Script" path="res://Levels/Ship.gd" id="1_ufd3t"]
 [ext_resource type="PackedScene" uid="uid://duleay7pp45ge" path="res://Objects/MiniGames/water.tscn" id="2_1mh07"]
@@ -25,7 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://dbyr8856e7ywh" path="res://UI/Tutorial/button_yes.tscn" id="24_hlkvd"]
 [ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="24_t730p"]
 [ext_resource type="Script" path="res://UI/Tutorial/TutorialTask.gd" id="25_75qiv"]
+[ext_resource type="PackedScene" uid="uid://vk66v5kxafsu" path="res://UI/Tutorial/fault.tscn" id="26_jhjhm"]
 [ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area1.tscn" id="26_xvrgy"]
+[ext_resource type="PackedScene" uid="uid://st2265ftqflf" path="res://UI/Tutorial/info2.tscn" id="27_r6jph"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("3_oavry")
@@ -224,7 +226,7 @@ tracks/0/path = NodePath("../Enemy/Enemy:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 0.8, 1, 1.3, 1.9, 2.5, 3),
+"times": PackedFloat32Array(0, 0.7, 1.8, 2.3, 2.5, 2.6, 2.8, 3.1, 3.5, 4.5, 5.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1323, 344), Vector2(1257, 373), Vector2(1168, 421), Vector2(1103, 456), Vector2(981, 460), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490), Vector2(883, 490), Vector2(699, 539)]
@@ -524,10 +526,10 @@ text = "Check the rudder"
 [node name="StartInfo" type="Panel" parent="TutorialTask"]
 process_mode = 3
 visible = false
-offset_left = 686.0
-offset_top = 353.0
-offset_right = 1186.0
-offset_bottom = 753.0
+offset_left = 680.0
+offset_top = 400.0
+offset_right = 1180.0
+offset_bottom = 800.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TutorialTask/StartInfo"]
 layout_mode = 1
@@ -563,6 +565,20 @@ libraries = {
 "": SubResource("AnimationLibrary_mia1t")
 }
 
+[node name="fault" parent="TutorialTask" instance=ExtResource("26_jhjhm")]
+visible = false
+offset_left = 680.0
+offset_top = 400.0
+offset_right = 1180.0
+offset_bottom = 800.0
+
+[node name="infoCapitan" parent="TutorialTask" instance=ExtResource("27_r6jph")]
+visible = false
+offset_left = 680.0
+offset_top = 400.0
+offset_right = 1180.0
+offset_bottom = 800.0
+
 [node name="interact" parent="." instance=ExtResource("26_xvrgy")]
 position = Vector2(-74, 557)
 
@@ -570,4 +586,9 @@ position = Vector2(-74, 557)
 [connection signal="child_exiting_tree" from="Enemy/Enemy2" to="TutorialTask" method="_on_enemy_2_child_exiting_tree"]
 [connection signal="visibility_changed" from="CanvasLayer/Pause" to="TutorialTask" method="_on_pause_visibility_changed"]
 [connection signal="pressed" from="TutorialTask/StartInfo/VBoxContainer/Button_yes" to="TutorialTask" method="_on_button_yes_tutorial_info_pressed"]
+[connection signal="pressed" from="TutorialTask/fault/VBoxContainer/Button_yes" to="TutorialTask" method="_on_button_yes_pressed"]
+[connection signal="pressed" from="TutorialTask/infoCapitan/VBoxContainer/Button_yes" to="TutorialTask" method="_on_button_yes_pressed_infoCapitan"]
 [connection signal="start_game" from="interact" to="TutorialTask" method="_on_interact_start_game"]
+
+[editable path="TutorialTask/fault"]
+[editable path="TutorialTask/infoCapitan"]

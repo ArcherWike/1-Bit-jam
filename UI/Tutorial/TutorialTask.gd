@@ -11,6 +11,8 @@ func _ready():
 	GameStat.connect("change_state", Callable(self, "_game_stat_was_changed"))
 	$Panel.hide()
 	$StartInfo.show()
+	$fault.hide()
+	$infoCapitan.hide()
 	tutorial_info = true
 	get_tree().paused = true
 
@@ -21,17 +23,18 @@ func _process(delta):
 	#task one completed - kill companion - configured next step
 func _on_enemy_2_child_exiting_tree(node):	
 	$Panel.set_size(Vector2(450,300))
-	$Panel/VBoxContainer/Quest1.modulate = Color("#89ff47")
+	$Panel/VBoxContainer/Quest1.modulate = Color("#3d0c02")
 	$Panel/VBoxContainer/Quest2.show()
 	active_game_area = root.get_node("/root/Ship_tutorial/interact")
 	active_game_area.Set_activity(true)
-	$NotifyByEnemy.play("notify of problems")
+	$fault.show()
 
 func _on_button_yes_tutorial_info_pressed():
 	get_node("/root/Ship_tutorial/CanvasModulate").show()
 	$StartInfo.hide()
 	tutorial_info = false
 	$Panel.show()
+	$NotifyByEnemy.play("notify of problems")
 	get_tree().paused = false
 	
 func _game_stat_was_changed():
@@ -74,3 +77,13 @@ func _on_pause_visibility_changed():
 			var canvas_modulate = root.get_node("/root/Ship_tutorial/CanvasModulate")
 			canvas_modulate.hide()
 			$StartInfo.show()
+
+
+func _on_button_yes_pressed():
+	$fault.hide()
+	$infoCapitan.show()
+
+
+func _on_button_yes_pressed_infoCapitan():
+	$infoCapitan.hide()
+	get_tree().paused = false

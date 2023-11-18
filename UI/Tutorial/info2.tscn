@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://st2265ftqflf"]
+
+[ext_resource type="PackedScene" uid="uid://dbyr8856e7ywh" path="res://UI/Tutorial/button_yes.tscn" id="1_n75l3"]
+
+[node name="infoCapitan" type="Panel"]
+offset_right = 500.0
+offset_bottom = 400.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(450, 350)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 475.0
+offset_bottom = 375.0
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(450, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Captain!
+To reach your destination 
+you must take care of the ship, 
+check when
+ you see something suspicious"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_yes" parent="VBoxContainer" instance=ExtResource("1_n75l3")]
+layout_mode = 2
+text = "OK"
