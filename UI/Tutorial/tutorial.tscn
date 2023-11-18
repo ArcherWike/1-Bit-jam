@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dbyr8856e7ywh" path="res://UI/Tutorial/button_yes.tscn" id="24_hlkvd"]
 [ext_resource type="PackedScene" uid="uid://c6i1kbkxcqt3k" path="res://Characters/Enemies/enemy3.tscn" id="24_t730p"]
 [ext_resource type="Script" path="res://UI/Tutorial/TutorialTask.gd" id="25_75qiv"]
-[ext_resource type="PackedScene" uid="uid://db68bumn2aqv4" path="res://Objects/game_area1.tscn" id="26_xvrgy"]
+[ext_resource type="PackedScene" uid="uid://cagkbnlje2s7i" path="res://Objects/game_area1.tscn" id="26_xvrgy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wdfq"]
 diffuse_texture = ExtResource("3_oavry")
@@ -41,17 +41,6 @@ texture_filter = 1
 diffuse_texture = ExtResource("15_khmgh")
 normal_texture = ExtResource("16_k42x0")
 texture_filter = 1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_26ky6"]
-shader = ExtResource("19_ksh2o")
-shader_parameter/multiply = 1.0
-shader_parameter/color = Color(1, 1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8girg"]
-shader = ExtResource("20_bhlgs")
-shader_parameter/dispAmt = 1.0
-shader_parameter/abberationAMt = 0.1
-shader_parameter/displace = ExtResource("21_mbcys")
 
 [sub_resource type="GDScript" id="GDScript_enqu4"]
 script/source = "extends Timer
@@ -177,6 +166,17 @@ _data = {
 "RESET": SubResource("Animation_ml638")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26ky6"]
+shader = ExtResource("19_ksh2o")
+shader_parameter/multiply = 1.0
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8girg"]
+shader = ExtResource("20_bhlgs")
+shader_parameter/dispAmt = 1.0
+shader_parameter/abberationAMt = 0.1
+shader_parameter/displace = ExtResource("21_mbcys")
+
 [sub_resource type="SystemFont" id="SystemFont_wnfvc"]
 font_names = PackedStringArray("ThaleahFat")
 
@@ -259,7 +259,7 @@ _data = {
 "notify of problems": SubResource("Animation_i0qvc")
 }
 
-[node name="Ship" type="Node2D"]
+[node name="Ship_tutorial" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_ufd3t")
 
@@ -344,65 +344,6 @@ position = Vector2(195.667, -203)
 texture = ExtResource("17_0df40")
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 1
-
-[node name="Pause" parent="CanvasLayer" instance=ExtResource("18_7hwno")]
-visible = false
-top_level = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-
-[node name="Flash" type="ColorRect" parent="CanvasLayer"]
-process_mode = 1
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1088.0
-offset_top = -444.0
-offset_right = 1220.0
-offset_bottom = 947.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorChange" type="ColorRect" parent="CanvasLayer"]
-process_mode = 1
-texture_filter = 1
-material = SubResource("ShaderMaterial_26ky6")
-anchors_preset = -1
-anchor_left = -0.907118
-anchor_right = 4.43837
-anchor_bottom = 5.34541
-offset_left = -767.0
-offset_top = -906.0
-offset_right = -767.0
-offset_bottom = -905.824
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
-
-[node name="Glitch" type="ColorRect" parent="CanvasLayer"]
-process_mode = 1
-visible = false
-texture_filter = 1
-material = SubResource("ShaderMaterial_8girg")
-anchors_preset = -1
-anchor_left = -0.336979
-anchor_top = -0.337037
-anchor_right = 0.459375
-anchor_bottom = 0.459259
-offset_left = -17.0
-offset_top = 144.0
-offset_right = 1903.0
-offset_bottom = 1224.0
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 process_mode = 1
 visible = false
@@ -473,6 +414,67 @@ position = Vector2(611, 582)
 
 [node name="Enemy" parent="Enemy" instance=ExtResource("24_t730p")]
 position = Vector2(1323, 344)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 1
+
+[node name="Flash" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1088.0
+offset_top = -444.0
+offset_right = 1220.0
+offset_bottom = 947.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorChange" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
+texture_filter = 1
+material = SubResource("ShaderMaterial_26ky6")
+anchors_preset = -1
+anchor_left = -0.907118
+anchor_right = 4.43837
+anchor_bottom = 5.34541
+offset_left = -767.0
+offset_top = -906.0
+offset_right = -767.0
+offset_bottom = -905.824
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Glitch" type="ColorRect" parent="CanvasLayer"]
+process_mode = 1
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_8girg")
+anchors_preset = -1
+anchor_left = -0.336979
+anchor_top = -0.337037
+anchor_right = 0.459375
+anchor_bottom = 0.459259
+offset_left = -17.0
+offset_top = 144.0
+offset_right = 1903.0
+offset_bottom = 1224.0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Pause" type="CanvasLayer" parent="CanvasLayer"]
+visible = false
+
+[node name="Pause_scene" parent="CanvasLayer/Pause" instance=ExtResource("18_7hwno")]
+top_level = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="TutorialTask" type="CanvasLayer" parent="."]
 script = ExtResource("25_75qiv")
@@ -565,4 +567,6 @@ position = Vector2(-74, 557)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="child_exiting_tree" from="Enemy/Enemy2" to="TutorialTask" method="_on_enemy_2_child_exiting_tree"]
+[connection signal="visibility_changed" from="CanvasLayer/Pause" to="TutorialTask" method="_on_pause_visibility_changed"]
 [connection signal="pressed" from="TutorialTask/StartInfo/VBoxContainer/Button_yes" to="TutorialTask" method="_on_button_yes_tutorial_info_pressed"]
+[connection signal="start_game" from="interact" to="TutorialTask" method="_on_interact_start_game"]
